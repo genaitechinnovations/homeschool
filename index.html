@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSW Education - Krishav's Gurukulam</title>
+    <style>
+        :root {
+            --nsw-blue: #002664; --nsw-red: #d7153a; --nsw-light: #f2f2f2;
+            --success: #28a745; --gold: #FFD700;
+        }
+
+        body { font-family: 'Public Sans', sans-serif; margin: 0; background: #fdfdfd; overflow-x: hidden; }
+        
+        /* LOGIN OVERLAY */
+        #login-overlay {
+            position: fixed; inset: 0; background: var(--nsw-blue); display: flex;
+            justify-content: center; align-items: center; z-index: 1000; color: white;
+        }
+        .login-card { background: white; padding: 40px; border-radius: 15px; color: #333; text-align: center; width: 350px; border-top: 10px solid var(--nsw-red); }
+        input { width: 90%; padding: 12px; margin: 10px 0; border: 2px solid #ddd; border-radius: 5px; }
+        .btn-login { background: var(--nsw-blue); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
+
+        /* DASHBOARD */
+        #dashboard { display: none; }
+        header { background: white; padding: 15px 50px; border-bottom: 4px solid var(--nsw-red); display: flex; justify-content: space-between; align-items: center; }
+        .nsw-brand { font-weight: 800; color: var(--nsw-blue); font-size: 24px; }
+	
+	/* CHEVRON ACCORDION STYLE */
+        .chevron-box { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 8px; overflow: hidden; background: white; }
+        .chevron-header { 
+            background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; 
+            justify-content: space-between; align-items: center; font-weight: bold; color: var(--nsw-blue);
+            transition: 0.2s;
+        }
+        .chevron-header:hover { background: #eef2f7; }
+        .chevron-content { display: none; padding: 15px; border-top: 1px solid #ddd; background: #fff; }
+        .chevron-arrow { transition: transform 0.3s; }
+        .chevron-header.active .chevron-arrow { transform: rotate(90deg); }
+        .chevron-header.active + .chevron-content { display: block; }
+
+        /* SUBJECTS NAV */
+        nav { background: #fff; padding: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .sub-btn { 
+            background: white; border: 2px solid var(--nsw-light); padding: 15px; border-radius: 15px; 
+            cursor: pointer; width: 130px; text-align: center; font-weight: bold; transition: 0.3s;
+        }
+        .sub-btn:hover { border-color: var(--nsw-blue); background: #f0f7ff; transform: translateY(-3px); }
+        .sub-btn.locked { opacity: 0.5; cursor: not-allowed; background: #eee; }
+        .sub-btn img { width: 40px; display: block; margin: 0 auto 5px; }
+
+        /* MAIN CONTENT */
+        .main-container { display: grid; grid-template-columns: 350px 1fr 350px; gap: 20px; padding: 20px; }
+        .panel { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+        /* CAMERA */
+        .camera-box { background: black; border-radius: 15px; position: relative; height: 300px; overflow: hidden; border: 5px solid #333; }
+        video { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+        .rec-indicator { position: absolute; top: 10px; left: 10px; color: red; font-weight: bold; background: rgba(0,0,0,0.5); padding: 4px 8px; border-radius: 4px; display: none; }
+        #timer-display { position: absolute; top: 10px; right: 10px; color: white; font-family: monospace; font-size: 24px; text-shadow: 2px 2px black; }
+
+        /* SYLLABUS LIST */
+        .syllabus-scroll { max-height: 500px; overflow-y: auto; }
+        .syllabus-item { padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
+        .syllabus-item:hover { background: #f9f9f9; }
+        .child-btn { background: #e1f5fe; border: 1px solid #b3e5fc; margin: 5px 2px; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold; color: var(--nsw-blue); display: inline-block; }
+        .child-btn:hover { background: #b3e5fc; }
+
+        /* TIMETABLE */
+        .time-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; font-size: 12px; }
+        .time-label { font-weight: bold; color: var(--nsw-blue); min-width: 85px; }
+        .highlight { background: #fffde7; font-weight: bold; }
+
+        /* POPUP */
+        #success-popup {
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: white; border: 8px solid var(--nsw-blue); padding: 40px; border-radius: 25px;
+            text-align: center; z-index: 2000; box-shadow: 0 0 100px rgba(0,0,0,0.5);
+        }
+
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        .sub-activity-box { background: #f9f9f9; border: 2px solid var(--nsw-blue); border-radius: 10px; padding: 15px; margin-top: 10px; position: relative;}
+        .sub-activity-box h4 { margin-top: 0; color: var(--nsw-blue); padding-right: 100px; }
+        .sub-activity-box ul { padding-left: 20px; }
+        .sub-activity-box li { margin-bottom: 5px; font-size: 14px; }
+        
+        .progress-toggle {
+            position: absolute; top: 15px; right: 15px; 
+            padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;
+            cursor: pointer; font-size: 12px; font-weight: bold; background: white;
+        }
+        .progress-toggle.done { background: var(--success); color: white; border-color: var(--success); }
+    </style>
+</head>
+<body>
+
+<div id="login-overlay">
+    <div class="login-card">
+        <h2 style="color: var(--nsw-blue)">NSW Education Standards</h2>
+        <p>Homeschooling Portal</p>
+        <input type="text" id="username" placeholder="Krishav's ID">
+        <input type="password" id="password" placeholder="Password">
+        <button class="btn-login" onclick="login()">Enter Gurukulam 🏫</button>
+    </div>
+</div>
+
+<div id="dashboard">
+    <header>
+        <div class="nsw-brand">NSW Government | <span style="font-weight: 300;">Education</span></div>
+        <div id="greeting" style="font-weight: bold; display: flex; align-items: center; gap: 15px;">
+            Thiruchitrambalam, Krishav! 🙏
+            <button onclick="logout()" style="background:var(--nsw-red); color:white; border:none; padding:5px 10px; border-radius:4px; cursor:pointer; font-size: 11px;">Logout</button>
+        </div>
+    </header>
+
+    <nav>
+        <div class="sub-btn" onclick="loadSyllabus('English')"><span>📖</span><br>English</div>
+        <div class="sub-btn" onclick="loadSyllabus('Maths')"><span>🔢</span><br>Maths</div>
+        <div class="sub-btn" onclick="loadSyllabus('Tamil')"><span>🕉️</span><br>Tamil</div>
+        <div class="sub-btn" onclick="loadSyllabus('Music')"><span>🎤</span><br>Music</div>
+        <div class="sub-btn" onclick="loadSyllabus('PDHPE')"><span>🧘</span><br>PDHPE</div>
+        <div class="sub-btn" onclick="loadSyllabus('Science')"><span>🔬</span><br>Science</div>
+        <div class="sub-btn" onclick="loadSyllabus('History')"><span>📜</span><br>History</div>
+        <div class="sub-btn" onclick="loadSyllabus('Geography')"><span>🌍</span><br>Geography</div>
+        <div class="sub-btn" onclick="loadSyllabus('Heritage')"><span>🪔</span><br>Heritage</div>
+    </nav>
+
+    <div class="main-container">
+        <div class="panel">
+            <h3>📅 Your Balanced Schedule</h3>
+            <div id="timetable" class="syllabus-scroll"></div>
+            <div style="margin-top:15px; font-size: 12px; color: #666; border-top: 1px solid #eee; padding-top:10px;">
+                🌈 <strong>Why this is good:</strong><br>
+                Music/Meditation = Happy Heart<br>
+                Sports/Play = Strong Body<br>
+                Cooking/Garden = Real Life Skills
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2 id="current-title">Choose a Subject to Start</h2>
+            <div id="syllabus-content" class="syllabus-scroll"></div>
+            <div id="sub-activity-display"></div>
+            <hr>
+            <div class="camera-box">
+                <div id="rec-ui" class="rec-indicator"><span class="blink">●</span> RECORDING</div>
+                <div id="timer-display">00:00</div>
+                <video id="webcam" autoplay playsinline></video>
+            </div>
+            <div style="text-align:center; margin-top:15px;">
+                <button id="btn-start" class="btn-login" style="background:var(--success); width:auto;" onclick="startRecording()" disabled>▶ START RECORDING</button>
+                <button id="btn-stop" class="btn-login" style="background:var(--nsw-red); width:auto;" onclick="stopRecording()" disabled>■ STOP SESSION</button>
+            </div>
+            <p id="nesa-msg" style="text-align:center; font-weight:bold; color:var(--success); display:none;"></p>
+        </div>
+
+        <div class="panel">
+            <h3>🌟 Completed Today</h3>
+            <div id="completed-list" style="font-size: 14px; color: #444;">No subjects finished yet. Keep going!</div>
+        </div>
+    </div>
+</div>
+
+<div id="success-popup">
+    <h1 style="font-size: 60px;">👏 😊 👏</h1>
+    <h2>Krishav, you are progressing well!</h2>
+    <p>Need to continue happily with your learning!</p>
+    <button class="btn-login" onclick="closePopup()">Keep Going! ✨</button>
+</div>
+
+<script>
+    let timerInt, countdown, stream;
+    let lockedSubjects = new Set();
+    let duration = 0;
+
+    const schedule = [
+        { start: "04:00", end: "04:30", act: "Bath & freshen up", dur: 30 },
+        { start: "04:30", end: "05:00", act: "Devotion(Pooja/Mantra Meditation)", dur: 30 },
+        { start: "05:00", end: "05:30", act: "Meditation", dur: 30 },
+        { start: "05:30", end: "06:15", act: "Singing (Thirumurai/Carnatic/Voice)", dur: 45 },
+        { start: "06:15", end: "06:30", act: "Breakfast", dur: 15 },
+        { start: "06:30", end: "06:45", act: "Light free time / family talk", dur: 15 },
+        { start: "06:45", end: "07:15", act: "Tamil Writing", dur: 30 },
+        { start: "07:15", end: "07:45", act: "English Reading", dur: 30 },
+        { start: "07:45", end: "08:00", act: "Help mom/dad (break)", dur: 15 },
+        { start: "08:00", end: "09:30", act: "Cooking + food preparation", dur: 90 },
+        { start: "09:30", end: "10:15", act: "Maths", dur: 45 },
+        { start: "10:15", end: "10:30", act: "Break / snack", dur: 15 },
+        { start: "10:30", end: "11:00", act: "Reading Tamil", dur: 30 },
+        { start: "11:00", end: "11:30", act: "Lunch", dur: 30 },
+        { start: "11:30", end: "12:15", act: "Art", dur: 45 },
+        { start: "12:15", end: "01:00", act: "Science", dur: 45 },
+        { start: "01:00", end: "01:15", act: "Relax break", dur: 15 },
+        { start: "01:15", end: "01:45", act: "Saiva Scripture", dur: 30 },
+        { start: "01:45", end: "02:30", act: "History", dur: 45 },
+        { start: "02:30", end: "02:45", act: "Play break", dur: 15 },
+        { start: "02:45", end: "03:30", act: "Tamil", dur: 45 },
+        { start: "03:30", end: "04:15", act: "Geography", dur: 45 },
+        { start: "04:15", end: "05:15", act: "Sports (Badminton/Cycling/Play)", dur: 60 },
+        { start: "05:15", end: "05:45", act: "Saiva Siddhantam", dur: 30 },
+        { start: "05:45", end: "06:15", act: "History of Nayanmars (Stories)", dur: 30 },
+        { start: "06:15", end: "06:30", act: "Dinner", dur: 15 },
+        { start: "06:30", end: "07:00", act: "Free reading / Family time", dur: 30 },
+        { start: "07:00", end: "Bed", act: "Brush & Sleep", dur: 0 }
+    ];
+
+    const speechData = {
+        'speak1': { title: 'Share Ideas & Opinions', items: ['Talk about ideas from stories or videos', 'Say what I think and why', 'Stay on the topic', 'Use clear sentences'], cover: '✔ Covers: expressing ideas, staying on topic, discussion skills' },
+        'speak2': { title: 'Storytelling & Retelling', items: ['Retell stories in order', 'Talk about characters and events', 'Use first, then, finally', 'Speak clearly'], cover: '✔ Covers: sequencing, narrative structure, oral recounts' },
+        'speak3': { title: 'Vocabulary & Language Use', items: ['Learn new words from texts or videos', 'Use new words when speaking', 'Change words for different situations', 'Use simple and polite language'], cover: '✔ Covers: vocabulary development, social language use' },
+        'speak4': { title: 'Speaking With Expression', items: ['Change voice for meaning', 'Speak loudly or softly when needed', 'Use gestures and facial expressions', 'Show feelings'], cover: '✔ Covers: tone, pace, volume, non-verbal communication' },
+        'speak5': { title: 'Presenting & Explaining', items: ['Plan what to say', 'Explain ideas step by step', 'Speak to an audience', 'Use pictures or actions'], cover: '✔ Covers: oral presentations, explaining, audience awareness' },
+        'listen1': { title: '👂Listen for Main Ideas', items: ['Listen to stories, talks, or videos', 'Find the main idea', 'Listen for important details', 'Say what the text is mostly about'], cover: '✔ Covers: understanding spoken texts, identifying key ideas' },
+        'listen2': { title: '❓Ask & Answer Questions', items: ['Ask who, what, when, where, why, how questions', 'Answer questions clearly', 'Ask again if confused', 'Follow up with new questions'], cover: '✔ Covers: clarification, active listening, comprehension' },
+        'listen3': { title: '🔗Listening for Meaning', items: ['Listen for words like first, next, finally', 'Notice cause-and-effect words', 'Understand how ideas connect', 'Follow spoken instructions'], cover: '✔ Covers: cohesion, sequencing, logical understanding' },
+        'listen4': { title: '🎭Tone, Voice & Body Language', items: ['Listen for loud, soft, fast, slow voices', 'Notice feelings in voices', 'Watch gestures and facial expressions', 'Understand how tone changes meaning'], cover: '✔ Covers: inferred meaning, non-verbal communication' },
+        'listen5': { title: '🔁Retell & Reflect', items: ['Retell what was heard in own words', 'Summarise key points', 'Say what was interesting or important', 'Check understanding'], cover: '✔ Covers: paraphrasing, reflection, deep understanding' },
+        'vocab1': { title: '📚 Build Word Knowledge', items: ['Tier 1, Tier 2 & Tier 3 words', 'New words through speaking, reading and writing', 'Vocabulary from everyday and learning contexts'], cover: '✔ Covers: vocabulary growth, word exposure' },
+        'vocab2': { title: '🔗 Word Meanings & Relationships', items: ['Synonyms and antonyms', 'Homonyms (same word, different meanings)', 'Literal and implied meanings', 'Word associations (groups of related words)'], cover: '✔ Covers: meaning, context, relationships between words' },
+        'vocab3': { title: '✨ Word Features & Language Use', items: ['Modal words (probability, obligation, inclination)', 'Figurative language (simile, metaphor, personification, onomatopoeia, alliteration)', 'Colloquial expressions'], cover: '✔ Covers: expressive language, author intent' },
+        'vocab4': { title: '🌍 Word Origins & Digital Language', items: ['Words from other languages', 'Aboriginal and Torres Strait Islander words', 'Aboriginal English as a recognised dialect', 'Digital text vocabulary (hyperlink, URL, icon, podcast)'], cover: '✔ Covers: etymology, inclusivity, digital literacy' },
+        'vocab5': { title: '🧩 Analyse & Play With Words', items: ['Use dictionaries and thesauruses', 'Prefixes, suffixes and root words', 'Puns and spoonerisms'], cover: '✔ Covers: word analysis, morphology, word play' },
+        'fluency1': { title: '⏱️ Accuracy & Reading Rate', items: ['Reading words correctly', 'Reading at the right speed for purpose', 'Multisyllabic words', 'Extended reading stamina'], cover: '✔ Covers: accuracy, automaticity, stamina' },
+        'fluency2': { title: '🔍 Word Solving Strategies', items: ['Syllables and blending sounds', 'Grapheme–phoneme connections', 'Morphemic strategies'], cover: '✔ Covers: decoding, word recognition' },
+        'fluency3': { title: '🎭 Prosody & Expression', items: ['Intonation and pausing', 'Expression and emphasis', 'Voice changes for characters', 'Reading punctuation correctly'], cover: '✔ Covers: expressive reading, comprehension support' },
+        'fluency4': { title: '📈 Reflect & Improve Fluency', items: ['Reading aloud vs silent reading', 'Adjusting speed for purpose', 'Setting reading goals', 'Using feedback'], cover: '✔ Covers: self-monitoring, goal setting' },
+        'comp1': { title: '🎯 Reading for Purpose', items: ['Why we read (enjoyment, learning, research)', 'Choosing suitable texts', 'Skimming and scanning'], cover: '✔ Covers: purpose-driven reading' },
+        'comp2': { title: '🧱 Understand Text Types', items: ['Imaginative, informative, persuasive texts', 'Structures and features of each', 'Digital text features'], cover: '✔ Covers: text structure knowledge' },
+        'comp3': { title: '🧠 Language & Meaning', items: ['Vocabulary in context', 'Verbs, nouns, adverbs', 'Connectives and tense', 'Literal vs inferred meaning'], cover: '✔ Covers: language comprehension' },
+        'comp4': { title: '💡 Making Inferences', items: ['Use clues from text and images', 'Local and global inferences', 'Homonyms and metaphor', 'Subjective vs objective language'], cover: '✔ Covers: deeper understanding' },
+        'comp5': { title: '🛠️ Monitor Understanding', items: ['When meaning breaks down', 'Repair strategies (re-read, ask questions)', 'Gist statements and summarising'], cover: '✔ Covers: comprehension strategies' },
+        'comp6': { title: '💬 Reflect & Respond', items: ['Talk about texts', 'Personal connections', 'Reading preferences and goals'], cover: '✔ Covers: reflection, engagement' },
+        'write1': { title: '🌈 Imaginative Writing', items: ['Narratives, poetry', 'Characters, setting, plot', 'Dialogue and voice'], cover: 'Focus: Creative Expression' },
+        'write2': { title: '📝 Informative Writing', items: ['Reports, explanations, procedures', 'Headings and paragraphs', 'Facts and clarity'], cover: 'Focus: Facts & Structure' },
+        'write3': { title: '⚖️ Persuasive Writing', items: ['Opinion and arguments', 'Persuasive language', 'Modality and rhetorical devices'], cover: 'Focus: Arguments' },
+        'write4': { title: '🔠 Sentence & Grammar Skills', items: ['Simple, compound, complex sentences', 'Verbs, clauses, conjunctions', 'Sentence variety'], cover: '✔ Grammar outcomes' },
+        'write5': { title: '📌 Punctuation & Cohesion', items: ['Capital letters, commas, apostrophes', 'Quoted and reported speech', 'Connectives and referencing'], cover: '✔ Writing conventions' },
+        'write6': { title: '🚀 Plan, Edit & Publish', items: ['Planning and drafting', 'Editing and revising', 'Digital writing tools', 'Responding to feedback'], cover: '✔ Writing process' },
+
+        // MATHS DATA
+        'num1': { title: '🔢 Number & Algebra', items: ['Place Value (up to 4-digit numbers)', 'Addition & Subtraction (Mental & Written strategies)', 'Multiplication (Tables 2, 3, 5, 10 & Arrays)', 'Division (Sharing & Grouping)', 'Fractions (Halves, Quarters, Thirds)', 'Number Patterns (Skip counting)'], cover: 'Main focus: Understanding numbers, operations, and patterns' },
+        'meas1': { title: '📐 Measurement', items: ['Length (cm, m)', 'Mass (g, kg)', 'Capacity (L, mL)', 'Time (Telling time to the minute)', 'Money (Australian coins & notes)', 'Perimeter'], cover: 'Main focus: Measuring and comparing everyday things' },
+        'geom1': { title: '🔺 Geometry (Space)', items: ['2D Shapes (Properties: sides, corners)', '3D Objects (Faces, edges, vertices)', 'Location & Movement (Maps & Directions)', 'Symmetry'], cover: 'Main focus: Shapes, space, and position' },
+        'stat1': { title: '📊 Statistics & Probability', items: ['Data Collection (Surveys & Tallies)', 'Data Representation (Picture & Column graphs)', 'Interpreting Data', 'Chance (Likely, unlikely, impossible)'], cover: 'Main focus: Collecting and understanding data' },
+        'think1': { title: '🧠 Mathematical Thinking', items: ['Problem-solving strategies', 'Reasoning and explaining answers', 'Real-life maths (shopping, cooking)', 'Estimation and checking answers'], cover: 'Main focus: Using maths in real life' },
+
+        // TAMIL DATA
+        'tam_ls': { title: '👂 Listening & Speaking', items: ['💬 Oral Conversation', '📖 Story Telling', '🎶 Recitation (Poems & Songs)', '🧠 Vocabulary'], cover: 'Focus: Oral communication skills' },
+        'tam_rd': { title: '📖 Reading', items: ['🔤 Letters & Syllables', '📄 Simple Words', '📘 Short Sentences', '📚 Story Reading'], cover: 'Focus: Literacy development' },
+        'tam_wr': { title: '✍️ Writing', items: ['✏️ Letter Formation', '📝 Word Writing', '📄 Sentence Writing', '🖼️ Picture Writing'], cover: 'Focus: Writing proficiency' },
+        'tam_gr': { title: '📘 Grammar', items: ['🔠 Uyir & Mei Ezhuthukal', '🧩 Nouns & Verbs', '🔁 Singular & Plural', '🔄 Opposite Words'], cover: 'Focus: Language rules' },
+        'tam_cv': { title: '🌸 Culture & Values', items: ['🎉 Tamil Festivals', '📜 Moral Stories', '🗣️ Daily Use Tamil', '🤝 Respect & Manners'], cover: 'Focus: Heritage awareness' },
+
+        // HISTORY DATA
+        'hist_pp': { title: '⏳ Past & Present', items: ['🏚️ Then & Now', '🏠 Old vs Modern Life'], cover: 'Focus: Historical change' },
+        'hist_pl': { title: '👤 People & Places', items: ['🌟 Important People', '📍 Local History'], cover: 'Focus: Historical figures' },
+        'hist_tl': { title: '🗓️ Events & Timelines', items: ['🧵 Simple Timelines', '⭐ Important Events'], cover: 'Focus: Chronology' },
+        'hist_ch': { title: '🏘️ Community History', items: ['👨‍👩‍👧 Family History', '🎎 Traditions & Customs'], cover: 'Focus: Heritage and community' },
+
+        // GEOGRAPHY DATA
+        'geo_world': { title: '🌏 Our World', items: ['🌍 Earth & Continents', '🌊 Oceans & Landforms'], cover: 'Focus: Global perspective' },
+        'geo_maps': { title: '🗺️ Places & Maps', items: ['🧭 Directions', '🔣 Map Symbols'], cover: 'Focus: Spatial awareness' },
+        'geo_env': { title: '🌱 Environment', items: ['🌳 Natural Places', '🏗️ Built Places', '☀️ Weather & Seasons'], cover: 'Focus: Our surroundings' },
+        'geo_act': { title: '🚗 Human Activities', items: ['🏘️ Homes', '🚍 Transport', '♻️ Caring for Environment'], cover: 'Focus: Interaction with nature' },
+
+        // SCIENCE DATA
+        'sci_living': { title: '🌿 Living Things', items: ['🌱 Plants', '🐾 Animals', '🧍 Humans & Health'], cover: 'Focus: Biological world' },
+        'sci_physical': { title: '⚙️ Physical World', items: ['🧲 Forces & Movement', '💡 Light', '🔊 Sound'], cover: 'Focus: Physics basics' },
+        'sci_earth': { title: '🌎 Earth & Space', items: ['🌞 Sun', '🌙 Moon', '🌍 Earth', '🌦️ Weather'], cover: 'Focus: Astronomy and Earth' },
+        'sci_skills': { title: '🔍 Science Skills', items: ['👀 Observing', '🗂️ Sorting & Classifying', '🧪 Simple Experiments', '🦺 Safety Rules'], cover: 'Focus: Scientific inquiry' }
+    };
+
+    function login() {
+        const u = document.getElementById('username').value;
+        const p = document.getElementById('password').value;
+        if(u === 'krishav' && p === 'nswhomeschool') {
+            document.getElementById('login-overlay').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            playWelcome();
+            loadTimetable();
+        } else { alert("Incorrect Details!"); }
+    }
+
+    function logout() {
+        window.location.reload();
+    }
+
+    function playWelcome() {
+        const msg = new SpeechSynthesisUtterance("Welcome Krishav! Let's enjoy learning today!");
+        window.speechSynthesis.speak(msg);
+    }
+
+    function loadTimetable() {
+        const div = document.getElementById('timetable');
+        div.innerHTML = schedule.map(s => `
+            <div class="time-row">
+                <span class="time-label">${s.start} – ${s.end}</span> 
+                <span>${s.act}</span>
+            </div>
+        `).join('');
+    }
+
+    function toggleAccordion(element) {
+        element.classList.toggle('active');
+    }
+
+    function loadSyllabus(sub) {
+        const content = document.getElementById('syllabus-content');
+        const display = document.getElementById('sub-activity-display');
+        const title = document.getElementById('current-title');
+        title.innerText = sub;
+        display.innerHTML = "";
+        document.getElementById('btn-start').disabled = false;
+        
+        if(sub === 'English') {
+            content.innerHTML = `
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🎧 Oral Language & Communication</strong><span class="chevron-arrow">▶</span></div>
+                <div class="chevron-content">
+                    <button class="child-btn" onclick="loadSubActivity('speak1')">💬Share Ideas</button><button class="child-btn" onclick="loadSubActivity('speak2')">📖Story Telling</button><button class="child-btn" onclick="loadSubActivity('speak3')">🧠Vocabulary</button>
+                    <button class="child-btn" onclick="loadSubActivity('speak4')">🎭Expression</button><button class="child-btn" onclick="loadSubActivity('speak5')">🎤 Presenting</button><button class="child-btn" onclick="loadSubActivity('listen1')">👂Main Ideas</button>
+                    <button class="child-btn" onclick="loadSubActivity('listen2')">❓Questions</button><button class="child-btn" onclick="loadSubActivity('listen3')">🔗Meaning</button><button class="child-btn" onclick="loadSubActivity('listen4')">🎭Tone/Body</button><button class="child-btn" onclick="loadSubActivity('listen5')">🔁Retell</button>
+                </div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📘 Vocabulary</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('vocab1')">📚Build Word Knowledge</button><button class="child-btn" onclick="loadSubActivity('vocab2')">🔗Word Meanings</button><button class="child-btn" onclick="loadSubActivity('vocab3')">✨Word Features</button><button class="child-btn" onclick="loadSubActivity('vocab4')">🌍Origins/Digital</button><button class="child-btn" onclick="loadSubActivity('vocab5')">🧩Analyse/Play</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📖 Reading Fluency</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('fluency1')">⏱️Accuracy/Rate</button><button class="child-btn" onclick="loadSubActivity('fluency2')">🔍Solving Strategies</button><button class="child-btn" onclick="loadSubActivity('fluency3')">🎭Prosody/Expression</button><button class="child-btn" onclick="loadSubActivity('fluency4')">📈Reflect/Improve</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📚 Reading Comprehension</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('comp1')">🎯Purpose</button><button class="child-btn" onclick="loadSubActivity('comp2')">🧱Text Types</button><button class="child-btn" onclick="loadSubActivity('comp3')">🧠Language</button><button class="child-btn" onclick="loadSubActivity('comp4')">💡Inferences</button><button class="child-btn" onclick="loadSubActivity('comp5')">🛠️Monitor</button><button class="child-btn" onclick="loadSubActivity('comp6')">💬Reflect</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>✍️ Creating Written Texts</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('write1')">🌈Imaginative</button><button class="child-btn" onclick="loadSubActivity('write2')">📝Informative</button><button class="child-btn" onclick="loadSubActivity('write3')">⚖️Persuasive</button><button class="child-btn" onclick="loadSubActivity('write4')">🔠Sentence/Grammar</button><button class="child-btn" onclick="loadSubActivity('write5')">📌Punctuation</button><button class="child-btn" onclick="loadSubActivity('write6')">🚀Plan/Edit</button></div></div>`;
+        } else if (sub === 'Maths') {
+            content.innerHTML = `
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🔢 Number & Algebra</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('num1')">🔢Place Value</button><button class="child-btn" onclick="loadSubActivity('num1')">➕Addition</button><button class="child-btn" onclick="loadSubActivity('num1')">➖Subtraction</button><button class="child-btn" onclick="loadSubActivity('num1')">✖️Multiplication</button><button class="child-btn" onclick="loadSubActivity('num1')">➗</button><button class="child-btn" onclick="loadSubActivity('num1')">🧩Fractions</button><button class="child-btn" onclick="loadSubActivity('num1')">🔁Number Patterns</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📐 Measurement</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('meas1')">Measuring/Comparing</button><button class="child-btn" onclick="loadSubActivity('meas1')">📏Length</button><button class="child-btn" onclick="loadSubActivity('meas1')">⚖️Mass</button><button class="child-btn" onclick="loadSubActivity('meas1')">🥛Capacity</button><button class="child-btn" onclick="loadSubActivity('meas1')">⏰Time</button><button class="child-btn" onclick="loadSubActivity('meas1')">💰Money</button><button class="child-btn" onclick="loadSubActivity('meas1')">🔲Perimeter</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🔺Geometry (Space)</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('geom1')">🧊Shapes</button><button class="child-btn" onclick="loadSubActivity('geom1')">🧱Space</button><button class="child-btn" onclick="loadSubActivity('geom1')">🧭Directions</button><button class="child-btn" onclick="loadSubActivity('geom1')">🗺️Maps</button><button class="child-btn" onclick="loadSubActivity('geom1')">➡️Movement</button><button class="child-btn" onclick="loadSubActivity('geom1')">🔁Patterns</button><button class="child-btn" onclick="loadSubActivity('geom1')">🪞Symmetry</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📊 Statistics & Probability</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('stat1')">📝Data Collection</button><button class="child-btn" onclick="loadSubActivity('stat1')">📊Picture Graphs</button><button class="child-btn" onclick="loadSubActivity('stat1')">📈Column Graphs</button><button class="child-btn" onclick="loadSubActivity('stat1')">🔍Interpreting Data</button><button class="child-btn" onclick="loadSubActivity('stat1')">🎲Chance</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🧠 Thinking & Problem Solving</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('think1')">🧩Strategies</button><button class="child-btn" onclick="loadSubActivity('think1')">💭Reasoning</button><button class="child-btn" onclick="loadSubActivity('think1')">🏠Real-life maths</button><button class="child-btn" onclick="loadSubActivity('think1')">✅Estimation</button></div></div>`;
+        } else if (sub === 'Tamil') {
+            content.innerHTML = `
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>👂 Listening & Speaking</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_ls')">💬 Oral Conversation</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">📖 Story Telling</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">🎶 Recitation</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">🧠 Vocabulary</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📖 Reading</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_rd')">🔤 Letters & Syllables</button><button class="child-btn" onclick="loadSubActivity('tam_rd')">📄 Simple Words</button><button class="child-btn" onclick="loadSubActivity('tam_rd')">📘 Short Sentences</button><button class="child-btn" onclick="loadSubActivity('tam_rd')">📚 Story Reading</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>✍️ Writing</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_wr')">✏️ Letter Formation</button><button class="child-btn" onclick="loadSubActivity('tam_wr')">📝 Word Writing</button><button class="child-btn" onclick="loadSubActivity('tam_wr')">📄 Sentence Writing</button><button class="child-btn" onclick="loadSubActivity('tam_wr')">🖼️ Picture Writing</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📘 Grammar</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_gr')">🔠 Ezhuthukal</button><button class="child-btn" onclick="loadSubActivity('tam_gr')">🧩 Nouns & Verbs</button><button class="child-btn" onclick="loadSubActivity('tam_gr')">🔁 Singular & Plural</button><button class="child-btn" onclick="loadSubActivity('tam_gr')">🔄 Opposites</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🌸 Culture & Values</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_cv')">🎉 Tamil Festivals</button><button class="child-btn" onclick="loadSubActivity('tam_cv')">📜 Moral Stories</button><button class="child-btn" onclick="loadSubActivity('tam_cv')">🗣️ Daily Use Tamil</button><button class="child-btn" onclick="loadSubActivity('tam_cv')">🤝 Respect & Manners</button></div></div>`;
+        } else if (sub === 'History') {
+            content.innerHTML = `
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>⏳ Past & Present</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('hist_pp')">🏚️ Then & Now</button><button class="child-btn" onclick="loadSubActivity('hist_pp')">🏠 Old vs Modern</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>👤 People & Places</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('hist_pl')">🌟 Important People</button><button class="child-btn" onclick="loadSubActivity('hist_pl')">📍 Local History</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🗓️ Events & Timelines</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('hist_tl')">🧵 Simple Timelines</button><button class="child-btn" onclick="loadSubActivity('hist_tl')">⭐ Important Events</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🏘️ Community History</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('hist_ch')">👨‍👩‍👧 Family History</button><button class="child-btn" onclick="loadSubActivity('hist_ch')">🎎 Traditions & Customs</button></div></div>`;
+        } else if (sub === 'Geography') {
+            content.innerHTML = `
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🌏 Our World</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('geo_world')">🌍 Earth & Continents</button><button class="child-btn" onclick="loadSubActivity('geo_world')">🌊 Oceans & Landforms</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🗺️ Places & Maps</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('geo_maps')">🧭 Directions</button><button class="child-btn" onclick="loadSubActivity('geo_maps')">🔣 Map Symbols</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🌱 Environment</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('geo_env')">🌳 Natural Places</button><button class="child-btn" onclick="loadSubActivity('geo_env')">🏗️ Built Places</button><button class="child-btn" onclick="loadSubActivity('geo_env')">☀️ Weather & Seasons</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🚗 Human Activities</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('geo_act')">🏘️ Homes</button><button class="child-btn" onclick="loadSubActivity('geo_act')">🚍 Transport</button><button class="child-btn" onclick="loadSubActivity('geo_act')">♻️ Environment Care</button></div></div>`;
+        } else if (sub === 'Science') {
+            content.innerHTML = `
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🌿 Living Things</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('sci_living')">🌱 Plants</button><button class="child-btn" onclick="loadSubActivity('sci_living')">🐾 Animals</button><button class="child-btn" onclick="loadSubActivity('sci_living')">🧍 Humans & Health</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>⚙️ Physical World</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('sci_physical')">🧲 Forces & Movement</button><button class="child-btn" onclick="loadSubActivity('sci_physical')">💡 Light</button><button class="child-btn" onclick="loadSubActivity('sci_physical')">🔊 Sound</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🌎 Earth & Space</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('sci_earth')">🌞 Sun & Moon</button><button class="child-btn" onclick="loadSubActivity('sci_earth')">🌍 Earth</button><button class="child-btn" onclick="loadSubActivity('sci_earth')">🌦️ Weather</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🔍 Science Skills</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('sci_skills')">👀 Observing</button><button class="child-btn" onclick="loadSubActivity('sci_skills')">🗂️ Sorting</button><button class="child-btn" onclick="loadSubActivity('sci_skills')">🧪 Experiments</button><button class="child-btn" onclick="loadSubActivity('sci_skills')">🦺 Safety</button></div></div>`;
+        } else if (sub === 'Heritage') {
+            content.innerHTML = `
+<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Devotion</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Pooja</button><button class="child-btn">Mantra Meditation</button></div></div>
+                
+<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Saivam</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Temple Protocols</button><button class="child-btn">Basic Shlokas</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📜 Thirumurai</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Panniru Thirumurai Overview</button><button class="child-btn">Key Verses</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🪔 Marabu Kalvi</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Tamil Traditions</button><button class="child-btn">Art & Music Heritage</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🧘 Saiva Siddhantam</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Pati Pasu Pasam</button><button class="child-btn">36 Tattvas</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>👣 Nayanmars</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">63 Nayanmars Stories</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📖 Vedas & Religions</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Sacred Texts</button></div></div>`;
+        } else if (sub === 'Music') {
+            content.innerHTML = `<button class="child-btn">Carnatic Singing</button> <button class="child-btn">Odhuvar Singing</button>`;
+        } else if (sub === 'PDHPE') {
+            content.innerHTML = `<button class="child-btn">Yoga</button> <button class="child-btn">Gardening</button> <button class="child-btn">Meditation</button>`;
+        } else {
+            content.innerHTML = `<p>Ready to start your ${sub} session?</p>`;
+        }
+        
+        const match = schedule.find(i => i.act.toLowerCase().includes(sub.toLowerCase()));
+        duration = match ? match.dur * 60 : 1800;
+    }
+
+    function loadSubActivity(key) {
+        const data = speechData[key];
+        const display = document.getElementById('sub-activity-display');
+        display.innerHTML = `
+            <div class="sub-activity-box">
+                <div id="prog-${key}" class="progress-toggle" onclick="toggleProgress('${key}')">☐ Practising</div>
+                <h4>${data.title}</h4>
+                <p><strong>What the child learns/practises:</strong></p>
+                <ul>${data.items.map(i => `<li>${i}</li>`).join('')}</ul>
+                <p style="color:var(--success); font-weight:bold;">${data.cover}</p>
+            </div>
+        `;
+    }
+
+    function toggleProgress(key) {
+        const btn = document.getElementById('prog-' + key);
+        if(btn.innerText === '☐ Practising') {
+            btn.innerText = '✔ Done';
+            btn.classList.add('done');
+        } else {
+            btn.innerText = '☐ Practising';
+            btn.classList.remove('done');
+        }
+    }
+
+    async function startRecording() {
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            document.getElementById('webcam').srcObject = stream;
+            document.getElementById('rec-ui').style.display = 'block';
+            document.getElementById('btn-start').disabled = true;
+            document.getElementById('btn-stop').disabled = false;
+            document.getElementById('nesa-msg').style.display = 'none';
+            beep();
+            
+            const msg = "Session securely recorded by NSW Education Standards Authority (NESA).";
+            document.getElementById('nesa-msg').innerText = "✅ " + msg;
+            document.getElementById('nesa-msg').style.display = 'block';
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance(msg));
+            
+            setTimeout(() => { document.getElementById('success-popup').style.display = 'block'; }, 3000);
+
+            let remaining = duration;
+            timerInt = setInterval(() => {
+                remaining--;
+                let m = Math.floor(remaining / 60);
+                let s = remaining % 60;
+                document.getElementById('timer-display').innerText = `${m}:${s.toString().padStart(2,'0')}`;
+                if(remaining === 600) beep();
+                if(remaining <= 0) stopRecording(true);
+            }, 1000);
+        } catch (e) { alert("Camera access required!"); }
+    }
+
+    function stopRecording(auto = false) {
+        clearInterval(timerInt);
+        if(stream) stream.getTracks().forEach(t => t.stop());
+        document.getElementById('webcam').srcObject = null;
+        document.getElementById('rec-ui').style.display = 'none';
+        document.getElementById('btn-stop').disabled = true;
+        
+        const sub = document.getElementById('current-title').innerText;
+        lockedSubjects.add(sub);
+        
+        if(auto) {
+            alert("Time is up! You cannot record anymore for this subject.");
+            document.getElementById('btn-start').disabled = true;
+        }
+        updateProgress(sub);
+    }
+
+    function updateProgress(sub) {
+        const list = document.getElementById('completed-list');
+        if(lockedSubjects.size === 1) list.innerHTML = "";
+        list.innerHTML += `<div>✅ ${sub} Completed</div>`;
+    }
+
+    function beep() {
+        const context = new AudioContext();
+        const osc = context.createOscillator();
+        const gain = context.createGain();
+        osc.connect(gain);
+        gain.connect(context.destination);
+        osc.start(); osc.stop(context.currentTime + 0.2);
+    }
+
+    function closePopup() { document.getElementById('success-popup').style.display = 'none'; }
+</script>
+
+</body>
+</html>

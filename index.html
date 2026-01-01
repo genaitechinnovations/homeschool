@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     <style>
         :root {
             --nsw-blue: #002664; --nsw-red: #d7153a; --nsw-light: #f2f2f2;
-            --success: #28a745; --gold: #FFD700;
+            --success: #28a745; --gold: #FFD700; --party-pink: #ff3399;
         }
 
         body { font-family: 'Public Sans', sans-serif; margin: 0; background: #fdfdfd; overflow-x: hidden; }
@@ -21,12 +22,23 @@
         input { width: 90%; padding: 12px; margin: 10px 0; border: 2px solid #ddd; border-radius: 5px; }
         .btn-login { background: var(--nsw-blue); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
 
+        /* NEW YEAR PARTY POPUP */
+        #party-popup {
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: white; border: 10px solid var(--gold); padding: 40px; border-radius: 30px;
+            text-align: center; z-index: 3000; box-shadow: 0 0 100px rgba(0,0,0,0.6);
+            width: 85%; max-width: 550px; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn { from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; } to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
+        
+        .party-msg { background: #fff9e6; padding: 20px; border-radius: 15px; border-left: 6px solid var(--gold); text-align: left; margin: 20px 0; font-size: 16px; line-height: 1.5; color: #222; }
+
         /* DASHBOARD */
         #dashboard { display: none; }
         header { background: white; padding: 15px 50px; border-bottom: 4px solid var(--nsw-red); display: flex; justify-content: space-between; align-items: center; }
         .nsw-brand { font-weight: 800; color: var(--nsw-blue); font-size: 24px; }
 	
-	/* CHEVRON ACCORDION STYLE */
+	    /* CHEVRON ACCORDION STYLE */
         .chevron-box { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 8px; overflow: hidden; background: white; }
         .chevron-header { 
             background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; 
@@ -104,6 +116,17 @@
         <input type="password" id="password" placeholder="Password">
         <button class="btn-login" onclick="login()">Enter Gurukulam 🏫</button>
     </div>
+</div>
+
+<div id="party-popup">
+    <h1 style="font-size: 60px; margin: 0;">🎉 🥳 🎊</h1>
+    <h2 style="color: var(--nsw-blue); margin-top: 10px;">Happy New Year, Krishav!</h2>
+    <div class="party-msg">
+        <p>👋 <strong>Great News!</strong> We received your email about the buttons you requested.</p>
+        <p>👩‍🏫 Our teachers have reviewed your ideas and we have updated the website specifically as per your request!</p>
+        <p>📅 Get ready! Soon you will continue with the <strong>New Website for 2026</strong> designed for Stage 2 Homeschoolers.</p>
+    </div>
+    <button class="btn-login" style="background: var(--nsw-red); width: auto;" onclick="closeParty()">Let's Start Learning! ✨</button>
 </div>
 
 <div id="dashboard">
@@ -249,7 +272,7 @@
         // TAMIL DATA
         'tam_ls': { title: '👂 Listening & Speaking', items: ['💬 Oral Conversation', '📖 Story Telling', '🎶 Recitation (Poems & Songs)', '🧠 Vocabulary'], cover: 'Focus: Oral communication skills' },
         'tam_rd': { title: '📖 Reading', items: ['🔤 Letters & Syllables', '📄 Simple Words', '📘 Short Sentences', '📚 Story Reading'], cover: 'Focus: Literacy development' },
-        'tam_wr': { title: '✍️ Writing', items: ['✏️ Letter Formation', '📝 Word Writing', '📄 Sentence Writing', '🖼️ Picture Writing'], cover: 'Focus: Writing proficiency' },
+        'tam_wr': { title: '✍️ Writing', items: ['✏️ Letter Formation', '📝 Word Writing', '📄 Sentence Writing','📄Paragraph Writing','🧙‍♂️📖Creative Writing','', '📖✍️Story Writing', '🎧✍️Audio Writing','🖼️ Picture Writing'], cover: 'Focus: Writing proficiency' },
         'tam_gr': { title: '📘 Grammar', items: ['🔠 Uyir & Mei Ezhuthukal', '🧩 Nouns & Verbs', '🔁 Singular & Plural', '🔄 Opposite Words'], cover: 'Focus: Language rules' },
         'tam_cv': { title: '🌸 Culture & Values', items: ['🎉 Tamil Festivals', '📜 Moral Stories', '🗣️ Daily Use Tamil', '🤝 Respect & Manners'], cover: 'Focus: Heritage awareness' },
 
@@ -280,7 +303,16 @@
             document.getElementById('dashboard').style.display = 'block';
             playWelcome();
             loadTimetable();
+            // Trigger New Year Popup after a short delay
+            setTimeout(() => { 
+                document.getElementById('party-popup').style.display = 'block'; 
+                window.speechSynthesis.speak(new SpeechSynthesisUtterance("Happy New Year Krishav! We have updated the website as you requested."));
+            }, 800);
         } else { alert("Incorrect Details!"); }
+    }
+
+    function closeParty() {
+        document.getElementById('party-popup').style.display = 'none';
     }
 
     function logout() {
@@ -360,13 +392,115 @@
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🔍 Science Skills</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('sci_skills')">👀 Observing</button><button class="child-btn" onclick="loadSubActivity('sci_skills')">🗂️ Sorting</button><button class="child-btn" onclick="loadSubActivity('sci_skills')">🧪 Experiments</button><button class="child-btn" onclick="loadSubActivity('sci_skills')">🦺 Safety</button></div></div>`;
         } else if (sub === 'Heritage') {
             content.innerHTML = `
-<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Devotion</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Pooja</button><button class="child-btn">Mantra Meditation</button></div></div>
+<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Devotion</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Pooja</button><button class="child-btn">Mantra Meditation</button>
+<button class="child-btn">Meditation(Observe Natural Breath)</button></div></div>
                 
-<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Saivam</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Temple Protocols</button><button class="child-btn">Basic Shlokas</button></div></div>
+
+<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Daily Routine & Life Skills</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">🪥 Brushing & Personal Hygiene</button><button class="child-btn">🍽️ Eating(Breakfast / Lunch / Dinner Time)</button><button class="child-btn">🏠 Helping parents(Home Responsibilities)</button><button class="child-btn">👩‍🍳🍲Art of Cooking</button><button class="child-btn">📖 Family reading & Speaking (Mom / Dad)</button></div></div>
+                
+<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Saivam</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Temple Protocols</button><button class="child-btn">Basic Shlokas</button><button class="child-btn">Saivam Culture,Values & Manners</button><button class="child-btn">Saiva Scripture</button></div></div>
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📜 Thirumurai</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Panniru Thirumurai Overview</button><button class="child-btn">Key Verses</button></div></div>
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🪔 Marabu Kalvi</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Tamil Traditions</button><button class="child-btn">Art & Music Heritage</button></div></div>
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🧘 Saiva Siddhantam</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Pati Pasu Pasam</button><button class="child-btn">36 Tattvas</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>👣 Nayanmars</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">63 Nayanmars Stories</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>👣 63 Nayanmars</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content">
+<button class="child-btn">1. அதிபத்தர்</button>
+<button class="child-btn">2. அப்பூதியடிகள்</button>
+<button class="child-btn">3. அமர்நீதி நாயனார்</button>
+<button class="child-btn">4. அரிவட்டாயர்</button>
+<button class="child-btn">5. ஆனாய நாயனார்</button>
+<button class="child-btn">6. இசைஞானியார்</button>
+<button class="child-btn">7. இடங்கழி நாயனார்</button>
+<button class="child-btn">8. இயற்பகை நாயனார்</button>
+<button class="child-btn">9. இளையான்குடிமாறார்</button>
+<button class="child-btn">10. உருத்திர பசுபதி நாயனார்</button>
+
+<button class="child-btn">11. எறிபத்த நாயனார்</button>
+<button class="child-btn">12. ஏயர்கோன் கலிகாமர்</button>
+<button class="child-btn">13. ஏனாதி நாதர்</button>
+<button class="child-btn">14. ஐயடிகள் காடவர்கோன்</button>
+<button class="child-btn">15. கணநாதர்</button>
+<button class="child-btn">16. கணம்புல்லர்</button>
+<button class="child-btn">17. கண்ணப்பர்</button>
+<button class="child-btn">18. கலிய நாயனார்</button>
+<button class="child-btn">19. கழறிற்றறிவார்</button>
+<button class="child-btn">20. கழற்சிங்கர்</button>
+
+<button class="child-btn">21. காரி நாயனார்</button>
+<button class="child-btn">22. காரைக்கால் அம்மையார்</button>
+<button class="child-btn">23. குங்கிலியகலையனார்</button>
+<button class="child-btn">24. குலச்சிறையார்</button>
+<button class="child-btn">25. கூற்றுவர்</button>
+<button class="child-btn">26. கலிக்கம்ப நாயனார்</button>
+<button class="child-btn">27. கோச்செங்கட் சோழன்</button>
+<button class="child-btn">28. கோட்புலி நாயனார்</button>
+<button class="child-btn">29. சடைய நாயனார்</button>
+<button class="child-btn">30. சண்டேசுவர நாயனார்</button>
+
+<button class="child-btn">31. சக்தி நாயனார்</button>
+<button class="child-btn">32. சாக்கியர்</button>
+<button class="child-btn">33. சிறப்புலி நாயனார்</button>
+<button class="child-btn">34. சிறுதொண்டர்</button>
+<button class="child-btn">35. சுந்தரமூர்த்தி நாயனார்</button>
+<button class="child-btn">36. சருத்துணை நாயனார்</button>
+<button class="child-btn">37. சோமசிமாறர்</button>
+<button class="child-btn">38. தண்டியடிகள்</button>
+<button class="child-btn">39. திருக்குறிப்புத் தொண்டர்</button>
+<button class="child-btn">40. திருஞானசம்பந்தமூர்த்தி</button>
+
+<button class="child-btn">41. திருநாவுக்கரசர்</button>
+<button class="child-btn">42. திருநாளை போவார்</button>
+<button class="child-btn">43. திருநீலகண்டர்</button>
+<button class="child-btn">44. திருநீலகண்ட யாழ்ப்பாணர்</button>
+<button class="child-btn">45. திருநீலநக்க நாயனார்</button>
+<button class="child-btn">46. திருமூலர்</button>
+<button class="child-btn">47. நமிநந்தியடிகள்</button>
+<button class="child-btn">48. நரசிங்க முனையர்</button>
+<button class="child-btn">49. நின்றசீர் நெடுமாறன்</button>
+<button class="child-btn">50. நேச நாயனார்</button>
+
+<button class="child-btn">51. புகழ்சோழன்</button>
+<button class="child-btn">52. புகழ்த்துணை நாயனார்</button>
+<button class="child-btn">53. பூசலார்</button>
+<button class="child-btn">54. பெருமிழலைக் குறும்பர்</button>
+<button class="child-btn">55. மங்கையர்க்கரசியார்</button>
+<button class="child-btn">56. மானக்கஞ்சாற நாயனார்</button>
+<button class="child-btn">57. முருக நாயனார்</button>
+<button class="child-btn">58. முனையடுவார் நாயனார்</button>
+<button class="child-btn">59. மூர்க்க நாயனார்</button>
+<button class="child-btn">60. மூர்த்தி நாயனார்</button>
+
+<button class="child-btn">61. மெய்ப்பொருள் நாயனார்</button>
+<button class="child-btn">62. வாயிலார் நாயனார்</button>
+<button class="child-btn">63. விறன்மிண்ட நாயனார்</button></div></div>
+
+<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>👣 18 Siddhars</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content">
+
+<h3>முக்கியமான சித்தர்களின் பெயர்கள்:</h3>
+<h4>ஆண் சித்தர்கள்:</h4>
+<button class="child-btn">அகத்தியர்</button>
+<button class="child-btn">திருமூலர் (திருமந்திரம் இயற்றியவர்)</button>
+<button class="child-btn">போகர் (போகர் 7000 இயற்றியவர்)</button>
+<button class="child-btn">கோரக்கர்</button>
+<button class="child-btn">சட்டைமுனி (சட்டைநாதர்)</button>
+<button class="child-btn">மச்சமுனி (மச்ச முனிவர்)</button>
+<button class="child-btn">கருவூர்ச் சித்தர் (கருவூரார்)</button>
+<button class="child-btn">பாம்பாட்டிச் சித்தர் (பாம்புகளைக் கையாளுவதில் வல்லவர்)</button>
+<button class="child-btn">பேய்ச் சித்தர்</button>
+<button class="child-btn">குதம்பைச் சித்தர்</button>
+<button class="child-btn">இடைக்காட்டுச் சித்தர் (இடைக்காட்டு சித்தர்)</button>
+<button class="child-btn">சுந்தரானந்தர் (வல்லப சித்தர்)</button>
+<button class="child-btn">தேரையர்</button>
+<button class="child-btn">புலிப்பாணி</button>
+<button class="child-btn">கொங்கணர்</button>
+<button class="child-btn">நந்தி தேவர்</button>
+<button class="child-btn">பூனைக்கண்ணர்</button>
+
+<h4>பெண் சித்தர்கள்:</h4>
+<button class="child-btn">ஔவையார்</button>
+<button class="child-btn">திலோத்தமையார்</button>
+<button class="child-btn">சக்கரை அம்மா</button>
+<button class="child-btn">அம்மணியம்மாள்</button></div></div>
+
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📖 Vedas & Religions</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Sacred Texts</button></div></div>`;
         } else if (sub === 'Music') {
             content.innerHTML = `<button class="child-btn">Carnatic Singing</button> <button class="child-btn">Odhuvar Singing</button>`;

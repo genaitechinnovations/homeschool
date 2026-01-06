@@ -13,6 +13,55 @@
 
         body { font-family: 'Public Sans', sans-serif; margin: 0; background: #fdfdfd; overflow-x: hidden; }
         
+	/* DISCIPLINE STYLES */
+.discipline-card { border-radius: 12px; padding: 15px; margin-bottom: 15px; border-left: 8px solid; }
+.disc-1 { background: #fff4e5; border-color: #ff9800; }
+.disc-2 { background: #e8f5e9; border-color: #4caf50; }
+.disc-3 { background: #e3f2fd; border-color: #2196f3; }
+.disc-4 { background: #f3e5f5; border-color: #9c27b0; }
+.disc-title { font-weight: 800; font-size: 18px; margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
+
+	/* LEARNING GUIDE STYLES */
+.main-container { 
+    display: grid; 
+    grid-template-columns: 300px 1fr 300px 320px; /* Added 4th column for guide */
+    gap: 15px; 
+}
+
+.guide-panel { 
+    border: 2px solid var(--nsw-blue); 
+    background: #fff; 
+    border-top: 10px solid var(--nsw-blue);
+}
+
+.guide-section { 
+    margin-bottom: 18px; 
+    padding-bottom: 10px; 
+    border-bottom: 1px solid #eee; 
+}
+
+.guide-section h4 { 
+    color: var(--nsw-red); 
+    margin: 0 0 8px 0; 
+    font-size: 15px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+.guide-list { 
+    padding-left: 20px; 
+    margin: 0; 
+}
+
+.guide-list li { 
+    font-size: 13px; 
+    line-height: 1.5; 
+    color: #333; 
+    margin-bottom: 8px; 
+}
+
+.guide-list strong { color: var(--nsw-blue); }
+
         /* LOGIN OVERLAY */
         #login-overlay {
             position: fixed; inset: 0; background: var(--nsw-blue); display: flex;
@@ -93,10 +142,36 @@
         .blink { animation: blinker 1s linear infinite; }
         @keyframes blinker { 50% { opacity: 0; } }
 
-        .sub-activity-box { background: #f9f9f9; border: 2px solid var(--nsw-blue); border-radius: 10px; padding: 15px; margin-top: 10px; position: relative;}
+        /*.sub-activity-box { background: #f9f9f9; border: 2px solid var(--nsw-blue); border-radius: 10px; padding: 15px; margin-top: 10px; position: relative;}
         .sub-activity-box h4 { margin-top: 0; color: var(--nsw-blue); padding-right: 100px; }
         .sub-activity-box ul { padding-left: 20px; }
-        .sub-activity-box li { margin-bottom: 5px; font-size: 14px; }
+        .sub-activity-box li { margin-bottom: 5px; font-size: 14px; }*/
+
+/* CLOSE ICON STYLE */
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+    user-select: none;
+}
+
+.close-icon:hover {
+    color: var(--nsw-red);
+}
+
+/* MISSION BOX */
+        .sub-activity-box { 
+            background: #f0f7ff; border-left: 10px solid var(--nsw-blue); 
+            border-radius: 10px; padding: 20px; margin-top: 10px; position: relative; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
         
         .progress-toggle {
             position: absolute; top: 15px; right: 15px; 
@@ -129,6 +204,73 @@
     <button class="btn-login" style="background: var(--nsw-red); width: auto;" onclick="closeParty()">Let's Start Learning! ✨</button>
 </div>
 
+
+<div id="homeschool-message" style="max-width: 650px; margin: 20px auto; padding: 40px; background: #ffffff; border-radius: 30px; border: 8px solid #FFD700; font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif; box-shadow: 0 15px 35px rgba(0,0,0,0.2); text-align: center; color: #333; line-height: 1.6;">
+
+    <h1 style="color: #FF5733; font-size: 32px; margin-bottom: 10px;">A Special Message for Krishav 🌟</h1>
+    <p style="font-size: 18px; color: #5D6D7E;">"Hello, Krishav! We have been watching your journey, and we wanted to share some thoughts with you."</p>
+
+    <hr style="border: 0; height: 2px; background: #FFD700; margin: 20px auto; width: 50%;">
+
+    <div style="background: #FFF9C4; padding: 20px; border-radius: 20px; margin-bottom: 25px;">
+        <h2 style="color: #D35400; margin-top: 0;">✨ The Wonderful News</h2>
+        <p style="font-size: 17px;">
+            From the very first day, your smile has been like a bright sun in the morning! We loved your <strong>dedicated singing devotional/carnatic songs, Nayanmars stories,practicing handwriting,way of enjoying art work</strong> and your <strong>safe vegetable chopping!</strong> You are a very precious and talented student. For your information, we have modified/added new changes in the website depends on your curriculum/syllabus(Soon we will give activity on each topic) and General Discipline,Learning Guide,TimeTable,Devotion and Few subjects(English,Maths,Science). Take 30 mins time to view and read everything and make note of it.
+        </p>
+		<button onclick="playClaps()" style="background: #28B463; color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-size: 20px; font-weight: bold; box-shadow: 0 5px 0 #1D8348; transition: 0.2s;">
+            Click for Appreciation! 👏👏👏
+        </button>
+        <div id="clap-text" style="display:none; font-size: 40px; margin-top: 10px;">🎉 Great Job! 🎉</div>
+    </div>
+
+    <div style="text-align: left; background: #F4F6F7; padding: 25px; border-radius: 20px; border-left: 10px solid #3498DB;">
+        <h2 style="color: #2E86C1; margin-top: 0;">🕵️‍♂️ Our Homeschooling 'Secret'</h2>
+        <p>Now, Krishav, did you know that Homeschooling is like a <strong>team sport!</strong> To keep the magic happening, we follow 'Team Discipline.' From last week we notice you've been not logged on time and its too late. To stay in homeschooling, we need to show our teachers how disciplined you can be!</p>
+
+        <h3 style="color: #2E86C1; margin-bottom: 10px;">How to be a Homeschooling Hero:</h3>
+        
+        <div style="margin-bottom: 15px;">
+            <strong>⏰ The Golden Clock:</strong> Try to wake up and log in exactly on time. Your teachers are waiting for your amazing work!
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <strong>👕 The Quiet Zone:</strong> Find a quiet place and dress up in your smart clothes for the camera!
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <strong>🍳 The Cooking Rule:</strong> You can have <em>very soft</em> music for one day, but look at the camera and talk to us while you cook!
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <p style="font-size: 18px; color: #E74C3C;"><strong>We Are Here for You! ❤️</strong></p>
+        <p style="font-size: 16px;">Your Mom and Dad are your biggest fans. If anything is hard, just tell us in your video. We are your team!</p>
+        
+        <h2 style="color: #28B463; font-size: 26px;">Let's start learning with a big smile! 😊</h2>
+        
+        <button onclick="closeMsg()" style="background: #FF5733; color: white; border: none; padding: 15px 40px; font-size: 20px; border-radius: 50px; cursor: pointer; margin-top: 20px; font-weight: bold;">
+            I am Ready, Let's Go! 🚀
+        </button>
+    </div>
+</div>
+<script>
+function playClaps() {
+    // This plays a happy applause sound
+    var audio = new Audio('https://www.myinstants.com/media/sounds/applause_8.mp3');
+    audio.play();
+    
+    // Shows the "Great Job" text
+    document.getElementById('clap-text').style.display = 'block';
+}
+
+function closeMsg() {
+	// 2. This stops the audio immediately
+    window.speechSynthesis.cancel();
+    
+    // 3. Hide the message box
+    document.getElementById('homeschool-message').style.display = 'none';
+}
+</script>
 <div id="dashboard">
     <header>
         <div class="nsw-brand">NSW Government | <span style="font-weight: 300;">Education</span></div>
@@ -139,6 +281,7 @@
     </header>
 
     <nav>
+    <div class="sub-btn" style="border-color: var(--gold); background: #fffdf0;" onclick="loadSyllabus('Discipline')"><span>✨</span><br>General Discipline</div>
         <div class="sub-btn" onclick="loadSyllabus('English')"><span>📖</span><br>English</div>
         <div class="sub-btn" onclick="loadSyllabus('Maths')"><span>🔢</span><br>Maths</div>
         <div class="sub-btn" onclick="loadSyllabus('Tamil')"><span>🕉️</span><br>Tamil</div>
@@ -148,13 +291,17 @@
         <div class="sub-btn" onclick="loadSyllabus('History')"><span>📜</span><br>History</div>
         <div class="sub-btn" onclick="loadSyllabus('Geography')"><span>🌍</span><br>Geography</div>
         <div class="sub-btn" onclick="loadSyllabus('Heritage')"><span>🪔</span><br>Heritage</div>
+
     </nav>
 
     <div class="main-container">
         <div class="panel">
             <h3>📅 Your Balanced Schedule</h3>
             <div id="timetable" class="syllabus-scroll"></div>
-            <div style="margin-top:15px; font-size: 12px; color: #666; border-top: 1px solid #eee; padding-top:10px;">
+            <div style="margin-top:15px; font-size: 13px; color: var(--nsw-red); background: #fff1f1; border: 1px dashed var(--nsw-red); padding: 10px; border-radius: 8px;">
+			⚠️ <strong>IMPORTANT DISCIPLINE:</strong> You must sleep by <strong>7:10 PM</strong> to get your 9 hours of rest and be ready for your 4:00 AM start!
+			</div>
+			<div style="margin-top:15px; font-size: 12px; color: #666; border-top: 1px solid #eee; padding-top:10px;">
                 🌈 <strong>Why this is good:</strong><br>
                 Music/Meditation = Happy Heart<br>
                 Sports/Play = Strong Body<br>
@@ -177,19 +324,74 @@
                 <button id="btn-stop" class="btn-login" style="background:var(--nsw-red); width:auto;" onclick="stopRecording()" disabled>■ STOP SESSION</button>
             </div>
             <p id="nesa-msg" style="text-align:center; font-weight:bold; color:var(--success); display:none;"></p>
+        </div>	
+	<div class="panel guide-panel">
+    <h3 style="color: var(--nsw-blue); margin-top: 0; display: flex; align-items: center; gap: 8px;">
+        📝 Learning Guide
+    </h3>
+    <div class="syllabus-scroll">
+        
+        <div class="guide-section">
+            <h4>🎧 Listening</h4>
+            <ul class="guide-list">
+                <li>When listening, <strong>close your eyes</strong> to concentrate better.</li>
+                <li>Write words you don't know in your notebook; find meanings in Google Translate <strong>after</strong> recording.</li>
+                <li>Be focused! Audio can only be played <strong>2 times</strong>.</li>
+                <li>Don't play with audio/video; finish tasks within the subject time.</li>
+            </ul>
         </div>
 
-        <div class="panel">
+        <div class="guide-section">
+            <h4>🗣️ Speaking</h4>
+            <ul class="guide-list">
+                <li>Speak <strong>LOUD, LOUD, LOUD!</strong></li>
+                <li>Give a clear explanation for every sentence you speak.</li>
+            </ul>
+        </div>
+
+        <div class="guide-section">
+            <h4>📖 Reading</h4>
+            <ul class="guide-list">
+                <li>Say the <strong>Book Name</strong> and <strong>Author</strong> first.</li>
+                <li>Explain why you chose this specific book.</li>
+                <li>Read <strong>ALOUD</strong> with expression, pitch, and pace.</li>
+                <li>Explain each sentence as you read it.</li>
+            </ul>
+        </div>
+
+        <div class="guide-section">
+            <h4>✍️ Writing</h4>
+            <ul class="guide-list">
+                <li>State the book/author and exactly what you are writing.</li>
+                <li><strong>Spell each word</strong> out loud until you finish the sentence.</li>
+                <li>Explain the sentence to show you understand it.</li>
+                <li>If you miss a meaning, search it later, recorrect the sentence, and tell us.</li>
+            </ul>
+        </div>
+
+        <div class="guide-section">
+            <h4>❓ Question Time</h4>
+            <ul class="guide-list">
+                <li>Keep a <strong>separate section</strong> in your notebook for questions.</li>
+                <li><strong>Mandatory:</strong> Discuss questions with parents first.</li>
+                <li>If not clarified, start the recording to ask your question.</li>
+            </ul>
+        </div>
+	<div class="panel">
             <h3>🌟 Completed Today</h3>
             <div id="completed-list" style="font-size: 14px; color: #444;">No subjects finished yet. Keep going!</div>
         </div>
+
+    </div>
+</div>
+
     </div>
 </div>
 
 <div id="success-popup">
     <h1 style="font-size: 60px;">👏 😊 👏</h1>
-    <h2>Krishav, you are progressing well!</h2>
-    <p>Need to continue happily with your learning!</p>
+    <h2 id="success-heading">Krishav, you are progressing well!</h2>
+    <p id="success-msg">Need to continue happily with your learning!</p>
     <button class="btn-login" onclick="closePopup()">Keep Going! ✨</button>
 </div>
 
@@ -199,7 +401,41 @@
     let duration = 0;
 
     const schedule = [
-        { start: "04:00", end: "04:30", act: "Bath & freshen up", dur: 30 },
+    { start: "04:00", end: "04:15", act: "Holy Bath", dur: 15 },
+    { start: "04:15", end: "04:25", act: "Self-Care", dur: 10 },
+    { start: "04:25", end: "04:35", act: "Sacred Preparation", dur: 10 },
+    { start: "04:35", end: "04:45", act: "Abishegam & Light Lamp", dur: 10 },
+    { start: "04:45", end: "05:00", act: "Devotional Songs & Family Prayer", dur: 15 },
+    { start: "05:00", end: "05:15", act: "Mantra Meditation", dur: 15 },
+    { start: "05:15", end: "05:30", act: "Meditation (Natural Breath)", dur: 15 },
+    { start: "05:30", end: "06:00", act: "Yoga Practice", dur: 30 },
+    { start: "06:00", end: "06:15", act: "Break 1 (Cucumber & Carrot)", dur: 15 },
+    { start: "06:15", end: "07:15", act: "Singing (Thirumurai/Carnatic)", dur: 60 },
+    { start: "07:15", end: "08:00", act: "Tamil Listening/Reading", dur: 45 },
+    { start: "08:00", end: "08:15", act: "Break 2 (Healthy Breakfast)", dur: 15 },
+    { start: "08:15", end: "09:00", act: "English Listening/Reading", dur: 45 },
+    { start: "09:00", end: "09:45", act: "Mathematics", dur: 45 },
+    { start: "09:45", end: "10:00", act: "Break 3 (Help Mom & Dad)", dur: 15 },
+    { start: "10:00", end: "11:30", act: "Culinary Arts (Cooking)", dur: 90 },
+    { start: "11:30", end: "12:00", act: "Break 4 (Lunch)", dur: 30 },
+    { start: "12:00", end: "12:45", act: "Tamil Speaking/Writing", dur: 45 },
+    { start: "12:45", end: "01:30", act: "Science", dur: 45 },
+    { start: "01:30", end: "01:45", act: "Break 5 (Play Time)", dur: 15 },
+    { start: "01:45", end: "02:30", act: "Art & Creativity", dur: 45 },
+    { start: "02:30", end: "03:15", act: "Geography", dur: 45 },
+    { start: "03:15", end: "03:30", act: "Break 6 (Relaxation)", dur: 15 },
+    { start: "03:30", end: "04:15", act: "English Speaking/Writing", dur: 45 },
+    { start: "04:15", end: "05:00", act: "History", dur: 45 },
+    { start: "05:00", end: "06:00", act: "Sports (Badminton/Cycling/Play)", dur: 60 },
+    { start: "06:00", end: "06:30", act: "Dinner", dur: 30 },
+    { start: "06:30", end: "06:45", act: "Family Connection Time", dur: 15 },
+    { start: "06:45", end: "07:00", act: "Set Table for Tomorrow", dur: 15 },
+    { start: "07:00", end: "07:10", act: "Brush & Hygiene Prep", dur: 10 },
+    { start: "07:10", end: "Bed", act: "🌙 Strictly Sleep Time", dur: 0 }
+];
+	
+		
+       /* { start: "04:00", end: "04:30", act: "Bath & freshen up", dur: 30 },
         { start: "04:30", end: "05:00", act: "Devotion(Pooja/Mantra Meditation)", dur: 30 },
         { start: "05:00", end: "05:30", act: "Meditation", dur: 30 },
         { start: "05:30", end: "06:15", act: "Singing (Thirumurai/Carnatic/Voice)", dur: 45 },
@@ -226,11 +462,38 @@
         { start: "05:45", end: "06:15", act: "History of Nayanmars (Stories)", dur: 30 },
         { start: "06:15", end: "06:30", act: "Dinner", dur: 15 },
         { start: "06:30", end: "07:00", act: "Free reading / Family time", dur: 30 },
-        { start: "07:00", end: "Bed", act: "Brush & Sleep", dur: 0 }
-    ];
+        { start: "07:00", end: "Bed", act: "Brush & Sleep", dur: 0 }*/
+    //];
+
+    const syllabusData = {
+    "Discipline": [
+        { 
+            title: "Morning Routine", 
+            items: ["Wake up 4:00 AM", "Bath & Cleanliness", "Tidy Room"],
+            class: "disc-1", icon: "🌅" 
+        },
+        { 
+            title: "Spiritual Practice", 
+            items: ["Pooja/Mantra Meditation", "Meditation Session", "Singing (Thirumurai)"],
+            class: "disc-2", icon: "🕉️" 
+        },
+        { 
+            title: "Learning Readiness", 
+            items: ["Organize books", "Clear workspace", "Focus mindset"],
+            class: "disc-3", icon: "📚" 
+        },
+        { 
+            title: "Life Skills", 
+            items: ["Help with Cooking", "Garden/Outdoor work", "Family Talk"],
+            class: "disc-4", icon: "🤝" 
+        }
+    ],
+    // Keep your other subjects (English, Maths, etc.) exactly as they are...
+};
+
 
     const speechData = {
-        'speak1': { title: 'Share Ideas & Opinions', items: ['Talk about ideas from stories or videos', 'Say what I think and why', 'Stay on the topic', 'Use clear sentences'], cover: '✔ Covers: expressing ideas, staying on topic, discussion skills' },
+        /*'speak1': { title: 'Share Ideas & Opinions', items: ['Talk about ideas from stories or videos', 'Say what I think and why', 'Stay on the topic', 'Use clear sentences'], cover: '✔ Covers: expressing ideas, staying on topic, discussion skills' },
         'speak2': { title: 'Storytelling & Retelling', items: ['Retell stories in order', 'Talk about characters and events', 'Use first, then, finally', 'Speak clearly'], cover: '✔ Covers: sequencing, narrative structure, oral recounts' },
         'speak3': { title: 'Vocabulary & Language Use', items: ['Learn new words from texts or videos', 'Use new words when speaking', 'Change words for different situations', 'Use simple and polite language'], cover: '✔ Covers: vocabulary development, social language use' },
         'speak4': { title: 'Speaking With Expression', items: ['Change voice for meaning', 'Speak loudly or softly when needed', 'Use gestures and facial expressions', 'Show feelings'], cover: '✔ Covers: tone, pace, volume, non-verbal communication' },
@@ -254,20 +517,1452 @@
         'comp3': { title: '🧠 Language & Meaning', items: ['Vocabulary in context', 'Verbs, nouns, adverbs', 'Connectives and tense', 'Literal vs inferred meaning'], cover: '✔ Covers: language comprehension' },
         'comp4': { title: '💡 Making Inferences', items: ['Use clues from text and images', 'Local and global inferences', 'Homonyms and metaphor', 'Subjective vs objective language'], cover: '✔ Covers: deeper understanding' },
         'comp5': { title: '🛠️ Monitor Understanding', items: ['When meaning breaks down', 'Repair strategies (re-read, ask questions)', 'Gist statements and summarising'], cover: '✔ Covers: comprehension strategies' },
-        'comp6': { title: '💬 Reflect & Respond', items: ['Talk about texts', 'Personal connections', 'Reading preferences and goals'], cover: '✔ Covers: reflection, engagement' },
-        'write1': { title: '🌈 Imaginative Writing', items: ['Narratives, poetry', 'Characters, setting, plot', 'Dialogue and voice'], cover: 'Focus: Creative Expression' },
-        'write2': { title: '📝 Informative Writing', items: ['Reports, explanations, procedures', 'Headings and paragraphs', 'Facts and clarity'], cover: 'Focus: Facts & Structure' },
-        'write3': { title: '⚖️ Persuasive Writing', items: ['Opinion and arguments', 'Persuasive language', 'Modality and rhetorical devices'], cover: 'Focus: Arguments' },
-        'write4': { title: '🔠 Sentence & Grammar Skills', items: ['Simple, compound, complex sentences', 'Verbs, clauses, conjunctions', 'Sentence variety'], cover: '✔ Grammar outcomes' },
-        'write5': { title: '📌 Punctuation & Cohesion', items: ['Capital letters, commas, apostrophes', 'Quoted and reported speech', 'Connectives and referencing'], cover: '✔ Writing conventions' },
-        'write6': { title: '🚀 Plan, Edit & Publish', items: ['Planning and drafting', 'Editing and revising', 'Digital writing tools', 'Responding to feedback'], cover: '✔ Writing process' },
+        'comp6': { title: '💬 Reflect & Respond', items: ['Talk about texts', 'Personal connections', 'Reading preferences and goals'], cover: '✔ Covers: reflection, engagement' },*/
+
+// --- SPELLING MODULE ---
+        'spell1': { 
+            title: '🔍 Phonics & Sound Patterns', 
+            instructions: 'Hear the sounds and use letter patterns to spell.',
+            steps: [
+                '1️⃣ Listen carefully as the word is spoken.',
+                '2️⃣ Say the word slowly and clap the sounds.',
+                '3️⃣ Write the sounds you hear.',
+                '4️⃣ Say the word again and check your spelling.',
+                '5️⃣ Record yourself saying the sounds aloud.'
+            ], 
+            cover: '✔ Outcome: EN2-SPELL-01 (Phonological)' 
+        },
+        'spell2': { 
+            title: '🧱 High-Frequency Words', 
+            instructions: 'Learn and practise common words used every day.',
+            steps: [
+                '1️⃣ Read the word quickly.',
+                '2️⃣ Cover it and spell it from memory.',
+                '3️⃣ Check and fix if needed.',
+                '4️⃣ Use the word in a sentence.',
+                '5️⃣ Type the word correctly.'
+            ], 
+            cover: '✔ Outcome: EN2-SPELL-01 (Memory)' 
+        },
+        'spell3': { 
+            title: '📏 Spelling Rules & Patterns', 
+            instructions: 'Learn and apply spelling rules correctly (e.g., -ing).',
+            steps: [
+                '1️⃣ Read the word carefully.',
+                '2️⃣ Choose the spelling rule that applies.',
+                '3️⃣ Write the word using the rule.',
+                '4️⃣ Write another word using the same rule.',
+                '5️⃣ Say the rule out loud.'
+            ], 
+            cover: '✔ Outcome: EN2-SPELL-01 (Morphological)' 
+        },
+        'spell4': { 
+            title: '👪 Word Families', 
+            instructions: 'Group similar sounding words together.',
+            steps: [
+                '1️⃣ Choose a word ending (e.g. –ight).',
+                '2️⃣ Write as many matching words as you can.',
+                '3️⃣ Circle the part that stays the same.',
+                '4️⃣ Use one word in a sentence.',
+                '5️⃣ Explain your word family aloud.'
+            ], 
+            cover: '✔ Outcome: EN2-SPELL-01 (Patterns)' 
+        },
+        'spell5': { 
+            title: '🧠 Visual & Memory Strategies', 
+            instructions: 'Use memory tricks to learn tricky words.',
+            steps: [
+                '1️⃣ Look at the word carefully.',
+                '2️⃣ Highlight the tricky part.',
+                '3️⃣ Write it 3 times.',
+                '4️⃣ Spell it without looking.',
+                '5️⃣ Explain your memory trick.'
+            ], 
+            cover: '✔ Outcome: EN2-SPELL-01 (Visual)' 
+        },
+        'spell6': { 
+            title: '📝 Spelling in Context', 
+            instructions: 'Use correct spelling while writing paragraphs.',
+            steps: [
+                '1️⃣ Write 3–4 sentences.',
+                '2️⃣ Circle tricky spelling words.',
+                '3️⃣ Check spelling using strategies.',
+                '4️⃣ Fix mistakes.',
+                '5️⃣ Read your writing aloud.'
+            ], 
+            cover: '✔ Outcome: EN2-SPELL-01 (Application)' 
+        },
+
+        // --- HANDWRITING & DIGITAL MODULE ---
+        'hand1': { 
+            title: '🖐️ Fine Motor Control', 
+            instructions: 'Strengthen hand and finger control for writing.',
+            steps: [
+                '1️⃣ Stretch fingers and wrists.',
+                '2️⃣ Trace shapes or patterns.',
+                '3️⃣ Hold pencil correctly.',
+                '4️⃣ Draw neat lines.',
+                '5️⃣ Show your grip to the camera.'
+            ], 
+            cover: '✔ Outcome: EN2-HANDW-01 (Physical)' 
+        },
+        'hand2': { 
+            title: '✍️ Letter Formation', 
+            instructions: 'Form letters with correct shape and direction.',
+            steps: [
+                '1️⃣ Choose 5 letters.',
+                '2️⃣ Start each letter in the right place.',
+                '3️⃣ Follow the correct direction.',
+                '4️⃣ Rewrite your best letter.',
+                '5️⃣ Say what makes it neat.'
+            ], 
+            cover: '✔ Outcome: EN2-HANDW-01 (Handwriting)' 
+        },
+        'hand3': { 
+            title: '↔️ Spacing & Alignment', 
+            instructions: 'Make writing easy to read with finger spaces.',
+            steps: [
+                '1️⃣ Write a sentence.',
+                '2️⃣ Check spacing between words.',
+                '3️⃣ Keep letters on the line.',
+                '4️⃣ Fix messy parts.',
+                '5️⃣ Compare before and after.'
+            ], 
+            cover: '✔ Outcome: EN2-HANDW-01 (Legibility)' 
+        },
+        'hand4': { 
+            title: '🚀 Writing Speed & Fluency', 
+            instructions: 'Write smoothly and confidently without stopping.',
+            steps: [
+                '1️⃣ Set a short timer.',
+                '2️⃣ Write without stopping.',
+                '3️⃣ Focus on neatness and flow.',
+                '4️⃣ Reread your work.',
+                '5️⃣ Improve one sentence.'
+            ], 
+            cover: '✔ Outcome: EN2-HANDW-01 (Fluency)' 
+        },
+        'hand5': { 
+            title: '⌨️ Keyboard Skills', 
+            instructions: 'Learn how to find keys and type on a keyboard.',
+            steps: [
+                '1️⃣ Find letters on the keyboard.',
+                '2️⃣ Type a short sentence.',
+                '3️⃣ Use space and backspace correctly.',
+                '4️⃣ Save your work.',
+                '5️⃣ Read what you typed.'
+            ], 
+            cover: '✔ Outcome: EN2-HANDW-02 (Digital)' 
+        },
+        'hand6': { 
+            title: '🎯 Typing Accuracy', 
+            instructions: 'Type carefully and fix mistakes.',
+            steps: [
+                '1️⃣ Type a sentence carefully.',
+                '2️⃣ Check spelling and punctuation.',
+                '3️⃣ Fix errors.',
+                '4️⃣ Re-read aloud.',
+                '5️⃣ Improve one word choice.'
+            ], 
+            cover: '✔ Outcome: EN2-HANDW-02 (Transcription)' 
+        },
+
+        // --- LITERATURE MODULE ---
+        'lit1': { 
+            title: '📖 Comprehension (Understand)', 
+            instructions: 'Understand the story and retell what happened.',
+            steps: [
+                '1️⃣ Read the text carefully.',
+                '2️⃣ Say what happened first, next, last.',
+                '3️⃣ Answer simple questions.',
+                '4️⃣ Find evidence in the text.',
+                '5️⃣ Retell in your own words.'
+            ], 
+            cover: '✔ Outcome: EN2-UARL-01 (Understanding)' 
+        },
+        'lit2': { 
+            title: '📌 Main Ideas & Details', 
+            instructions: 'Find the most important information.',
+            steps: [
+                '1️⃣ Read one paragraph.',
+                '2️⃣ Highlight important information.',
+                '3️⃣ Write the main idea.',
+                '4️⃣ List two details.',
+                '5️⃣ Explain your choice.'
+            ], 
+            cover: '✔ Outcome: EN2-UARL-01 (Key Ideas)' 
+        },
+        'lit3': { 
+            title: '👥 Characters & Settings', 
+            instructions: 'Identify who is in the story and where it happens.',
+            steps: [
+                '1️⃣ Name the main character.',
+                '2️⃣ Describe how they act.',
+                '3️⃣ Identify the setting.',
+                '4️⃣ Draw the scene.',
+                '5️⃣ Explain your drawing.'
+            ], 
+            cover: '✔ Outcome: EN2-UARL-01 (Elements)' 
+        },
+        'lit4': { 
+            title: '🔗 Making Connections', 
+            instructions: 'Relate the text to your own life experiences.',
+            steps: [
+                '1️⃣ Think about your own experience.',
+                '2️⃣ Write one connection.',
+                '3️⃣ Explain why it is similar.',
+                '4️⃣ Share with a partner.',
+                '5️⃣ Listen to another connection.'
+            ], 
+            cover: '✔ Outcome: EN2-UARL-01 (Connections)' 
+        },
+        'lit5': { 
+            title: '💬 Personal Responses', 
+            instructions: 'Share your feelings and opinions about the text.',
+            steps: [
+                '1️⃣ Choose your favourite part.',
+                '2️⃣ Explain why you liked it.',
+                '3️⃣ Use sentence starters.',
+                '4️⃣ Write your response.',
+                '5️⃣ Read it aloud.'
+            ], 
+            cover: '✔ Outcome: EN2-UARL-01 (Response)' 
+        },
+        'lit6': { 
+            title: '🗣️ Discussion & Reflection', 
+            instructions: 'Talk deeper about what you read with others.',
+            steps: [
+                '1️⃣ Listen to others respectfully.',
+                '2️⃣ Share one idea.',
+                '3️⃣ Ask a question.',
+                '4️⃣ Respond to a friend.',
+                '5️⃣ Reflect on new learning.'
+            ], 
+            cover: '✔ Outcome: EN2-UARL-01 (Discussion)' 
+        },
+
+		//----Oral Language & Communication MODULE---
+	
+        'speak1': { 
+            title: '💡 Sharing Ideas (Interacting)', 
+            instructions: 'Say your ideas clearly so others can understand you.Example: Telling the class about your favourite game.',
+            steps: [
+                '1️⃣ Think about what you want to say.',
+                '2️⃣ Say your idea in a full sentence.',
+                '3️⃣ Look at the listener while speaking.',
+                '4️⃣ Speak clearly and calmly.',
+                '5️⃣ Check if your listener understood.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
+        },
+        'speak2': { 
+            title: '👂Listening & Understanding', 
+            instructions: 'Listen carefully to understand what someone else is saying.Listening to a story and remembering what happened.',
+            steps: [
+                '1️⃣ Sit still and look at the speaker.',
+                '2️⃣ Listen without interrupting.',
+                '3️⃣ Think about the main idea.',
+                '4️⃣ Remember one important detail.',
+                '5️⃣ Be ready to respond.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Listening & Understanding)' 
+        },
+        'speak3': { 
+            title: '❓ Asking & Answering Questions', 
+            instructions: 'Ask and answer questions to learn more or explain ideas.Example: Asking “Why did the character do that?”',
+            steps: [
+                '1️⃣ Listen carefully.',
+                '2️⃣ Think of a question or answer.',
+                '3️⃣ Use clear words.',
+                '4️⃣ Speak in a full sentence.',
+                '5️⃣ Respond politely.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Listening & Understanding)' 
+        },
+        'speak4': { 
+            title: '🤝 Turn-Taking & Conversation (Interacting)', 
+            instructions: 'Take turns speaking and listening during a conversation. Example: Waiting for your turn in group discussion.',
+            steps: [
+                '1️⃣ Listen while others speak.',
+                '2️⃣ Wait for your turn.',
+                '3️⃣ Share one idea.',
+                '4️⃣ Stay on topic.',
+                '5️⃣ Respect other opinions.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
+        },
+        'speak5': { 
+            title: '🎭 Using Voice & Expression', 
+            instructions: 'Use your voice, face and body to match what you are saying.Example: Speaking louder when presenting.',
+            steps: [
+                '1️⃣ Decide how you should sound.',
+                '2️⃣ Use clear volume.',
+                '3️⃣ Change tone to show feeling.',
+                '4️⃣ Use facial expressions.',
+                '5️⃣ Use simple hand movements.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
+        },
+        'speak6': { 
+            title: '🎤 Presenting to an Audience', 
+            instructions: 'Speak confidently to share ideas with a group.Giving a short talk thinking you are in class.',
+            steps: [
+                '1️⃣ Prepare what you will say.',
+                '2️⃣ Stand or sit up straight.',
+                '3️⃣ Speak clearly and slowly.',
+                '4️⃣ Look at your audience.',
+                '5️⃣ Finish with confidence.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
+        },
+
+		
+		//Vocabulary MODULE
+		
+		'vocab1': { 
+            title: '🏠 Everyday Words (Tier 1)', 
+            instructions: 'Learn and use common words we use every day.Example: happy, run, big.',
+            steps: [
+                '1️⃣ Read the word.',
+                '2️⃣ Say the word aloud.',
+                '3️⃣ Use it in a sentence.',
+                '4️⃣ Write the word.',
+                '5️⃣ Say the sentence again.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Learning and using words)' 
+        },
+        'vocab2': { 
+            title: '✨ Interesting Words (Tier 2)', 
+            instructions: 'Use stronger words to make your speaking and writing better.Example: excited instead of happy.',
+            steps: [
+                '1️⃣ Read the new word.',
+                '2️⃣ Learn its meaning.',
+                '3️⃣ Say it aloud.',
+                '4️⃣ Use it in a sentence.',
+                '5️⃣ Replace a simple word with it.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01(Learning and Using Words)' 
+        },
+        'vocab3': { 
+            title: '🔬 Topic Words (Tier 3)', 
+            instructions: 'Learn words that are used in specific subjects.Example: habitat in Science.',
+            steps: [
+                '1️⃣ Read the topic word.',
+                '2️⃣ Learn what it means.',
+                '3️⃣ Say it aloud.',
+                '4️⃣ Write one fact using it.',
+                '5️⃣ Share your sentence.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Learning and Using Words)' 
+        },
+        'vocab4': { 
+            title: '🔗 Word Meanings', 
+            instructions: 'Understand what new words mean. Example: Finding the meaning of “curious”.',
+            steps: [
+                '1️⃣ Read the word.',
+                '2️⃣ Look it up or ask for help.',
+                '3️⃣ Say the meaning.',
+                '4️⃣ Write a sentence.',
+                '5️⃣ Check if it makes sense.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Defining and Analysing Words )' 
+        },
+        'vocab5': { 
+            title: '🔍 Word Features', 
+            instructions: 'Break words into parts to understand them better.Example: unhappy = un + happy',
+            steps: [
+                '1️⃣ Look at the word.',
+                '2️⃣ Find word parts.',
+                '3️⃣ Say each part.',
+                '4️⃣ Explain what it means.',
+                '5️⃣ Try another word.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Defining and Analysing Words)' 
+        },
+        'vocab6': { 
+            title: '✍️ Using New Words', 
+            instructions: 'Use new words in speaking and writing.Example: Writing a sentence using “discover”.',
+            steps: [
+                '1️⃣ Choose a new word.',
+                '2️⃣ Say it aloud.',
+                '3️⃣ Write a sentence.',
+                '4️⃣ Read the sentence.',
+                '5️⃣ Improve one word.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Learning and Using Words)' 
+        },
+		
+		//Reading Fluency
+		
+		'fluency1': { 
+            title: '🎯 Reading Accurately', 
+            instructions: 'Read words correctly without mistakes.Example: Reading a sentence without skipping words.',
+            steps: [
+                '1️⃣ Look at each word.',
+                '2️⃣ Read slowly.',
+                '3️⃣ Say the word clearly.',
+                '4️⃣ Fix mistakes.',
+                '5️⃣ Read again.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Reading Automaticity & Rate ⏱️)' 
+        },
+        'fluency2': { 
+            title: '📌 Reading Smoothly', 
+            instructions: 'Read without stopping too often.Example: Reading a paragraph smoothly.',
+            steps: [
+                '1️⃣ Start reading.',
+                '2️⃣ Keep going smoothly.',
+                '3️⃣ Don’t stop at every word.',
+                '4️⃣ Follow punctuation.',
+                '5️⃣ Read again smoothly.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Reading Automaticity & Rate ⏱️)' 
+        },
+        'fluency3': { 
+            title: '⏱️ Reading at the Right Speed', 
+            instructions: 'Read at a speed that makes sense to the listener.Example: Not rushing or reading too slowly.',
+            steps: [
+                '1️⃣ Start reading.',
+                '2️⃣ Keep steady speed.',
+                '3️⃣ Pause at commas.',
+                '4️⃣ Stop at full stops.',
+                '5️⃣ Adjust speed if needed.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Reading Automaticity & Rate ⏱️)' 
+        },
+        'fluency4': { 
+            title: '🎭 Prosody (Expression)', 
+            instructions: 'Use expression to make reading sound interesting. Example: Changing voice for characters.',
+            steps: [
+                '1️⃣ Notice punctuation.',
+                '2️⃣ Change voice for feeling.',
+                '3️⃣ Raise or lower voice.',
+                '4️⃣ Read dialogue clearly.',
+                '5️⃣ Try again with expression.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Reading with expression)' 
+        },
+        'fluency5': { 
+            title: '📈 Reflect / Improve', 
+            instructions: 'Check your reading and fix mistakes.Example: Re-reading when something doesn’t make sense.',
+            steps: [
+                '1️⃣ Stop if confused.',
+                '2️⃣ Go back and re-read.',
+                '3️⃣ Fix the mistake.',
+                '4️⃣ Read again clearly.',
+                '5️⃣ Continue reading.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Self-Monitoring)' 
+        },
+       	
+		
+		//Reading comphrehension
+		'comp1': { 
+            title: '💡 Basic Comprehension', 
+            instructions: 'Understand what the text is about.Example: Retelling a story.',
+            steps: [
+                '1️⃣ Read the word.',
+                '2️⃣ Think about the story.',
+                '3️⃣ Say what happened.',
+                '4️⃣ Tell it in order.',
+                '5️⃣ Check understanding.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Reading for Interest and Wide Purposes)' 
+        },
+        'comp2': { 
+            title: '📌 Finding Main Ideas', 
+            instructions: 'Find the most important idea in the text.Example: Saying what the text is mostly about.',
+            steps: [
+                '1️⃣ Read one section.',
+                '2️⃣ Think about the big idea.',
+                '3️⃣ Say it in one sentence.',
+                '4️⃣ Check the text.',
+                '5️⃣ Share your answer.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01(Comprehending Language)' 
+        },
+        'comp3': { 
+            title: '🔍 Finding Details', 
+            instructions: 'Find information that supports the main idea.Example: Listing two facts from the text.',
+            steps: [
+                '1️⃣ Re-read the text.',
+                '2️⃣ Look for key details.',
+                '3️⃣ Highlight or note them.',
+                '4️⃣ Say them aloud.',
+                '5️⃣ Check relevance.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Comprehending Language)' 
+        },
+        'comp4': { 
+            title: '🧱 Text Structure & Organisation', 
+            instructions: 'Understand how a text is organised.Example: Using headings to find information.',
+            steps: [
+                '1️⃣ Look at headings.',
+                '2️⃣ Notice paragraphs.',
+                '3️⃣ See how ideas are grouped.',
+                '4️⃣ Use structure to help reading.',
+                '5️⃣ Explain the layout.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Comprehending Text Structures & Features)' 
+        },
+        'comp5': { 
+            title: '🧠 Monitoring Comprehension', 
+            instructions: 'Check if what you read makes sense..Example:Asking yourself a question while reading.',
+            steps: [
+                '1️⃣ Pause while reading.',
+                '2️⃣ Ask “Do I understand?”.',
+                '3️⃣ Re-read if needed.',
+                '4️⃣ Ask for help if stuck.',
+                '5️⃣ Continue reading.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Checking & Understanding Comprehension)' 
+        },
+        'comp6': { 
+            title: '💬 Responding to Text', 
+            instructions: 'Share thoughts and opinions about the text. Example: Saying why you liked a character.',
+            steps: [
+                '1️⃣ Think about the text.',
+                '2️⃣ Choose one idea.',
+                '3️⃣ Say what you think.',
+                '4️⃣ Give a reason.',
+                '5️⃣ Share with others.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Thinking and Responding)' 
+        },		
+			
+
+        // UPDATED WRITING PROCESS DATA
+        'write_step1': { 
+            title: 'Step 1: 💡Planning & Ideas - Planning and composing (Actually sitting down to write the draft.)', 
+            instructions: 'Before we write, we must dream! Let’s get your ideas ready.',
+            items: [
+					'Think first – What am I going to write?', 
+					'Example: Brainstorming ideas before writing a story.',
+					'1️⃣ Pick a topic (e.g. A brave knight, a lost robot, or how to make a sandwich).', 
+					'2️⃣ Draw a Mind Map on your paper with your main idea in the middle.',
+					'3️⃣ Write down 5 "sparkly" words that come to your mind.',
+					'4️⃣ Click "Start Recording" and show your Mind Map to the camera while explaining your idea!',
+
+				], 
+				cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Planning and composing)' 
+        },
+        'write_step2': { 
+            title: 'Step 2: ⚖️ Purpose & Audience - Creating texts for specific purposes(Knowing who will read it (Mom, a friend, etc.))', 
+            items: ['Who am I writing for and why? (write differently depending on who will read it)', 'Example: Writing a letter to a friend or an instruction list.',
+				'1️⃣ Decide: Is this for a Friend (Funny) or a Teacher (Serious)?',
+                '2️⃣ Decide: Why are you writing? (To tell a story, give facts, or change a mind?).',
+                '3️⃣ Click "Start Recording" and say: "I am writing for [Who] because I want to [Why]."',
+                '4️⃣ Make sure you look at the camera like you are talking to that person!'
+		], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Creating texts for specific purposes)' 
+        },
+        'write_step3': { 
+            title: 'Step 3: 🧱 Text Structure & Organisation - Text forms and features(Using headings, paragraphs, or story endings.)', 
+            items: ['How will I organise my writing in a clear order?', 'Example: Writing a story with a beginning, middle, and end.', '1️⃣ Draw 3 big boxes on your page: Beginning, Middle, and End.',
+                '2️⃣ Draw one quick picture in each box to show what happens.',
+                '3️⃣ Click "Start Recording" and point to your boxes.',
+                '4️⃣ Explain: "First this happens... then this... and finally this."'
+		], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Text forms and features)' 
+        },
+        'write_step4': { 
+            title: 'Step 4: 🔠 Sentence Construction - Grammar and sentence-level skills(Making sure sentences make sense.)', 
+            items: ['How do I write correct and meaningful sentences?', 'Example: Writing a complete sentence with a capital letter and full stop.',  '1️⃣ Write your first 3 sentences on your paper.',
+                '2️⃣ Check: Does every sentence start with a CAPITAL and end with a FULL STOP?',
+                '3️⃣ Click "Start Recording" and read your sentences aloud.',
+                '4️⃣ Listen: Did you have to stop for a breath? If yes, you might need a comma!'
+		], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Grammar and sentence-level skills)' 
+        },
+        'write_step5': { 
+            title: 'Step 5: ✨ Vocabulary Choice - Word-level Language choices(Using "sparkle words" instead of boring words.)', 
+            items: ['Which words make my writing better (choose interesting and suitable words)?', 'Example: Using "excited" instead of "happy".','1️⃣ Find 3 words in your writing like "good", "big", or "said".',
+                '2️⃣ Find "Powerful" versions (like "Magnificent" or "Giant").',
+                '3️⃣ Click "Start Recording" and show the changes.',
+                '4️⃣ Explain: "I changed the word [Old Word] to [New Word] because it sounds better!"'], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Language choices)' 
+        },
+        'write_step6': { 
+            title: 'Step 6: 🚀 Editing & Publishing - Revising and editing(Checking for mistakes and making it look good.)', 
+            items: ['Can I fix and share my writing (improve writing before sharing it)?', 'Example: Checking spelling and rewriting neatly.','1️⃣ Check your spelling one last time.',
+                '2️⃣ Rewrite your text neatly or type it out.',
+                '3️⃣ Click "Start Recording" for your Final Performance.',
+                '4️⃣ Read your whole story with a loud, proud voice and expression!'
+		], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Revising and editing)' 
+        },
+
+		
+		// ===============================
+		// MATHS: REPRESENTING NUMBERS
+		// Stage 2 – Place Value A & B
+		// Outcomes: MA2-RN-01, MA2-RN-02
+		// ===============================
+
+		'pvA1': {
+		  title: '🔢 Reading Numbers (to Thousands)',
+		  instructions: 'Learn to read big numbers using place value. Example: 3,482 → three thousand four hundred and eighty-two.',
+		  steps: [
+			'1️⃣ Look at the number (e.g. 3,482).',
+			'2️⃣ Say each digit place: thousands, hundreds, tens, ones.',
+			'3️⃣ Read the full number aloud.',
+			'4️⃣ Write the number in words.',
+			'5️⃣ Show and explain it on the camera.'
+		  ],
+		  cover: '✔ MA2-RN-01 (Reading & representing numbers)'
+		},
+
+		'pvA2': {
+		  title: '🧱 Building Numbers with Place Value',
+		  instructions: 'Make numbers using thousands, hundreds, tens and ones. Example: 2,365 = 2,000 + 300 + 60 + 5',
+		  steps: [
+			'1️⃣ Choose a number (e.g. 2,365).',
+			'2️⃣ Break it into parts.',
+			'3️⃣ Say each part aloud.',
+			'4️⃣ Write it as an expanded number.',
+			'5️⃣ Check if it matches the original number.'
+		  ],
+		  cover: '✔ MA2-RN-01 (Partitioning numbers(Apply place value to partition))'
+		},
+
+		'pvA3': {
+		  title: '🔁 Regrouping Numbers',
+		  instructions: 'Swap tens, hundreds or thousands to make the same number. Example: 1,450 = 1,300 + 150.',
+		  steps: [
+			'1️⃣ Start with a number (e.g. 1,450).',
+			'2️⃣ Trade 1 hundred for 10 tens.',
+			'3️⃣ Write the new grouping.',
+			'4️⃣ Say how it is still the same number.',
+			'5️⃣ Try another regrouping.'
+		  ],
+		  cover: '✔ MA2-RN-01 (Regrouping upto 4 digits)'
+		},
+
+		// -------- PLACE VALUE B --------
+
+		'pvB1': {
+		  title: '📊 Ordering Numbers (Thousands)',
+		  instructions: 'Put numbers in the correct order.(Order numbers in the thousands). Example: 3,245 < 3,402 < 4,018.',
+		  steps: [
+			'1️⃣ Look at all the numbers.',
+			'2️⃣ Compare the thousands digit first.',
+			'3️⃣ Check hundreds if needed.',
+			'4️⃣ Arrange from smallest to largest.',
+			'5️⃣ Read the order aloud.'
+		  ],
+		 cover: '✔ MA2-RN-01 (Comparing & ordering)'
+		},
+
+		'pvB2': {
+		  title: '✖️ Numbers ×10, ×100, ×1000',
+		  instructions: 'Make numbers bigger using place value shifts.(Recognise and represent numbers that are 10, 100 or 1000 times as large). Example: 36 × 100 = 3,600.',
+		  steps: [
+			'1️⃣ Start with a number (e.g. 36).',
+			'2️⃣ Multiply by 10.',
+			'3️⃣ Watch digits move left.',
+			'4️⃣ Add zero if needed.',
+			'5️⃣ Say the new number.'
+		  ],
+		  cover: '✔ MA2-RN-01 (Scaling numbers)'
+		},
+
+		'pvB3': {
+		  title: '🔟 Tenths & Hundredths (Decimals)',
+		  instructions: 'Extend the application of the place value system from whole numbers to tenths and hundredths. Example: 3.45 = 3 + 4/10 + 5/100.',
+		  steps: [
+			'1️⃣ Look at the decimal point.',
+			'2️⃣ Identify tenths and hundredths.',
+			'3️⃣ Say the number correctly.',
+			'4️⃣ Write it in expanded form.',
+			'5️⃣ Show it using a diagram or drawing.'
+		  ],
+		  cover: '✔ MA2-RN-02 (Decimal place value)'
+		},
+
+		'pvB4': {
+		  title: '🔗 Fractions & Decimals Connection',
+		  instructions: 'Make connections between fractions and decimal notation and Understand how show the same value. Example: 1/4 = 0.25.',
+		  steps: [
+			'1️⃣ Start with a fraction.',
+			'2️⃣ Convert it to a decimal.',
+			'3️⃣ Say both forms.',
+			'4️⃣ Draw a model (grid or number line).',
+			'5️⃣ Explain how they match.'
+		  ],
+		  cover: '✔ MA2-RN-02 (Fractions ↔ Decimals)'
+		},
+		
+		//Addition Relations A - MA2-AR-01 – Selects and uses mental and written strategies for addition and subtraction involving 2- and 3-digit numbers
+		
+		arA1: {
+		  title: "⚖️ Principle of Equality & Balancing Numbers",
+		  instructions: 'Both sides of an equation must have the same value.<br>Example: "8 + 4 = 6 + 6"</br>',
+		  steps: [
+			"1️⃣ Look at both sides of the number sentence.",
+			"2️⃣ Check if the totals are equal.",
+			"3️⃣ Add or subtract to balance the equation.",
+			"4️⃣ Say why it is balanced."
+		  ],
+		  cover: '✔ MA2-AR-01 (Additive Relations A-Understanding principle of equality)'
+		},
+
+		arA2: {
+		  title: "➕Addition & Subtraction Connection",
+		  instructions:'Addition and subtraction are connected operations.<br>Example: "7 + 3 = 10 and 10 − 3 = 7"</br>',
+		  steps: [
+			"1️⃣ Choose three numbers.",
+			"2️⃣ Write an addition sentence.",
+			"3️⃣ Write the matching subtraction sentence.",
+			"4️⃣ Explain the connection."
+		  ],
+		  cover: '✔ MA2-AR-01 (Additive Relations A-Recognise and explain the connection between addition and subtraction)'
+		},
+		
+		arA3: {
+			  title: "🧠 Flexible Strategies (Up to 3 Digits)",
+			  instructions: 'Different strategies can be used to solve problems.<br>Example: "245 + 30 using partitioning"</br>',
+			  steps: [
+				"1️⃣ Read the problem.",
+				"2️⃣ Choose a strategy (partition, jump, column).",
+				"3️⃣ Solve step by step.",
+				"4️⃣ Check the answer."
+			  ],
+			  cover: '✔ MA2-AR-01 (Additive Relations A-Strategy selection flexibly to solve addition and subtraction problems of up to 3 digits)'
+			},
+
+		arA4: {
+			  title: "💰 Representing Money",
+			  instructions:'Money amounts can be shown in different ways.<br>Example: "$1.50 = $1 + 50c"</br>',
+			  steps: [
+				"1️⃣ Read the money amount.",
+				"2️⃣ Break it into notes and coins.",
+				"3️⃣ Add or subtract values.",
+				"4️⃣ Check the total."
+			  ],
+			  cover: '✔ MA2-AR-01 (Additive Relations A-Represent money values in multiple ways)'
+			},
+		
+		//Addition Relations B - MA2-AR-02 – Completes number sentences involving addition and subtraction by finding missing values
+		arB1: {
+			  title: "🧩 Partitioning & Regrouping",
+			  instructions: 'Numbers can be split and regrouped to make calculations easier.<br>Example: "356 = 300 + 50 + 6" using partitioning"</br>',
+			  steps: [
+				"1️⃣ Break the number into parts.",
+				"2️⃣ Regroup where needed.",
+				"3️⃣ Solve the problem.",
+				"4️⃣ Check your answer."
+			  ],
+			  cover: '✔ MA2-AR-02 (Additive Relations B - Partition, rearrange and regroup numbers to at least 1000 to solve additive problems")'
+			},
+
+		arB2: {
+			  title: "🏪 Real-Life Additive Problems",
+			  instructions:'Addition and subtraction help solve everyday problems.<br>Example: "Buying items with $20"</br>',
+			  steps: [
+				"1️⃣ Read the problem.",
+				"2️⃣ Identify what to add or subtract.",
+				"3️⃣ Solve step by step.",
+				"4️⃣ Explain your answer."
+			  ],
+			  cover: '✔ MA2-AR-02 (Additive Relations B - Apply addition and subtraction to familiar contexts, including money and budgeting)'
+			},
+		arB3: {
+			  title: "❓ Missing Numbers",
+			  instructions: 'Sometimes a number is missing and must be found.<br>Example: "45 + ⬜ = 72"</br>',
+			  steps: [
+				"1️⃣ Read the number sentence.",
+				"2️⃣ Work out what is missing.",
+				"3️⃣ Write the correct number.",
+				"4️⃣ Check using the opposite operation."
+			  ],
+			  cover: '✔ MA2-AR-02 (Additive Relations B - Complete number sentences involving additive relations to find unknown quantities(Number Sentences))'
+			},
+
+		//Multiplication Relations A - MA2-MR-01 – Represents and uses the structure of multiplicative relations to 10 × 10
+		
+		mrA1: {
+			  title: "🔢 Patterns & Groups",
+			  instructions:'Patterns help us understand multiplication.<br>Example: "2, 4, 6, 8"</br>',
+			  steps: [
+				"1️⃣ Look at the pattern.",
+				"2️⃣ Find the rule.",
+				"3️⃣ Continue the pattern.",
+				"4️⃣ Explain it."
+			  ],
+			  cover: '✔ MA2-MR-01 (Multiplicative Relations A - Generate and describe patterns)'
+			},
+		mrA2: {
+			  title: "🧱 Arrays for Multiplication",
+			  instructions:'Arrays show equal groups clearly.<br>Example: "3 × 4 as 3 rows of 4"</br>',
+			  steps: [
+				"1️⃣ Draw rows and columns.",
+				"2️⃣ Count total items.",
+				"3️⃣ Write the multiplication sentence.",
+				"4️⃣ Explain it."
+			  ],
+			  cover: '✔ MA2-MR-01 (Multiplicative Relations A - Use arrays to establish multiplication facts from multiples of 2 and 4, 5 and 10)'
+			},
+		
+		mrA3: {
+			  title: "✖️ Multiplication Facts (2, 4, 5 & 10)",
+			  instructions: 'Multiplication facts help us solve problems quickly.<br>Example: "5 × 4 = 20 and 20 ÷ 5 = 4"</br>',
+			  steps: [
+				"1️⃣ Say the multiplication fact.",
+				"2️⃣ Write the matching division fact.",
+				"3️⃣ Use counters or fingers to check.",
+				"4️⃣ Explain how multiplication and division are linked."
+			  ],
+			  cover: '✔ MA2-MR-01 (Multiplicative relations A – Recall multiplication facts of 2, 4, 5 and 10 and related division facts)'
+			},
+
+		 mrA4: {
+			  title: "🔁 Fact Families",
+			  instructions:'Multiplication and division facts belong together. <br>Example: "5 × 4 = 20, 20 ÷ 5 = 4"</br>',
+			  steps: [
+				"1️⃣ Choose three numbers.",
+				"2️⃣ Write multiplication facts.",
+				"3️⃣ Write division facts.",
+				"4️⃣ Explain the family."
+			  ],
+			  cover: '✔ MA2-MR-01 (Multiplicative Relations A - Represent and solve problems involving multiplication fact families)'
+			},
+
+		//Multiplication Relations B - MA2-MR-02 – Completes number sentences involving multiplication and division
+		
+			mrB1: {
+			  title: "🔁 Number Sequences & Multiples",
+			  instructions: 'Multiples follow a pattern when we skip count.<br>Example: "5, 10, 15, 20"</br>',
+			  steps: [
+				"1️⃣ Start with a number.",
+				"2️⃣ Skip count forward.",
+				"3️⃣ Say the pattern rule.",
+				"4️⃣ Write the next numbers."
+			  ],
+			  cover: '✔ MA2-MR-02 (Multiplicative relations B – Investigate number sequences involving related multiples)'
+			},
+			mrB2: {
+			  title: "🧠 Using Known Facts",
+			  instructions: 'Known facts help solve harder problems.<br>Example: "If 5 × 6 = 30, then 50 × 6 = 300"</br>',
+			  steps: [
+				"1️⃣ Recall a fact you know.",
+				"2️⃣ Adjust it to solve the new problem.",
+				"3️⃣ Write the equation.",
+				"4️⃣ Check your answer."
+			  ],
+			  cover: '✔ MA2-MR-02 (Multiplicative relations B – Use known number facts and strategies)'
+			},
+		
+		   mrB3: {
+			  title: "📐 Area Model",
+			  instructions:'Area models show how multiplication works.<br>Example: "4 × 6 shown as a rectangle"</br>',
+			  steps: [
+				"1️⃣ Draw a rectangle.",
+				"2️⃣ Label the sides.",
+				"3️⃣ Count total squares.",
+				"4️⃣ Write the equation."
+			  ],
+			  cover: '✔ MA2-MR-02 (Multiplicative Relations B - Use the structure of the area model to represent multiplication and division(Area representation))'
+			},
+			
+			mrB4: {
+			  title: "🔗 Number Properties",
+			  instructions: 'Number properties help find related facts.<br>Example: "4 × 6 = 6 × 4"</br>',
+			  steps: [
+				"1️⃣ Write a multiplication fact.",
+				"2️⃣ Swap the numbers.",
+				"3️⃣ Check if the answer stays the same.",
+				"4️⃣ Explain why."
+			  ],
+			  cover: '✔ MA2-MR-02 (Multiplicative relations B – Use number properties to find related multiplication facts)'
+			},
+			
+			mrB5: {
+			  title: "🔟 Multiples of 10",
+			  instructions:'Multiplying by 10 adds a zero.<br>Example: "6 × 10 = 60"</br>',
+			  steps: [
+				"1️⃣ Say the base fact.",
+				"2️⃣ Multiply by 10.",
+				"3️⃣ Check the result."
+			  ],
+			  cover: '✔ MA2-MR-02 (Multiplicative Relations B - Operate with multiples of 10)'
+			},
+			mrB6: {
+			  title: "📝 Word Problems",
+			  instructions:'Word problems help apply multiplication to real life.<br>Example: "4 bags with 6 apples each"</br>',
+			  steps: [
+				"1️⃣ Read the problem.",
+				"2️⃣ Choose the operation.",
+				"3️⃣ Solve.",
+				"4️⃣ Explain your answer."
+			  ],
+			  cover: '✔ MA2-MR-02 (Multiplicative Relations B - Represent and solve word problems with number sentences involving multiplication or division)'
+			},
+
+		//Partitioned Fractions A - MA2-PF-01 – Represents and compares fractions on a number line
+			pfA1: {
+			  title: "🍕 Understanding Equal Parts",
+			  instructions:'Fractions show equal parts of a whole.<br>Example: "½ means one of two equal parts/One-quarter of a strip</br>',
+			  steps: [
+				"1️⃣ Look at the whole shape.",
+				"2️⃣ Divide equally.",
+				"3️⃣ Name the fraction.",
+				"4️⃣ Shade or mark the fraction."
+			  ],
+			  cover: '✔ MA2-PF-01(Partitioned Fractions A - Create fractional parts of a length using techniques other than repeated halving(Unit Fractions))'
+			},
+			
+			pfA2: {
+			  title: "📏 Fractions on a Number Line",
+			  instructions:'Fractions can be placed on a number line.<br>Example: "½ is halfway between 0 and 1</br>',
+			  steps: [
+				"1️⃣ Draw a number line from 0 to 1.",
+				"2️⃣ Divide it into equal parts.",
+				"3️⃣ Mark the fraction.",
+				"4️⃣ Compare positions."
+			  ],
+			  cover: '✔ MA2-PF-01(Partitioned Fractions A - Model and represent unit fractions, and their multiples, to a complete whole on a number line)'
+			},
+			
+			
+		//Partitioned Fractions B
+		pfB1: {
+		  title: "🔄 Equivalent Fractions",
+		  instructions: 'Different fractions can have the same value.<br>Example: "½ = 2/4"</br>',
+		  steps: [
+			"1️⃣ Model the fraction.",
+			"2️⃣ Find an equivalent.",
+			"3️⃣ Explain why they match.",
+		  ],
+		  cover: '✔ MA2-PF-01(Partitioned Fractions B - Model equivalent fractions as lengths)'
+		},
+		pfB2: {
+		  title: "➕ Fractions Greater Than One",
+		  instructions: 'Fractions can be more than one whole.<br>Example: "5/4"</br>',
+		  steps: [
+			"1️⃣ Count wholes.",
+			"2️⃣ Add extra parts.",
+			"3️⃣ Name the fraction."
+		  ],
+		  cover: '✔ MA2-PF-01(Partitioned Fractions B - Represent fractional quantities equal to and greater than one(Fractions beyond one))'
+		},
+	
+	//Geometric Measure A - MA2-GM-01 – Uses grid maps and directional language to locate positions and follow routes
+	//MA2-GM-02 – Measures and estimates lengths in metres, centimetres and millimetres
+	//MA2-GM-03 – Identifies angles and classifies them by comparing to a right angle
+		gmA1: {
+		  title: "🗺️ Using Maps & Directions",
+		  instructions:'Maps show where things are and how to move.<br>Example: "Move 2 steps north and 1 step east.</br>',
+		  steps: [
+			"1️⃣ Look at the map.",
+			"2️⃣ Find the starting point.",
+			"3️⃣ Move step by step.",
+			"4️⃣ Follow the directions.",
+			"4️⃣ Check the final position."
+		  ],
+		  cover: '✔ MA2-GM-01(Geometric Measure A - Position:Interpreting movement on a map)'
+		},
+		
+		gmA2: {
+		  title: "📍 Grid Maps",
+		  instructions:'Grid maps use rows and columns to find places.<br>Example: "The treasure is at B3.</br>',
+		  steps: [
+			"1️⃣ Find the letter row.",
+			"2️⃣ Find the number column.",
+			"3️⃣ Match the square.",
+			"4️⃣ Mark the location."
+		  ],
+		  cover: '✔ MA2-GM-01(Geometric Measure A - Position:Locate positions on grid maps)'
+		},
+		
+		gmA3: {
+		  title: "📏 Measuring Length",
+		  instructions:'Length tells how long something is.<br>Example: "A pencil is 12 cm long.</br>',
+		  steps: [
+			"1️⃣ Choose the right unit (mm, cm, m).",
+			"2️⃣ Line up the ruler correctly.",
+			"3️⃣ Measure carefully.",
+			"4️⃣ Record the result."
+		  ],
+		  cover: '✔ MA2-GM-02(Geometric Measure A - Length: Measure and compare objects using metres, centimetres and millimetres)'
+		},
+		
+		gmA4: {
+		  title: "📐↩️ Angles as Turns",
+		  instructions:'Angles show how much something turns.<br>Example: "A quarter turn makes a right angle.</br>',
+		  steps: [
+			"1️⃣ Look at the turn.",
+			"2️⃣ Compare it to a square corner.",
+			"3️⃣ Name the angle.",
+			"4️⃣ Show it with your arms."
+		  ],
+		  cover: '✔ MA2-GM-03(Geometric Measure A - Angles: Identify angles as measures of turn)'
+		},
+		
+		//Geometric Measure B
+			gmB1: {
+			  title: "🧭 Creating Grid Maps",
+			  instructions:'Grid maps can be made to show places clearly.<br>Example: "Drawing a map of your classroom."</br>',
+			  steps: [
+				"1️⃣ Draw a grid.",
+				"2️⃣ Label rows and columns.",
+				"3️⃣ Add places.",
+				"4️⃣ Explain the map."
+			  ],
+			  cover: '✔ MA2-GM-01(Geometric Measure B - Position: Create and interpret grid maps)'
+			},
+
+			gmB2: {
+			  title: "➡️ Directions & Routes",
+			  instructions: 'Directions explain how to move from one place to another.<br>Example: "Turn left, then move forward."</br>',
+			  steps: [
+				"1️⃣ Choose a starting point.",
+				"2️⃣ Give clear directions.",
+				"3️⃣ Follow the route.",
+				"4️⃣ Check the endpoint."
+			  ],
+			  cover: '✔ MA2-GM-01(Geometric Measure B - Position: Use directional language and describe routes with grid maps)'
+			},
+			
+			gmB3: {
+			  title: "📐 Accurate Measuring",
+			  instructions: 'Scaled tools help measure accurately.<br>Example: "Measuring a desk using a metre ruler."</br>',
+			  steps: [
+				"1️⃣ Choose the correct tool.",
+				"2️⃣ Line it up carefully.",
+				"3️⃣ Read the scale.",
+				"4️⃣ Compare lengths."
+			  ],
+			  cover: '✔ MA2-GM-02(Geometric Measure B - Length: Use scaled instruments to measure and compare lengths)'
+			},
+			
+			gmB4: {
+			  title: "📐 Comparing Angles",
+			  instructions: 'Angles can be smaller or larger than a right angle.<br>Example: "An acute angle is smaller than a right angle."</br>',
+			  steps: [
+				"1️⃣ Find a right angle.",
+				"2️⃣ Compare other angles.",
+				"3️⃣ Name the angle type.",
+				"4️⃣ Explain your choice."
+			  ],
+			  cover: '✔ MA2-GM-03(Geometric Measure B - Angles: Compare angles to a right angle)'
+			},
+
+		//2D Spatial Structure A - MA2-2DS-01 compares two-dimensional shapes and describes their features
+
+		//MA2-2DS-02 performs transformations by combining and splitting two-dimensional shapes
+
+		//MA2-2DS-03 estimates, measures and compares areas using square centimetres and square metres
+		
+		ds2A1: {
+		  title: "🔺 Comparing 2D Shapes",
+		  instructions:'2D shapes are flat shapes with sides and corners.<br>Example: "A square has 4 equal sides and 4 corners."</br>',
+		  steps: [
+			"1️⃣ Look at the shape carefully.",
+			"2️⃣ Count the sides and corners.",
+			"3️⃣ Check if sides are equal or different.",
+			"4️⃣ Name the shape."
+		  ],
+		  cover: '✔ MA2-2DS-01(2D Spatial Structure A - 2D shapes: Compare and describe features of two-dimensional shapes(Shape Features))' 
+		},
+
+		ds2A2: {
+		  title: "🔄 Transforming Shapes ",
+		  instructions:'Shapes can be flipped, slid or turned.<br>Example: "Sliding a square to the right."</br>',
+		  steps: [
+			"1️⃣ Choose a shape.",
+			"2️⃣ Flip, slide or rotate it.",
+			"3️⃣ Compare before and after.",
+			"4️⃣ Describe the change."
+		  ],
+		  cover: '✔ MA2-2DS-02(2D Spatial Structure A - 2D shapes: Transform shapes by reflecting, translating and rotating)'
+		},
+		
+		ds2A3: {
+		  title: "🟦 Measuring Area (cm²)",
+		  instructions:'Area shows how much space a shape covers.<br>Example: "A rectangle covers 12 cm²."</br>',
+		  steps: [
+			"1️⃣ Cover the shape with squares.",
+			"2️⃣ Count the squares.",
+			"3️⃣ Record the area."
+		  ],
+		  cover: '✔ MA2-2DS-03(2D Spatial Structure A - Area: Use square centimetres to measure and estimate the areas of rectangles)'
+		},
+		
+		ds2A4: {
+		  title: "🏞️ Measuring Area (m²)",
+		  instructions:'Large areas are measured in square metres.<br>Example: "A classroom floor area."</br>',
+		  steps: [
+			"1️⃣ Estimate the area.",
+			"2️⃣ Use metre squares.",
+			"3️⃣ Compare estimates.",
+			"4️⃣ Discuss results."
+		  ],
+		  cover: '✔ MA2-2DS-03(2D Spatial Structure A - Area: Use square metres to measure and estimate the areas of rectangles)'
+		},
+			
+		//2D Spatial Structure B
+			ds2B1: {
+			  title: "🧩 Splitting & Combining Shapes",
+			  instructions: 'New shapes can be made by joining or splitting shapes.<br>Example: "Two triangles can make a rectangle."</br>',
+			  steps: [
+				"1️⃣ Look at the shape.",
+				"2️⃣ Cut or split into parts.",
+				"3️⃣ Join parts in a new way.",
+				"4️⃣ Name the new shape and explain it."
+			  ],
+			  cover: '✔ MA2-2DS-01(2D Spatial Structure B - 2D shapes: Create two-dimensional shapes that result from combining and splitting common shapes)' 
+			},
+
+			ds2B2: {
+			  title: "🪞 Symmetry",
+			  instructions: 'A shape is symmetrical if both sides match.<br> Example: "A butterfly shape."</br>',
+			  steps: [
+				"1️⃣ Fold the shape.",
+				"2️⃣ Check if sides match.",
+				"3️⃣ Draw the line of symmetry."
+			  ],
+			  cover: '✔ MA2-2DS-02(2D Spatial Structure B - 2D shapes: Create symmetrical patterns and shapes)'
+			},
+			
+			ds2B3: {
+			  title: "📊 Area on Grids",
+			  instructions: 'Grids help measure irregular areas.<br> Example: "Counting squares inside a shape."</br>',
+			  steps: [
+				"1️⃣ Place the shape on grid.",
+				"2️⃣ Count full and half squares.",
+				"3️⃣ Estimate the area."
+			  ],
+			  cover: '✔ MA2-2DS-03(2D Spatial Structure B - Area: Measure the areas of shapes using the grid structure)'
+			},
+			
+			ds2B4: {
+			  title: "📐 Comparing Surface Area",
+			  instructions: 'Area shows how much space a surface covers.<br>Example: "This rectangle covers more space than that one."</br>',
+			  steps: [
+				"1️⃣ Look at both surfaces.",
+				"2️⃣ Cover them using square units.",
+				"3️⃣ Count the squares.",
+				"4️⃣ Compare the totals."
+			  ],
+			  cover: '✔ MA2-2DS-03 (Two-dimensional spatial structure B – Area: Compare surfaces using familiar metric units of area)'
+			},
+
+		//3D Spatial Structure A - MA2-3DS-01 – Makes and sketches models and nets of 3D objects
+		//MA2-3DS-02 – Measures and compares capacities
+			ds3A1: {
+			  title: "🧱 Exploring 3D Objects",
+			  instructions:'3D objects have faces, edges and corners.<br>Example: "A cube has 6 square faces."</br>',
+			  steps: [
+				"1️⃣ Look at the object.",
+				"2️⃣ Count faces, edges and corners.",
+				"3️⃣ Name the object.",
+				"4️⃣ Compare with another object."
+			  ],
+			  cover: '✔ MA2-3DS-01(Three-dimensional spatial structure A - 3D objects: Make models of three-dimensional objects to compare and describe key features)'
+			},
+
+			ds3A2: {
+			  title: "🥤 Measuring Capacity",
+			  instructions: 'Capacity shows how much a container can hold.<br>Example: "A bottle holds 1 litre of water."</br>',
+			  steps: [
+				"1️⃣ Choose a container.",
+				"2️⃣ Estimate the capacity.",
+				"3️⃣ Measure using mL or L.",
+				"4️⃣ Compare results."
+			  ],
+			  cover: '✔ MA2-3DS-02 (Three-dimensional Spatial Structure A - Volume: Measure and order containers using litres)'
+			},
+			ds3A3: {
+			  title: "🥤 Comparing Volume",
+			  instructions: 'Volume shows how much space an object holds inside.<br>Example: "A bottle holds more water than a cup."</br>',
+			  steps: [
+				"1️⃣ Look at the containers.",
+				"2️⃣ Estimate which holds more.",
+				"3️⃣ Fill using water or sand.",
+				"4️⃣ Compare the results."
+			  ],
+			  cover: '✔ MA2-3DS-02 (Three-dimensional spatial structure A – Volume: Compare objects using familiar metric units of volume)'
+			},
+
+		//3D Spatial Structure B
+			ds3B1: {
+			  title: "📦 Nets & Models",
+			  instructions: 'Nets fold to make 3D objects.<br>Example: "A cube net."</br>',
+			  steps: [
+				"1️⃣ Look at the net.",
+				"2️⃣ Predict the shape.",
+				"3️⃣ Fold carefully.",
+				"4️⃣ Check the model."
+			  ],
+			  cover: '✔ MA2-3DS-01 (Three-dimensional Spatial Structure B - 3D objects: Connect three-dimensional objects and two-dimensional representations)'
+			},
+			
+			ds3B2: {
+			  title: "📐 Accurate Capacity",
+			  instructions: 'Scaled tools help measure capacity accurately.<br>Example: "Measuring 250 mL."</br>',
+			  steps: [
+				"1️⃣ Choose the measuring tool.",
+				"2️⃣ Read the scale.",
+				"3️⃣ Compare volumes."
+			  ],
+			  cover: '✔ MA2-3DS-02 (Three-dimensional Spatial Structure B - Volume: Use scaled instruments to measure and compare capacities (internal volumes))'
+			},
+		
+		//Non-Spatial Measure A
+		nsmA1: {
+			  title: "⚖️ Comparing Mass",
+			  instructions: 'Mass tells how heavy or light something is.<br>Example: "An apple weighs about 150 g."</br>',
+			  steps: [
+				"1️⃣ Hold the object.",
+				"2️⃣ Estimate if it is heavy or light.",
+				"3️⃣ Measure and compare using scales.",
+				"4️⃣ Record the mass."
+			  ],
+			  cover: '✔ MA2-NSM-01(Non-Spatial Measure A - Mass: Compare objects using the kilogram)'
+			},
+			
+			nsmA2: {
+			  title: "🕰️ Reading Analog Time",
+			  instructions: 'Clocks show time using hands.<br>Example: "2:30 is half past two."</br>',
+			  steps: [
+				"1️⃣ Read the hour hand.",
+				"2️⃣ Read the minute hand.",
+				"3️⃣ Say the time."
+			  ],
+			  cover: '✔ MA2-NSM-02(Non-Spatial Measure A - Time: Represent and read analog time)'
+			},
+
+		
+		//Non-Spatial Measure B
+		nsmB1: {
+		  title: "⚖️ Measuring Mass",
+		  instructions: 'Scales measure mass accurately.<br>Example: "An apple weighs 150 g."</br>',
+		  steps: [
+			"1️⃣ Place object on scale.",
+			"2️⃣ Read the measurement.",
+			"3️⃣ Record mass."
+		  ],
+		  cover: '✔ MA2-NSM-01(Non-Spatial Measure B - Mass: Use scaled instruments to measure and compare masses)'
+		},
+		
+		nsmB2: {
+		  title: "⏰ Reading Time",
+		  instructions: 'Time can be shown on clocks and digital displays.<br>Example: "3:30 means half past three."</br>',
+		  steps: [
+			"1️⃣ Look at the clock.",
+			"2️⃣ Read hours first.",
+			"3️⃣ Read minutes next.",
+			"4️⃣ Say the full time."
+		  ],
+		  cover: '✔ MA2-NSM-02(Non-Spatial Measure B - Time: Represent and interpret digital time displays)'
+		},
+		nsmB3: {
+		  title: "⏰ Digital Time & am/pm",
+		  instructions: 'Digital clocks show time using numbers.<br>Example: "7:45 am"</br>',
+		  steps: [
+			"1️⃣ Read the digits.",
+			"2️⃣ Identify am or pm.",
+			"3️⃣ Say the full time."
+		  ],
+		  cover: '✔ MA2-NSM-02(Non-Spatial Measure B - Time: Use am and pm notation)'
+		},
+
+		//Data A MA2-DATA-01 collects discrete data and constructs graphs using a given scale
+
+		//MA2-DATA-02 interprets data in tables, dot plots and column graphs
+		
+		dataA1: {
+			  title: "📋 Collecting Data",
+			  instructions:'Data is information we collect and record.<br> Example: "Favourite fruit choices in the class."</br>',
+			  steps: [
+				"1️⃣ Ask a question.",
+				"2️⃣ Collect answers.",
+				"3️⃣ Record tallies.",
+				"4️⃣ Count totals."
+			  ],
+			   cover: '✔ MA2-DATA-01(Data A - Collect discrete data)'
+			},
+		dataA2: {
+			  title: "📊 Displaying Data",
+			  instructions:'Graphs help us understand data.<br> Example: "A column graph shows the most popular fruit."</br>',
+			  steps: [
+				"1️⃣ Look at the title.",
+				"2️⃣ Read the labels.",
+				"3️⃣ Compare columns.",
+				"4️⃣ Answer questions."
+			  ],
+			   cover: '✔ MA2-DATA-02(Data A - Organise and display data using tables and graphs)'
+			},
+		
+
+		//Data B MA2-DATA-01 collects discrete data and constructs graphs using a given scale
+
+		//MA2-DATA-02 interprets data in tables, dot plots and column graphs
+
+		   dataB1: {
+			 title: "📋 Choosing Data Collection Methods",
+			  instructions: 'Different questions need different ways to collect data.<br>Example: "Survey or tally chart"</br>',
+			  steps: [
+				"1️⃣ Read the question.",
+				"2️⃣ Choose how to collect data.",
+				"3️⃣ Collect responses.",
+				"4️⃣ Check if the method worked well."
+			  ],
+			  cover: '✔ MA2-DATA-01 (Data B – Select and trial methods for data collection)'
+			},
+			
+			dataB2: {
+			  title: "📈 Scaled Graphs",
+			  instructions:'Scales help show large numbers clearly.<br>Example: "Each square equals 5 votes."</br>',
+			  steps: [
+				"1️⃣ Read the scale.",
+				"2️⃣ Plot the data.",
+				"3️⃣ Interpret results."
+			  ],
+			  cover: '✔ MA2-DATA-02 (Data B - Construct and interpret data displays with many-to-one scales)'
+			},
+	
+		//Chance A & B - MA2-CHAN-01 
+		//records and compares the results of chance experiments
+		chan1: {
+		  title: "🎲 Chance Experiments",
+		 instructions:'Chance shows how likely something is to happen.<br> Example: "Rolling a dice gives numbers 1 to 6."</br>',
+		  steps: [
+			"1️⃣ Choose an experiment.",
+			"2️⃣ Predict the result.",
+			"3️⃣ Try it many times.",
+			"4️⃣ Record outcomes."
+		  ],
+		  cover: '✔ MA2-CHAN-01 (Chance A & B - Identify possible outcomes from chance experiments)'
+		},
+
+		chan2: {
+		  title: "📈 Comparing Chance Results",
+		  instructions:'We compare results to see patterns.<br>Example: "6 appeared most often when rolling the dice."</br>',
+		  steps: [
+			"1️⃣ Look at results.",
+			"2️⃣ Count how often each outcome appears.",
+			"3️⃣ Compare most and least.",
+			"4️⃣ Discuss patterns."
+		  ],
+		  cover: '✔ MA2-CHAN-01 (Chance A & B - Describe the likelihood of outcomes of chance events)' 
+		},
+		
+		//SCIENCE TAB
+			  sciA1: {
+					title: "🌱 Living Things Need Energy",
+					instructions: 'Living things need air, water and food to survive.<br>Example: "Plants need sunlight and water to grow."</br>',
+					steps: [
+					  "1️⃣ Look around and list living things.",
+					  "2️⃣ List what each one needs to survive.",
+					  "3️⃣ Draw a plant and label sun, water and air.",
+					  "4️⃣ Explain what will happen if one is missing."
+					],
+					cover: "✔ ST2-SCI-01 (Physical and living systems depend on energy – Living things depend on energy and materials)"
+				  },
+
+				  sciA2: {
+					title: "🧊 Changing States of Matter",
+					instructions: 'Heat can change solids, liquids and gases.<br>Example: "Ice melts into water."</br>',
+					steps: [
+					  "1️⃣ Look at ice, water and steam pictures.",
+					  "2️⃣ Match each to solid, liquid or gas.",
+					  "3️⃣ Draw arrows to show melting and freezing.",
+					  "4️⃣ Explain what heat does."
+					],
+					cover: "✔ ST2-SCI-01 (Energy is required to change the properties of matter)"
+				  },
+
+				  sciA3: {
+					title: "🦴 How Our Body Moves",
+					instructions: 'Bones and muscles work together to help us move.<br>Example: "Your knee bends like a hinge."</br>',
+					steps: [
+					  "1️⃣ Touch your knee and elbow.",
+					  "2️⃣ Bend and straighten your arm.",
+					  "3️⃣ Draw bones and muscles.",
+					  "4️⃣ Explain how they work together."
+					],
+					cover: "✔ ST2-SCI-01 (Body systems work together to enable movement)"
+				  },
+
+				  sciA4: {
+					title: "🔥 How Heat Moves",
+					instructions: 'Heat moves from hot things to cold things.<br>Example: "A spoon gets hot in soup."</br>',
+					steps: [
+					  "1️⃣ Touch warm and cold objects (safely).",
+					  "2️⃣ Observe which gets warm faster.",
+					  "3️⃣ Draw arrows to show heat moving.",
+					  "4️⃣ Explain what happened."
+					],
+					cover: "✔ ST2-SCI-01 (Heat energy can be transferred)"
+				  },
+
+				  sciA5: {
+					title: "🌋 Forces Change the Earth",
+					instructions: 'Wind and water can change land shapes.<br>Example: "Rivers make valleys."</br>',
+					steps: [
+					  "1️⃣ Look at mountain and river pictures.",
+					  "2️⃣ Identify what changed the land.",
+					  "3️⃣ Draw before and after pictures.",
+					  "4️⃣ Explain what force caused it."
+					],
+					cover: "✔ ST2-SCI-01 (Forces shape Earth’s surface)"
+				  },
+
+				  sciA6: {
+					title: "☀️ The Sun Gives Us Energy",
+					instructions: 'The Sun gives Earth light and heat.<br>Example: "The Sun helps dry clothes."</br>',
+					steps: [
+					  "1️⃣ List things that use sunlight.",
+					  "2️⃣ Draw the Sun and Earth.",
+					  "3️⃣ Draw arrows showing sunlight.",
+					  "4️⃣ Explain why the Sun is important."
+					],
+					cover: "✔ ST2-SCI-01 (The Sun is the centre of our solar system and provides energy)"
+				  },
+				    sciA7: {
+						title: "✍️ Explaining Science in Writing",
+						instructions: 'Writing helps us explain how things work in science.<br>Example: "Plants need sunlight to make food."</br>',
+						steps: [
+						  "1️⃣ Choose one science topic (e.g., plants or heat).",
+						  "2️⃣ Write one sentence about what it needs or does.",
+						  "3️⃣ Add a drawing with labels.",
+						  "4️⃣ Read your explanation and check if it makes sense."
+						],
+						cover: "✔ ST2-SCI-01 (Creating written explanations of physical and living systems supports understanding of Science and Technology)"
+					  },
+
+				  techA1: {
+					title: "🛠️ What is Design?",
+					instructions: 'Design means planning and making something to solve a problem.<br>Example: "Designing a pencil holder."</br>',
+					steps: [
+					  "1️⃣ Identify a problem.",
+					  "2️⃣ Draw a solution.",
+					  "3️⃣ Make the model.",
+					  "4️⃣ Check if it works."
+					],
+					cover: "✔ ST2-DDT-01 (Design is a process of creating and innovating)"
+				  },
+
+				  techA2: {
+					title: "🤖 Using Digital Systems",
+					instructions: 'Digital systems follow steps to do a job.<br>Example: "A computer follows instructions."</br>',
+					steps: [
+					  "1️⃣ Write simple steps to do a task.",
+					  "2️⃣ Follow the steps exactly.",
+					  "3️⃣ Check if the result is correct.",
+					  "4️⃣ Fix the steps if needed."
+					],
+					cover: "✔ ST2-DDT-02 (Digital systems can be created and controlled)"
+				  },
 
         // MATHS DATA
-        'num1': { title: '🔢 Number & Algebra', items: ['Place Value (up to 4-digit numbers)', 'Addition & Subtraction (Mental & Written strategies)', 'Multiplication (Tables 2, 3, 5, 10 & Arrays)', 'Division (Sharing & Grouping)', 'Fractions (Halves, Quarters, Thirds)', 'Number Patterns (Skip counting)'], cover: 'Main focus: Understanding numbers, operations, and patterns' },
+		
+       /* 'num1': { title: '🔢 Number & Algebra', items: ['Place Value (up to 4-digit numbers)', 'Addition & Subtraction (Mental & Written strategies)', 'Multiplication (Tables 2, 3, 5, 10 & Arrays)', 'Division (Sharing & Grouping)', 'Fractions (Halves, Quarters, Thirds)', 'Number Patterns (Skip counting)'], cover: 'Main focus: Understanding numbers, operations, and patterns' },
         'meas1': { title: '📐 Measurement', items: ['Length (cm, m)', 'Mass (g, kg)', 'Capacity (L, mL)', 'Time (Telling time to the minute)', 'Money (Australian coins & notes)', 'Perimeter'], cover: 'Main focus: Measuring and comparing everyday things' },
         'geom1': { title: '🔺 Geometry (Space)', items: ['2D Shapes (Properties: sides, corners)', '3D Objects (Faces, edges, vertices)', 'Location & Movement (Maps & Directions)', 'Symmetry'], cover: 'Main focus: Shapes, space, and position' },
         'stat1': { title: '📊 Statistics & Probability', items: ['Data Collection (Surveys & Tallies)', 'Data Representation (Picture & Column graphs)', 'Interpreting Data', 'Chance (Likely, unlikely, impossible)'], cover: 'Main focus: Collecting and understanding data' },
-        'think1': { title: '🧠 Mathematical Thinking', items: ['Problem-solving strategies', 'Reasoning and explaining answers', 'Real-life maths (shopping, cooking)', 'Estimation and checking answers'], cover: 'Main focus: Using maths in real life' },
+        'think1': { title: '🧠 Mathematical Thinking', items: ['Problem-solving strategies', 'Reasoning and explaining answers', 'Real-life maths (shopping, cooking)', 'Estimation and checking answers'], cover: 'Main focus: Using maths in real life' },*/
 
         // TAMIL DATA
         'tam_ls': { title: '👂 Listening & Speaking', items: ['💬 Oral Conversation', '📖 Story Telling', '🎶 Recitation (Poems & Songs)', '🧠 Vocabulary'], cover: 'Focus: Oral communication skills' },
@@ -292,7 +1987,86 @@
         'sci_living': { title: '🌿 Living Things', items: ['🌱 Plants', '🐾 Animals', '🧍 Humans & Health'], cover: 'Focus: Biological world' },
         'sci_physical': { title: '⚙️ Physical World', items: ['🧲 Forces & Movement', '💡 Light', '🔊 Sound'], cover: 'Focus: Physics basics' },
         'sci_earth': { title: '🌎 Earth & Space', items: ['🌞 Sun', '🌙 Moon', '🌍 Earth', '🌦️ Weather'], cover: 'Focus: Astronomy and Earth' },
-        'sci_skills': { title: '🔍 Science Skills', items: ['👀 Observing', '🗂️ Sorting & Classifying', '🧪 Simple Experiments', '🦺 Safety Rules'], cover: 'Focus: Scientific inquiry' }
+        'sci_skills': { title: '🔍 Science Skills', items: ['👀 Observing', '🗂️ Sorting & Classifying', '🧪 Simple Experiments', '🦺 Safety Rules'], cover: 'Focus: Scientific inquiry' },
+	
+	
+        'med_quest': { 
+            title: '🧘 My Meditation Quest 🕉️', 
+            items: [
+                '<strong>1. Set the Stage 🏠</strong>',
+                'Find Quiet: Go to your favorite peaceful spot. 🤫',
+                'Sit Tall: Back straight like a superhero! 🦸‍♂️',
+                'The Magic Carpet: Sit on a clean cloth or mat. ✨',
+                '<strong>2. Your Power Beads (Mala) 📿</strong>',
+                'High & Safe: Keep your beads off the floor—they are full of energy! ⚡',
+                'Special Tool: Use them only for meditation time. 🔒',
+                'Storage: When done, tuck them into their cozy box. 📦',
+                '<strong>3. The Slow Song 🐢</strong>',
+                'Mantra: Say "Om Namah Shivaya" very... slowly... 🌬️',
+                'Listen: Match your voice to the audio. 🎧',
+                'Focus: Let the sound fill your heart like a bubble. 🫧',
+                '<strong>4. Ending with Peace 🙏</strong>',
+                'Triple Peace: Hands together... "Om Shanti, Shanti, Shanti." 🕊️',
+                'Warm Eyes: Rub your hands, touch your eyes, and peek at your palms! 👀',
+                '<em>We will see your performance and give level how you improving day by day.</em>'
+            ], 
+            cover: '✔ Focus: Mantra Meditation & Mindful Discipline' 
+        }
+,
+
+'pooja_ta': {
+    title: '🕉️ பூஜை வழிமுறை (Pooja Guide)',
+    items: [
+        '🌼 <strong>1. ஆவாஹனம் & புனிதம்</strong>',
+        '🙏 கண்களை மூடி அமைதியாக பிரார்த்தனை செய்தல்',
+        '🪔 நெற்றியில் திருநீறு அணிதல்',
+
+        '🧹 <strong>2. நிர்மால்யம் (பூஜை இடம் சுத்தம்)</strong>',
+        '🌸 நேற்றைய உலர்ந்த மலர்களை அகற்றுதல்',
+        '🧽 சுத்தமான துணியால் பூஜை இடத்தை துடைத்தல்',
+
+        '✨ <strong>3. புனித இடத்தை தயார் செய்தல்</strong>',
+        '🪷 புதிய மலர்கள் மற்றும் பூஜை பொருட்களை ஒழுங்காக அமைத்தல்',
+
+        '🚿 <strong>4. அபிஷேகம்</strong>',
+        '💧 மெதுவாகவும் கவனத்துடனும் அபிஷேகம் செய்தல்',
+
+        '🎀 <strong>5. அலங்காரம்</strong>',
+        '🌺 மலர், சந்தனம், குங்குமம் கொண்டு அலங்கரித்தல்',
+
+        '🔔 <strong>6. மந்திர ஜபம்</strong>',
+        '🕉️ "ஓம் நமசிவாய" ஒரு முறை தெளிவாக உச்சரித்தல்',
+        '📢 "ஓம் சக்தி… திருச்சிற்றம்பலம்!" என்று சத்தமாக சொல்லுதல்'
+    ],
+    cover: '✔ பக்தி • ஒழுக்கம் • மன அமைதி'
+}
+,
+	'pooja_en': {
+    title: '🕉️ Step-by-Step Pooja Guide',
+    items: [
+        '🌼 <strong>1. Invocation & Sanctity</strong>',
+        '🙏 Close your eyes and offer a silent prayer',
+        '🪔 Apply <strong>Thiruneeru(Sacred Ash)</strong> on the forehead for purity and focus',
+
+        '🧹 <strong>2. Cleaning the Altar (Nirmalyam)</strong>',
+        '🌸 Gently remove yesterday dry flowers. Do this with care and respect.',
+        '🧽 Gently wipe the pooja space with a clean cloth with respect',
+
+        '✨ <strong>3. Setting the Sacred Stage</strong>',
+        '🪷 Once the area is clean, set the place again. Arrange your vessels, fresh flowers, and pooja items in their proper spots',
+
+        '🚿 <strong>4. Abishegam</strong>',
+        '💧 Perform the Abishegam (ritual bathing of the deity) using water or other sacred offerings. Do this slowly and mindfully.',
+
+        '🎀 <strong>5. Alagram (Decoration)</strong>',
+        '🌺 Now, do the Alagram. Adorn the deity with fresh javadu, flowers, sandalwood paste, and kumkum. Make the space look beautiful and inviting.',
+
+        '🔔 <strong>6. Chanting & Sound Power</strong>',
+        '🕉️The First Mantra: Say "Om Namah Shivaya" clearly one time.',
+        '📢The Loud Proclamation: Say "Om Shakthi... Thiruchitrambalam!" in a loud voice, very slowly. Let the sound vibrate from your heart and fill the room.'    ],
+    cover: '✔ Focus: Discipline • Devotion • Mindfulness'
+}
+	
     };
 
     function login() {
@@ -305,12 +2079,23 @@
             loadTimetable();
             // Trigger New Year Popup after a short delay
             setTimeout(() => { 
-                document.getElementById('party-popup').style.display = 'block'; 
-                window.speechSynthesis.speak(new SpeechSynthesisUtterance("Happy New Year Krishav! We have updated the website as you requested."));
+                //document.getElementById('party-popup').style.display = 'block';
+				document.getElementById('homeschool-message').style.display = 'block';
+				window.speechSynthesis.speak(new SpeechSynthesisUtterance("Hello, Krishav! We have been watching your journey, and we wanted to share some thoughts with you. First, the wonderful news! From the very first day you started homeschooling, your smile has been like a bright sun in the morning. We have absolutely loved watching your videos. Whether you are singing dedicated singing devotional/carnatic songs, Nayanmars stories,practicing handwriting,way of enjoying art work and even safely chopping vegetables in the kitchen—you are doing a brilliant job! You are a very precious and talented student. For your information, we have modified/added new changes in the website depends on your curriculum/syllabus(Soon we will give activity on each topic) and General Discipline,Learning Guide,TimeTable,Devotion and Few subjects(English,Maths,Science). Take 30 mins time to view and read everything and make note of it. Now, Krishav, did you know that homeschooling is like a special team sport? To keep the magic happening, we have to follow a few important Team discipline. From last week we notice you've been not logged on time and its too late to start recording your subjects. To keep having fun at home, we need you to be a Homeschooling Hero by following three simple goals.One. The Golden Clock. Try to wake up and log in exactly on time. Two. The Quiet Zone. Find a quiet place and dress up in your smart clothes for the camera. And three. The Cooking Rule. You can have very soft music for one day, but please look at the camera and talk to us while you cook. We love hearing your voice!Your Mom and Dad love you so much and we are all on your team. Let’s start learning with a big smile and a ready heart. We know you can do it, Krishav!"));
             }, 800);
         } else { alert("Incorrect Details!"); }
     }
-
+	
+	/*function playClaps() {
+        // This simulates the clap sound you mentioned
+        const audio = new Audio('https://www.myinstants.com/media/sounds/applause_8.mp3');
+        audio.play();
+    }*/
+	
+    function closeMessage() {
+        document.getElementById('homeschool-message').style.display = 'none';
+    }
+	
     function closeParty() {
         document.getElementById('party-popup').style.display = 'none';
     }
@@ -346,25 +2131,386 @@
         display.innerHTML = "";
         document.getElementById('btn-start').disabled = false;
         
-        if(sub === 'English') {
+        if (sub === 'Discipline') {
+            title.innerText = "NSW Homeschoolers: Discipline & Responsibilities";
             content.innerHTML = `
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🎧 Oral Language & Communication</strong><span class="chevron-arrow">▶</span></div>
-                <div class="chevron-content">
-                    <button class="child-btn" onclick="loadSubActivity('speak1')">💬Share Ideas</button><button class="child-btn" onclick="loadSubActivity('speak2')">📖Story Telling</button><button class="child-btn" onclick="loadSubActivity('speak3')">🧠Vocabulary</button>
-                    <button class="child-btn" onclick="loadSubActivity('speak4')">🎭Expression</button><button class="child-btn" onclick="loadSubActivity('speak5')">🎤 Presenting</button><button class="child-btn" onclick="loadSubActivity('listen1')">👂Main Ideas</button>
-                    <button class="child-btn" onclick="loadSubActivity('listen2')">❓Questions</button><button class="child-btn" onclick="loadSubActivity('listen3')">🔗Meaning</button><button class="child-btn" onclick="loadSubActivity('listen4')">🎭Tone/Body</button><button class="child-btn" onclick="loadSubActivity('listen5')">🔁Retell</button>
-                </div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📘 Vocabulary</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('vocab1')">📚Build Word Knowledge</button><button class="child-btn" onclick="loadSubActivity('vocab2')">🔗Word Meanings</button><button class="child-btn" onclick="loadSubActivity('vocab3')">✨Word Features</button><button class="child-btn" onclick="loadSubActivity('vocab4')">🌍Origins/Digital</button><button class="child-btn" onclick="loadSubActivity('vocab5')">🧩Analyse/Play</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📖 Reading Fluency</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('fluency1')">⏱️Accuracy/Rate</button><button class="child-btn" onclick="loadSubActivity('fluency2')">🔍Solving Strategies</button><button class="child-btn" onclick="loadSubActivity('fluency3')">🎭Prosody/Expression</button><button class="child-btn" onclick="loadSubActivity('fluency4')">📈Reflect/Improve</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📚 Reading Comprehension</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('comp1')">🎯Purpose</button><button class="child-btn" onclick="loadSubActivity('comp2')">🧱Text Types</button><button class="child-btn" onclick="loadSubActivity('comp3')">🧠Language</button><button class="child-btn" onclick="loadSubActivity('comp4')">💡Inferences</button><button class="child-btn" onclick="loadSubActivity('comp5')">🛠️Monitor</button><button class="child-btn" onclick="loadSubActivity('comp6')">💬Reflect</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>✍️ Creating Written Texts</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('write1')">🌈Imaginative</button><button class="child-btn" onclick="loadSubActivity('write2')">📝Informative</button><button class="child-btn" onclick="loadSubActivity('write3')">⚖️Persuasive</button><button class="child-btn" onclick="loadSubActivity('write4')">🔠Sentence/Grammar</button><button class="child-btn" onclick="loadSubActivity('write5')">📌Punctuation</button><button class="child-btn" onclick="loadSubActivity('write6')">🚀Plan/Edit</button></div></div>`;
+                <p style="color: #666; font-style: italic;">Note: This is not a set of rules. It highlights discipline and responsibilities to ensure an effective and joyful learning experience.</p>
+                <div class="discipline-card disc-1">
+                    <div class="disc-title">⏰ 1. Punctuality</div>
+                    <p>Be attentive and on time so that you can complete your day’s tasks as scheduled.</p>
+                </div>
+                <div class="discipline-card disc-2">
+                    <div class="disc-title">🤫 2. Learning Environment</div>
+                    <p>Record all activities in a quiet space with no background noise.</p>
+                </div>
+                <div class="discipline-card disc-3">
+                    <div class="disc-title">😊 3. Positive Attitude</div>
+                    <p>Start each day with a big smile from your heart. Remember: all subject teachers will be observing your activities via video and notes.</p>
+                </div>
+                <div class="discipline-card disc-4">
+                    <div class="disc-title">👕 4. Dress Code</div>
+                    <p>Wear comfortable and presentable clothing just as you would for school.</p>
+                </div>
+                <div class="discipline-card disc-1">
+                    <div class="disc-title">🧘 5. Posture</div>
+                    <p>Sit in Sukhasanam (cross-legged with a straight spine) or an upright chair posture. Good posture supports back health and brain function.</p>
+                </div>
+                <div class="discipline-card disc-2">
+                    <div class="disc-title">🗣️ 6. Voice & Expression</div>
+                    <p>Speak, read, and sing loudly and clearly while recording.</p>
+                </div>
+                <div class="discipline-card disc-3">
+                    <div class="disc-title">📂 7. Organization & Record Keeping</div>
+                    <p>Date every activity and maintain a separate file for each subject. Record all tasks including meals, helping parents, sports, and sleep (9 hours).</p>
+                </div>
+                <div class="discipline-card disc-4">
+                    <div class="disc-title">💧 8. Daily Needs</div>
+                    <p>Inform via video whenever you need to drink water or use the toilet.</p>
+                </div>
+                <div class="discipline-card disc-1">
+                    <div class="disc-title">🎥 9. Commitment to Recording</div>
+                    <p>No excuses for missing recordings unless there is an important reason. Parents must notify teachers if a recording cannot be made.</p>
+                </div>
+                <div class="discipline-card disc-2">
+                    <div class="disc-title">🌙 10. End of Day Routine</div>
+                    <p>Prepare everything for the next day before going to sleep. Ensure this preparation is recorded to maintain accountability.</p>
+                </div>
+            `;
+            document.getElementById('btn-start').disabled = true; // No recording for general notes
+        } else if(sub === 'English') {
+            content.innerHTML = `
+               	<div class="chevron-box">
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>🎧 Oral Language & Communication</strong><span class="chevron-arrow">▶</span>
+                </div>
+					
+				<div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> EN2-OLC-01 - Communicates with familiar audiences for social and learning purposes by interacting, understanding and presenting.
+                        </div>
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('speak1')">1.💡Sharing Ideas  (Expressing thoughts clearly- Interacting)</button>
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('speak2')"> 2. 👂Listening & Understanding (Active listening skills)</button>
+					   <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('speak3')">3. ❓Asking & Answering Questions(Clarifying meaning)</button>
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('speak4')">4. 🤝 Turn-Taking & Conversation(Social communication skills- Interacting)</button>                        
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('speak5')">5. 🎭Using Voice & Expression (Tone, volume and body language)</button>
+					   <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('speak6')">6.🎤 Presenting to an Audience (Sharing ideas confidently)</button>
+						
+                    </div>
+				</div>
+				
+               				
+				<div class="chevron-box">
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>📘 Vocabulary </strong><span class="chevron-arrow">▶</span>
+                </div>
+					
+				<div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> EN2-VOCAB-01 - Builds knowledge and use of Tier 1, Tier 2 and Tier 3 vocabulary through interacting, wide reading and writing.
+                        </div>
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('vocab1')">1. 🏠Everyday Words (Tier 1 - Common words we use daily)</button>
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('vocab2')"> 2. ✨Interesting Words (Tier 2 -Learning and using words)</button>
+					   <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('vocab3')">3. 🔬Topic Words (Tier 3 - Subject-specific words- Learning and using words)</button>
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('vocab4')">4. 🔗 Word Meanings(Understanding new words - Defining and analysing words)</button>                        
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('vocab5')">5. 🔍Word Features (How words work - Defining and analysing words)</button>
+					   <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('vocab6')">6. ✍️ Using New Words (Learning and using words- Applying vocabulary in context)</button>
+						
+                    </div>
+				</div>
+				
+				<div class="chevron-box">
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>📖 Reading Fluency</strong><span class="chevron-arrow">▶</span>
+                </div>
+					
+				<div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> EN2-REFLU-01 - Sustains independent reading with accuracy, automaticity, rate and prosody suited to purpose and meaning.
+                        </div>
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('fluency1')">1. 🎯Reading Accurately (Understanding the Text- Reading for interest and wide purposes - Reading automaticity and rate)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('fluency2')"> 2. 📌 Reading Smoothly(Automatic reading)</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('fluency3')">3. ⏱️ Reading at the Right Speed(Rate of reading - Reading automaticity and rate)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('fluency4')">4. 🎭 Prosody(Using Expression)</button>                        
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('fluency5')">5. 📈Reflect/Improve(Self-Monitoring)</button>
+                    </div>
+				</div>
+				
+				
+				
+                <div class="chevron-box">
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>📚 Reading Comprehension</strong><span class="chevron-arrow">▶</span>
+                </div>
+					
+				<div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> EN2-RECOM-01 -Reads and comprehends texts using knowledge of text structures and language features.
+                        </div>
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('comp1')">1. 💡 Basic comprehension(Understanding the Text- Reading for interest and wide purposes)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('comp2')">2. 📌 Finding Main Ideas(Comprehending language)</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('comp3')">3. 🔍 Finding Details(Comprehending language)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('comp4')">4. 🧱 Text Structure & Organisation(How texts are organised- Comprehending text structures and features)</button>                        
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('comp5')">5. 🧠 Monitoring Comprehension (Understanding/Checking comprehension)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('comp6')">6. 💬 Responding to Text(Thinking and responding)</button>
+                    </div>
+				</div>
+					
+				<div class="chevron-box">
+                    <div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>✍️ Creating Written Texts </strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> EN2-CWT-01 (Imaginative), EN2-CWT-02 (Informative), EN2-CWT-03 (Persuasive) - plans, creates and revises written texts for imaginative purposes, using text features, sentence-level grammar, punctuation and word-level language for a target audience.
+
+                        </div>
+                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step1')">1. 💡 Planning & Ideas(Planning and composing)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step2')">2. ⚖️ Purpose & Audience(Creating texts for specific purposes-Imaginative, Informative, and Persuasive)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step3')">3. 🧱 Text Structure & Organisation(Text forms and features-headings, paragraphs)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step4')">4. 🔠 Sentence Construction(Grammar and sentence-level skills)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step5')">5. ✨ Vocabulary Choice(Language choices)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step6')">6. 🚀 Editing & Publishing(Revising and editing)</button>
+                    </div>
+                </div>
+				<div class="chevron-box">
+                    <div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>🔤 Spelling </strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> EN2-SPELL-01 
+selects, applies and describes appropriate phonological, orthographic and morphological generalisations and strategies when spelling in a range of contexts.
+							<br>Your order:</br>
+							Sounds → patterns → rules → memory → application
+
+                        </div>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('spell1')">1. 🔊Phonics & Sound Patterns-(Hear the sounds- Phonological component)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('spell2')">2. ⭐High-Frequency Words-(Find similar words - Orthographic component)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('spell3')">3. ⚙️ Spelling Rules & Patterns-(Learn spelling rules - Orthographic component)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('spell4')">4. 🧱 Word Families -(Practise common words - Phonological component)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('spell5')">5. 👁️Visual & Memory Strategies-(Remember tricky words - Orthographic component)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('spell6')">6. ✏️Spelling in Context - (Use spelling in writing-Morphological component)</button>
+                    </div>
+                </div>
+				
+				<div class="chevron-box">
+                    <div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>✍️ Handwriting & Digital Transcription </strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> EN2-HANDW-01- To develop handwriting fluency, accuracy and legibility, and use digital tools to create written texts. <br>EN2-HANDW-02 -uses digital technologies to create texts.</br>
+							<br>Your order:</br>
+							Physical readiness → handwriting → fluency → digital skills
+
+                        </div>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('hand1')">1. ✋ Fine Motor Control</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('hand2')">2. 🔤 Letter Formation</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('hand3')">3. 📝 Spacing & Alignment</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('hand4')">4. 🚀 Writing Speed & Fluency</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('hand5')">5. ⌨️ Keyboard Skills</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('hand6')">6. 🎯 Typing Accuracy</button>
+                    </div>
+                </div>
+				
+				<div class="chevron-box">
+                    <div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>📚 Understanding & Responding to Literature</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> EN2-UARL-01 - Students read, view and respond to texts by identifying key ideas, making connections, expressing personal responses and participating in discussions.
+							<br>Your order:</br>
+							Comprehension → interpretation → response → discussion
+
+                        </div>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('lit1')">1. 📖 Comprehension(Understand the text)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('lit2')">2. 📌Main Ideas & Details(Find important ideas-Theme & Genre)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('lit3')">3. 🎭 Characters & Settings(Know characters and places-Characterisation)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('lit4')">4. 🔗 Making Connections & Personal Responses(Connect to your life-Perspective, Context, and Imagery)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('lit5')">5. 💬Personal Responses(Share your thoughts)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('lit6')">6. 🗣️ Discussion & Reflection(Talk and think deeper-Argument and authority)</button>
+                    </div>
+                </div>
+				
+                </div>`;
+
         } else if (sub === 'Maths') {
             content.innerHTML = `
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🔢 Number & Algebra</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('num1')">🔢Place Value</button><button class="child-btn" onclick="loadSubActivity('num1')">➕Addition</button><button class="child-btn" onclick="loadSubActivity('num1')">➖Subtraction</button><button class="child-btn" onclick="loadSubActivity('num1')">✖️Multiplication</button><button class="child-btn" onclick="loadSubActivity('num1')">➗</button><button class="child-btn" onclick="loadSubActivity('num1')">🧩Fractions</button><button class="child-btn" onclick="loadSubActivity('num1')">🔁Number Patterns</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📐 Measurement</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('meas1')">Measuring/Comparing</button><button class="child-btn" onclick="loadSubActivity('meas1')">📏Length</button><button class="child-btn" onclick="loadSubActivity('meas1')">⚖️Mass</button><button class="child-btn" onclick="loadSubActivity('meas1')">🥛Capacity</button><button class="child-btn" onclick="loadSubActivity('meas1')">⏰Time</button><button class="child-btn" onclick="loadSubActivity('meas1')">💰Money</button><button class="child-btn" onclick="loadSubActivity('meas1')">🔲Perimeter</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🔺Geometry (Space)</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('geom1')">🧊Shapes</button><button class="child-btn" onclick="loadSubActivity('geom1')">🧱Space</button><button class="child-btn" onclick="loadSubActivity('geom1')">🧭Directions</button><button class="child-btn" onclick="loadSubActivity('geom1')">🗺️Maps</button><button class="child-btn" onclick="loadSubActivity('geom1')">➡️Movement</button><button class="child-btn" onclick="loadSubActivity('geom1')">🔁Patterns</button><button class="child-btn" onclick="loadSubActivity('geom1')">🪞Symmetry</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📊 Statistics & Probability</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('stat1')">📝Data Collection</button><button class="child-btn" onclick="loadSubActivity('stat1')">📊Picture Graphs</button><button class="child-btn" onclick="loadSubActivity('stat1')">📈Column Graphs</button><button class="child-btn" onclick="loadSubActivity('stat1')">🔍Interpreting Data</button><button class="child-btn" onclick="loadSubActivity('stat1')">🎲Chance</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🧠 Thinking & Problem Solving</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('think1')">🧩Strategies</button><button class="child-btn" onclick="loadSubActivity('think1')">💭Reasoning</button><button class="child-btn" onclick="loadSubActivity('think1')">🏠Real-life maths</button><button class="child-btn" onclick="loadSubActivity('think1')">✅Estimation</button></div></div>`;
+                <div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>🔢 Number & Algebra</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.<br>MA2-RN-01- applies an understanding of place value and the role of zero to represent numbers to at least tens of thousands.</br><br>MA2-RN-02 - represents and compares decimals up to 2 decimal places using place value</br>
+					</div>				
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pvA1')">1. 🔢Place Value (Read, represent and order numbers to thousands)</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pvA2')">2.🧱 Building Numbers with Place Value(Apply place value to partition)</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pvA3')">🔁 Regrouping Numbers(Regroup numbers up to 4 digits)</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pvB1')">📊 Ordering Numbers (Thousands)</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pvB2')">✖️ Numbers ×10, ×100, ×1000(Recognise and represent numbers)</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pvB3')">🔟 Tenths & Hundredths (Decimals)</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pvB4')">🔗 Fractions & Decimals Connection</button>
+					</div>
+			</div>				
+				
+			<div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>➕Additive Relations</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.</br><br>MA2-AR-01- selects and uses mental and written strategies for addition and subtraction involving 2- and 3-digit numbers</br><br>MA2-AR-02-completes number sentences involving addition and subtraction by finding missing values</br>
+					</div>	
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('arA1')">1. ⚖️ Principle of Equality & Balancing Numbers</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('arA2')"> 2.➕Addition & Subtraction Connection </button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('arA3')">3.🧠 Flexible Strategies (Up to 3 Digits) </button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('arA4')">4.💰 Representing Money</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('arB1')">5.🧩 Partitioning & Regrouping</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('arB2')">6.🏪 Real-Life Additive Problems</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('arB3')">7.❓ Missing Numbers</button>
+					</div>
+			</div>
+					
+			<div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>✖️ Multiplication Relations</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.</br>
+							<br>MA2-MR-01-represents and uses the structure of multiplicative relations to 10 × 10 to solve problems</br><br>MA2-MR-02-completes number sentences involving multiplication and division by finding missing values</br>
+					</div>					
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrA1')">1. 🔢 Patterns & Groups </button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrA2')">2.🧱 Arrays for Multiplication</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrA3')">3.✖️ Multiplication Facts (2, 4, 5 & 10)</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrA4')">4.🔁 Fact Families</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrB1')">5.🔁 Number Sequences & Multiples</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrB2')">6.🧠 Using Known Facts</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrB3')">7.📐 Area Model</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrB4')">8.🔗 Number Properties</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrB5')">9.🔟 Multiples of 10</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('mrB6')"> 10.📝 Word Problems</button>
+					</div>
+			</div>
+			
+			<div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>🍰Partitioned Fractions</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.</br>MA2-PF-01-represents and compares halves, quarters, thirds and fifths as lengths on a number line and their related fractions formed by halving (eighths, sixths and tenths)</br>
+					</div>				
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pfA1')">1. 🍕 Understanding Equal Parts </button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pfA2')">2.📏 Fractions on a Number Line </button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pfB1')">3.🔄 Equivalent Fractions</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('pfB2')">4.➕ Fractions Greater Than One</button>
+					</div>
+			</div>
+			
+			<div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>📐Geometric measure</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.</br>
+							<br>MA2-GM-01-uses grid maps and directional language to locate positions and follow routes</br>
+							<br>MA2-GM-02-measures and estimates lengths in metres, centimetres and millimetres</br>
+							<br>MA2-GM-03-identifies angles and classifies them by comparing to a right angle</br>
+					</div>	
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('gmA1')">1. 🗺️ Using Maps & Directions</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('gmA2')"> 2.📍 Grid Maps </button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('gmA3')">3.📏 Measuring Length </button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('gmA4')"> 4.📐↩️ Angles as Turns</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('gmB1')">5.🧭 Creating Grid Maps</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('gmB2')">6.➡️ Directions & Routes/button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('gmB3')">7.📐 Accurate Measuring</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('gmB4')">7.📐 Comparing Angles</button>
+					</div>
+			</div>
+			
+			<div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>🟦Two-dimensional (2D) spatial structure</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.</br><br>MA2-2DS-01-compares two-dimensional shapes and describes their features</br><br>MA2-2DS-02-performs transformations by combining and splitting two-dimensional shapes</br><br>MA2-2DS-03-estimates, measures and compares areas using square centimetres and square metres</br>
+					</div>	
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds2A1')">1. 🔺 Comparing 2D Shapes</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds2A2')">2. 🔄 Transforming Shapes </button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds2A3')"> 3.🟦 Measuring Area (cm²) </button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds2A4')"> 4.🏞️ Measuring Area (m²)</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds2B1')"> 5.🧩 Splitting & Combining Shapes</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds2B2')"> 6.🪞 Symmetry</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds2B3')"> 7.📊 Area on Grids</button> 
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds2B4')"> 8.📐 Comparing Surface Area</button>
+					</div>
+			</div>
+			
+			<div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>🧊3D Spatial Structure</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.</br><br>MA2-3DS-01-makes and sketches models and nets of three-dimensional objects including prisms and pyramids</br><br>MA2-3DS-02-estimates, measures and compares capacities (internal volumes) using litres, millilitres and volumes using cubic centimetres</br>
+					</div>	
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds3A1')">1. 🧱 Exploring 3D Objects</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds3A2')"> 2.🥛 Measuring Capacity </button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds3A3')"> 3.🥤 Comparing Volume </button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds3B1')"> 4.📦 Nets & Models</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('ds3B2')"> 5.📐 Accurate Capacity</button>
+					</div>
+			</div>
+			
+			<div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>🌡️Non-Spatial Measure</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.</br><br>MA2-NSM-01-estimates, measures and compares the masses of objects using kilograms and grams.</br><br>MA2-NSM-02-represents and interprets analog and digital time in hours, minutes and seconds.</br>
+					</div>	
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('nsmA1')">1. ⚖️ Comparing Mass</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('nsmA2')"> 2.🕰️ Reading Analog Time </button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('nsmB1')"> 3.⚖️ Measuring Mass </button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('nsmB2')"> 4.⏰ Reading Time</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('nsmB3')"> 5.⏰ Digital Time & am/pm</button>
+					</div>
+			</div>
+			
+			<div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>📊Statistics(Data)</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.</br><br>MA2-DATA-01-collects discrete data and constructs graphs using a given scale</br><br>MA2-DATA-02-interprets data in tables, dot plots and column graphs</br>
+					</div>	
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('dataA1')">1. 📋 Collecting Data</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('dataA2')"> 2.📊 Displaying Data</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('dataB1')"> 3.📋 Choosing Data Collection Methods </button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('dataB2')"> 4.📈 Scaled Graphs</button>
+					</div>
+			</div>
+			
+			<div class="chevron-box">				
+				<div class="chevron-header" onclick="toggleAccordion(this)" style="background: #e3f2fd; color: var(--nsw-blue);">
+                        <strong>🎡Probability(Chance)</strong><span class="chevron-arrow">▶</span>
+                    </div>
+                    <div class="chevron-content">
+                        <div style="background: #fff9e6; padding: 10px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--gold); font-size: 13px;">
+                            <strong>NSW Outcomes:</strong> A student develops understanding and fluency in mathematics through exploring and connecting mathematical concepts, choosing and applying mathematical techniques to solve problems, and communicating their thinking and reasoning coherently and clearly.</br><br>MA2-CHAN-01-records and compares the results of chance experiments</br>
+					</div>	
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('chan1')"> 1. 🎲 Chance Experiments</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('chan2')"> 2.📈 Comparing Chance Results</button> 
+					</div>
+			</div>
+			`;
         } else if (sub === 'Tamil') {
             content.innerHTML = `
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>👂 Listening & Speaking</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_ls')">💬 Oral Conversation</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">📖 Story Telling</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">🎶 Recitation</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">🧠 Vocabulary</button></div></div>
@@ -386,19 +2532,56 @@
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🚗 Human Activities</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('geo_act')">🏘️ Homes</button><button class="child-btn" onclick="loadSubActivity('geo_act')">🚍 Transport</button><button class="child-btn" onclick="loadSubActivity('geo_act')">♻️ Environment Care</button></div></div>`;
         } else if (sub === 'Science') {
             content.innerHTML = `
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🌿 Living Things</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('sci_living')">🌱 Plants</button><button class="child-btn" onclick="loadSubActivity('sci_living')">🐾 Animals</button><button class="child-btn" onclick="loadSubActivity('sci_living')">🧍 Humans & Health</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>⚙️ Physical World</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('sci_physical')">🧲 Forces & Movement</button><button class="child-btn" onclick="loadSubActivity('sci_physical')">💡 Light</button><button class="child-btn" onclick="loadSubActivity('sci_physical')">🔊 Sound</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🌎 Earth & Space</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('sci_earth')">🌞 Sun & Moon</button><button class="child-btn" onclick="loadSubActivity('sci_earth')">🌍 Earth</button><button class="child-btn" onclick="loadSubActivity('sci_earth')">🌦️ Weather</button></div></div>
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🔍 Science Skills</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('sci_skills')">👀 Observing</button><button class="child-btn" onclick="loadSubActivity('sci_skills')">🗂️ Sorting</button><button class="child-btn" onclick="loadSubActivity('sci_skills')">🧪 Experiments</button><button class="child-btn" onclick="loadSubActivity('sci_skills')">🦺 Safety</button></div></div>`;
-        } else if (sub === 'Heritage') {
-            content.innerHTML = `
-<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Devotion</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Pooja</button><button class="child-btn">Mantra Meditation</button>
-<button class="child-btn">Meditation(Observe Natural Breath)</button></div></div>
-                
+                <div class="chevron-box">
+					  <div class="chevron-header" onclick="toggleAccordion(this)" style="background:#e3f2fd; color: var(--nsw-blue);">
+						<strong>🔬 Science – Physical & Living Systems</strong><span class="chevron-arrow">▶</span>
+					  </div>
 
-<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Daily Routine & Life Skills</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">🪥 Brushing & Personal Hygiene</button><button class="child-btn">🍽️ Eating(Breakfast / Lunch / Dinner Time)</button><button class="child-btn">🏠 Helping parents(Home Responsibilities)</button><button class="child-btn">👩‍🍳🍲Art of Cooking</button><button class="child-btn">📖 Family reading & Speaking (Mom / Dad)</button></div></div>
-                
-<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Saivam</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Temple Protocols</button><button class="child-btn">Basic Shlokas</button><button class="child-btn">Saivam Culture,Values & Manners</button><button class="child-btn">Saiva Scripture</button></div></div>
+					  <div class="chevron-content">
+						<div style="background:#fff9e6; padding:10px; border-radius:6px; margin-bottom:10px; border-left:4px solid var(--gold); font-size:13px;">
+						  <strong>NSW Outcomes:</strong><br>
+						  ST2-SCI-01-uses information to investigate the solar system and the effects of energy on living, physical and geological systems.</br>
+						  <br>ST2-PQU-01-poses questions to create fair tests that investigate the effects of energy on living things and physical systems.</br>
+						  <br>ST2-DAT-01-uses and interprets data to describe patterns and relationships</br>
+						</div>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('sciA1')"> 1. 🌱 Living Things Need Energy</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('sciA2')"> 2. 🧊 Changing Matter</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('sciA3')"> 3. 🧍 Body Movement Systems</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('sciA4')"> 4. 🔥 Heat Energy Transfer</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('sciA5')"> 5. 🌍 Forces Shape Earth</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('sciA6')"> 6. ☀️ The Sun & Solar System</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('sciA7')"> 7. ✍️ Writing Science Explanations</button>
+						</div>
+			  </div>
+
+			  <div class="chevron-box">
+				  <div class="chevron-header" onclick="toggleAccordion(this)" style="background:#e3f2fd; color: var(--nsw-blue);">
+					<strong>💡 Technology – Design & Digital Systems</strong><span class="chevron-arrow">▶</span>
+				  </div>
+
+				  <div class="chevron-content">
+					<div style="background:#fff9e6; padding:10px; border-radius:6px; margin-bottom:10px; border-left:4px solid var(--gold); font-size:13px;">
+					  <strong>NSW Outcomes:</strong><br>
+					  ST2-DDT-01-uses a design process to create products to address user needs or opportunities.</br>
+					  <br>ST2-DDT-02-designs and uses algorithms, represents data and uses digital systems for a purpose</br>
+					</div>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('techA1')">1. 🛠️ Design is a Process</button>
+					<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('techA2')">2. 💻 Digital Systems</button>
+
+				  </div>
+				</div>`;
+			} else if (sub === 'Heritage') {
+            content.innerHTML = `
+				<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Devotion</strong><span class="chevron-arrow">▶</span>
+				</div><div class="chevron-content">
+				<button class="child-btn"  onclick="loadSubActivity('pooja_ta')">🪔Pooja</button>
+				<button class="child-btn" onclick="loadSubActivity('med_quest')">🧘Mantra Meditation</button>
+				<button class="child-btn">🧘Meditation(Observe Natural Breath)</button></div></div>
+								
+
+				<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Daily Routine & Life Skills</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">🪥 Brushing & Personal Hygiene</button><button class="child-btn">🍽️ Eating(Breakfast / Lunch / Dinner Time)</button><button class="child-btn">🏠 Helping parents(Home Responsibilities)</button><button class="child-btn">👩‍🍳🍲Art of Cooking</button><button class="child-btn">📖 Family reading & Speaking (Mom / Dad)</button></div></div>
+								
+				<div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🕉️ Saivam</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Temple Protocols</button><button class="child-btn">Basic Shlokas</button><button class="child-btn">Saivam Culture,Values & Manners</button><button class="child-btn">Saiva Scripture</button></div></div>
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📜 Thirumurai</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Panniru Thirumurai Overview</button><button class="child-btn">Key Verses</button></div></div>
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🪔 Marabu Kalvi</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Tamil Traditions</button><button class="child-btn">Art & Music Heritage</button></div></div>
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>🧘 Saiva Siddhantam</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn">Pati Pasu Pasam</button><button class="child-btn">36 Tattvas</button></div></div>
@@ -497,7 +2680,7 @@
 
 <h4>பெண் சித்தர்கள்:</h4>
 <button class="child-btn">ஔவையார்</button>
-<button class="child-btn">திலோத்தமையார்</button>
+<button class="child-btn">தिलोத்தமையார்</button>
 <button class="child-btn">சக்கரை அம்மா</button>
 <button class="child-btn">அம்மணியம்மாள்</button></div></div>
 
@@ -514,30 +2697,67 @@
         duration = match ? match.dur * 60 : 1800;
     }
 
-    function loadSubActivity(key) {
-        const data = speechData[key];
+function loadSubActivity(key) {
+const data = speechData[key];
         const display = document.getElementById('sub-activity-display');
+        
+        // Check if the content has the "steps" array (The 6-Step mission style)
+        if (data.steps) {
+        const stepsHtml = data.steps.map(s => `
+            <div style="background: white; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); font-size: 14px; color: #333; display: block; width: 100%; box-sizing: border-box;">
+                ${s}
+            </div>
+        `).join('');
+
+        display.innerHTML = `
+            <div class="sub-activity-box" style="background: #f0f7ff; border-left: 10px solid var(--nsw-blue); padding: 20px;">
+			<span class="close-icon" onclick="document.getElementById('sub-activity-display').innerHTML = ''" title="Close">
+                &times;
+            </span>
+                <h3 style="color: var(--nsw-blue); margin-top: 0;">${data.title}</h3>
+                <p style="color: #666; font-style: italic; margin-bottom: 15px;">${data.instructions}</p>
+                <div style="display: flex; flex-direction: column;">${stepsHtml}</div>
+                <div style="margin-top: 15px; font-size: 12px; color: var(--success); font-weight: bold; border-top: 1px solid #eee; padding-top: 10px;">${data.cover}</div>
+            </div>`;
+    } else {
+        // Standard layout for items without steps
+        const listItems = data.items.map(i => `<li>${i}</li>`).join('');
         display.innerHTML = `
             <div class="sub-activity-box">
-                <div id="prog-${key}" class="progress-toggle" onclick="toggleProgress('${key}')">☐ Practising</div>
+			<span class="close-icon" onclick="document.getElementById('sub-activity-display').innerHTML = ''" title="Close">
+                &times;
+            </span>
                 <h4>${data.title}</h4>
-                <p><strong>What the child learns/practises:</strong></p>
-                <ul>${data.items.map(i => `<li>${i}</li>`).join('')}</ul>
-                <p style="color:var(--success); font-weight:bold;">${data.cover}</p>
-            </div>
-        `;
+                <ul>${listItems}</ul>
+                <p style="font-size:11px; color:var(--success);">${data.cover}</p>
+            </div>`;
     }
+    display.scrollIntoView({ behavior: 'smooth' });
+}
 
-    function toggleProgress(key) {
-        const btn = document.getElementById('prog-' + key);
-        if(btn.innerText === '☐ Practising') {
-            btn.innerText = '✔ Done';
-            btn.classList.add('done');
-        } else {
-            btn.innerText = '☐ Practising';
-            btn.classList.remove('done');
-        }
-    }
+/*function loadSubActivity(key) {
+    const data = speechData[key];
+    const display = document.getElementById('sub-activity-display');
+    
+    display.innerHTML = `
+        <div class="sub-activity-box" style="position: relative;">
+            <span class="close-icon" onclick="document.getElementById('sub-activity-display').innerHTML = ''" title="Close">
+                &times;
+            </span>
+            <h4 style="margin-top: 0;">Target: ${data.title}</h4>
+            <ul style="padding-left: 20px; margin-bottom: 10px;">
+                ${data.items.map(li => `<li>${li}</li>`).join('')}
+            </ul>
+            <div style="font-size:11px; color:#28a745; border-top:1px solid #ddd; padding-top:5px;">
+                ${data.cover}
+            </div>
+        </div>
+    `;
+    
+    // Smoothly scroll down to the activity box
+    display.scrollIntoView({ behavior: 'smooth' })
+
+}*/
 
     async function startRecording() {
         try {
@@ -554,6 +2774,10 @@
             document.getElementById('nesa-msg').style.display = 'block';
             window.speechSynthesis.speak(new SpeechSynthesisUtterance(msg));
             
+            // Re-set default popup text
+            document.getElementById('success-heading').innerText = "Krishav, you are progressing well!";
+            document.getElementById('success-msg').innerText = "Need to continue happily with your learning!";
+
             setTimeout(() => { document.getElementById('success-popup').style.display = 'block'; }, 3000);
 
             let remaining = duration;
@@ -577,6 +2801,13 @@
         
         const sub = document.getElementById('current-title').innerText;
         lockedSubjects.add(sub);
+
+        // ENCOURAGEMENT MESSAGE LOGIC
+        const encourageMsg = "Good job Krishav! I was amazed, you did your mantra meditation so well. Great work!";
+        document.getElementById('success-heading').innerText = "Excellent Work!";
+        document.getElementById('success-msg').innerText = encourageMsg;
+        document.getElementById('success-popup').style.display = 'block';
+        window.speechSynthesis.speak(new SpeechSynthesisUtterance(encourageMsg));
         
         if(auto) {
             alert("Time is up! You cannot record anymore for this subject.");

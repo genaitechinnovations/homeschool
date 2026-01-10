@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSW Education - Krishav's Gurukulam</title>
+    <title>NSW Education - Gurukulam</title>
     <style>
         :root {
             --nsw-blue: #002664; --nsw-red: #d7153a; --nsw-light: #f2f2f2;
@@ -186,7 +186,7 @@
     <div class="login-card">
         <h2 style="color: var(--nsw-blue)">NSW Education Standards</h2>
         <p>Homeschooling Portal</p>
-        <input type="text" id="username" placeholder="Krishav's ID">
+        <input type="text" id="username" placeholder="User ID">
         <input type="password" id="password" placeholder="Password">
         <button class="btn-login" onclick="login()">Enter Gurukulam 🏫</button>
     </div>
@@ -3381,7 +3381,7 @@
     function login() {
         const u = document.getElementById('username').value;
         const p = document.getElementById('password').value;
-        if(u === 'k' && p === 'n') {
+        if(u === 'krishav' && p === 'nswhomeschool') {
             document.getElementById('login-overlay').style.display = 'none';
             document.getElementById('dashboard').style.display = 'block';
            // playWelcome();
@@ -4477,3 +4477,4 @@
 
 </body>
 </html>
+

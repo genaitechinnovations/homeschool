@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSW Education - Gurukulam</title>
+    <title>NSW Education - Krishav's Gurukulam</title>
     <style>
         :root {
             --nsw-blue: #002664; --nsw-red: #d7153a; --nsw-light: #f2f2f2;
@@ -13,197 +13,196 @@
         body { font-family: 'Public Sans', sans-serif; margin: 0; background: #fdfdfd; overflow-x: hidden; }
         
 	/* DISCIPLINE STYLES */
-.discipline-card { border-radius: 12px; padding: 15px; margin-bottom: 15px; border-left: 8px solid; }
-.disc-1 { background: #fff4e5; border-color: #ff9800; }
-.disc-2 { background: #e8f5e9; border-color: #4caf50; }
-.disc-3 { background: #e3f2fd; border-color: #2196f3; }
-.disc-4 { background: #f3e5f5; border-color: #9c27b0; }
-.disc-title { font-weight: 800; font-size: 18px; margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
+	.discipline-card { border-radius: 12px; padding: 15px; margin-bottom: 15px; border-left: 8px solid; }
+	.disc-1 { background: #fff4e5; border-color: #ff9800; }
+	.disc-2 { background: #e8f5e9; border-color: #4caf50; }
+	.disc-3 { background: #e3f2fd; border-color: #2196f3; }
+	.disc-4 { background: #f3e5f5; border-color: #9c27b0; }
+	.disc-title { font-weight: 800; font-size: 18px; margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
 
-	/* LEARNING GUIDE STYLES */
-.main-container { 
-    display: grid; 
-    grid-template-columns: 300px 1fr 300px 320px; /* Added 4th column for guide */
-    gap: 15px; 
-}
+		/* LEARNING GUIDE STYLES */
+	.main-container { 
+		display: grid; 
+		grid-template-columns: 300px 1fr 300px 320px; /* Added 4th column for guide */
+		gap: 15px; 
+	}
 
-.guide-panel { 
-    border: 2px solid var(--nsw-blue); 
-    background: #fff; 
-    border-top: 10px solid var(--nsw-blue);
-}
+	.guide-panel { 
+		border: 2px solid var(--nsw-blue); 
+		background: #fff; 
+		border-top: 10px solid var(--nsw-blue);
+	}
 
-.guide-section { 
-    margin-bottom: 18px; 
-    padding-bottom: 10px; 
-    border-bottom: 1px solid #eee; 
-}
+	.guide-section { 
+		margin-bottom: 18px; 
+		padding-bottom: 10px; 
+		border-bottom: 1px solid #eee; 
+	}
 
-.guide-section h4 { 
-    color: var(--nsw-red); 
-    margin: 0 0 8px 0; 
-    font-size: 15px; 
-    text-transform: uppercase; 
-    letter-spacing: 1px;
-}
+	.guide-section h4 { 
+		color: var(--nsw-red); 
+		margin: 0 0 8px 0; 
+		font-size: 15px; 
+		text-transform: uppercase; 
+		letter-spacing: 1px;
+	}
 
-.guide-list { 
-    padding-left: 20px; 
-    margin: 0; 
-}
+	.guide-list { 
+		padding-left: 20px; 
+		margin: 0; 
+	}
 
-.guide-list li { 
-    font-size: 13px; 
-    line-height: 1.5; 
-    color: #333; 
-    margin-bottom: 8px; 
-}
+	.guide-list li { 
+		font-size: 13px; 
+		line-height: 1.5; 
+		color: #333; 
+		margin-bottom: 8px; 
+	}
 
-.guide-list strong { color: var(--nsw-blue); }
+	.guide-list strong { color: var(--nsw-blue); }
 
-        /* LOGIN OVERLAY */
-        #login-overlay {
-            position: fixed; inset: 0; background: var(--nsw-blue); display: flex;
-            justify-content: center; align-items: center; z-index: 1000; color: white;
-        }
-        .login-card { background: white; padding: 40px; border-radius: 15px; color: #333; text-align: center; width: 350px; border-top: 10px solid var(--nsw-red); }
-        input { width: 90%; padding: 12px; margin: 10px 0; border: 2px solid #ddd; border-radius: 5px; }
-        .btn-login { background: var(--nsw-blue); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
+	/* LOGIN OVERLAY */
+	#login-overlay {
+		position: fixed; inset: 0; background: var(--nsw-blue); display: flex;
+		justify-content: center; align-items: center; z-index: 1000; color: white;
+	}
+	.login-card { background: white; padding: 40px; border-radius: 15px; color: #333; text-align: center; width: 350px; border-top: 10px solid var(--nsw-red); }
+	input { width: 90%; padding: 12px; margin: 10px 0; border: 2px solid #ddd; border-radius: 5px; }
+	.btn-login { background: var(--nsw-blue); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
 
-        /* NEW YEAR PARTY POPUP */
-        #party-popup {
-            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: white; border: 10px solid var(--gold); padding: 40px; border-radius: 30px;
-            text-align: center; z-index: 3000; box-shadow: 0 0 100px rgba(0,0,0,0.6);
-            width: 85%; max-width: 550px; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        @keyframes popIn { from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; } to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
-        
-        .party-msg { background: #fff9e6; padding: 20px; border-radius: 15px; border-left: 6px solid var(--gold); text-align: left; margin: 20px 0; font-size: 16px; line-height: 1.5; color: #222; }
-
-        /* DASHBOARD */
-        #dashboard { display: none; }
-        header { background: white; padding: 15px 50px; border-bottom: 4px solid var(--nsw-red); display: flex; justify-content: space-between; align-items: center; }
-        .nsw-brand { font-weight: 800; color: var(--nsw-blue); font-size: 24px; }
+	/* NEW YEAR PARTY POPUP */
+	#party-popup {
+		display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+		background: white; border: 10px solid var(--gold); padding: 40px; border-radius: 30px;
+		text-align: center; z-index: 3000; box-shadow: 0 0 100px rgba(0,0,0,0.6);
+		width: 85%; max-width: 550px; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
+	@keyframes popIn { from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; } to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
 	
-	    /* CHEVRON ACCORDION STYLE */
-        .chevron-box { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 8px; overflow: hidden; background: white; }
-        .chevron-header { 
-            background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; 
-            justify-content: space-between; align-items: center; font-weight: bold; color: var(--nsw-blue);
-            transition: 0.2s;
-        }
-        .chevron-header:hover { background: #eef2f7; }
-        .chevron-content { display: none; padding: 15px; border-top: 1px solid #ddd; background: #fff; }
-        .chevron-arrow { transition: transform 0.3s; }
-        .chevron-header.active .chevron-arrow { transform: rotate(90deg); }
-        .chevron-header.active + .chevron-content { display: block; }
+	.party-msg { background: #fff9e6; padding: 20px; border-radius: 15px; border-left: 6px solid var(--gold); text-align: left; margin: 20px 0; font-size: 16px; line-height: 1.5; color: #222; }
 
-        /* SUBJECTS NAV */
-        nav { background: #fff; padding: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .sub-btn { 
-            background: white; border: 2px solid var(--nsw-light); padding: 15px; border-radius: 15px; 
-            cursor: pointer; width: 130px; text-align: center; font-weight: bold; transition: 0.3s;
-        }
-        .sub-btn:hover { border-color: var(--nsw-blue); background: #f0f7ff; transform: translateY(-3px); }
-        .sub-btn.locked { opacity: 0.5; cursor: not-allowed; background: #eee; }
-        .sub-btn img { width: 40px; display: block; margin: 0 auto 5px; }
+	/* DASHBOARD */
+	#dashboard { display: none; }
+	header { background: white; padding: 15px 50px; border-bottom: 4px solid var(--nsw-red); display: flex; justify-content: space-between; align-items: center; }
+	.nsw-brand { font-weight: 800; color: var(--nsw-blue); font-size: 24px; }
 
-        /* MAIN CONTENT */
-        .main-container { display: grid; grid-template-columns: 350px 1fr 350px; gap: 20px; padding: 20px; }
-        .panel { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+	/* CHEVRON ACCORDION STYLE */
+	.chevron-box { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 8px; overflow: hidden; background: white; }
+	.chevron-header { 
+		background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; 
+		justify-content: space-between; align-items: center; font-weight: bold; color: var(--nsw-blue);
+		transition: 0.2s;
+	}
+	.chevron-header:hover { background: #eef2f7; }
+	.chevron-content { display: none; padding: 15px; border-top: 1px solid #ddd; background: #fff; }
+	.chevron-arrow { transition: transform 0.3s; }
+	.chevron-header.active .chevron-arrow { transform: rotate(90deg); }
+	.chevron-header.active + .chevron-content { display: block; }
 
-        /* CAMERA */
-        .camera-box { background: black; border-radius: 15px; position: relative; height: 300px; overflow: hidden; border: 5px solid #333; }
-        video { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
-        .rec-indicator { position: absolute; top: 10px; left: 10px; color: red; font-weight: bold; background: rgba(0,0,0,0.5); padding: 4px 8px; border-radius: 4px; display: none; }
-        #timer-display { position: absolute; top: 10px; right: 10px; color: white; font-family: monospace; font-size: 24px; text-shadow: 2px 2px black; }
+	/* SUBJECTS NAV */
+	nav { background: #fff; padding: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+	.sub-btn { 
+		background: white; border: 2px solid var(--nsw-light); padding: 15px; border-radius: 15px; 
+		cursor: pointer; width: 130px; text-align: center; font-weight: bold; transition: 0.3s;
+	}
+	.sub-btn:hover { border-color: var(--nsw-blue); background: #f0f7ff; transform: translateY(-3px); }
+	.sub-btn.locked { opacity: 0.5; cursor: not-allowed; background: #eee; }
+	.sub-btn img { width: 40px; display: block; margin: 0 auto 5px; }
 
-        /* SYLLABUS LIST */
-        .syllabus-scroll { max-height: 500px; overflow-y: auto; }
-        .syllabus-item { padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
-        .syllabus-item:hover { background: #f9f9f9; }
-        .child-btn { background: #e1f5fe; border: 1px solid #b3e5fc; margin: 5px 2px; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold; color: var(--nsw-blue); display: inline-block; }
-        .child-btn:hover { background: #b3e5fc; }
+	/* MAIN CONTENT */
+	.main-container { display: grid; grid-template-columns: 350px 1fr 350px; gap: 20px; padding: 20px; }
+	.panel { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 
-        /* TIMETABLE */
-        .time-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; font-size: 12px; }
-        .time-label { font-weight: bold; color: var(--nsw-blue); min-width: 85px; }
-        .highlight { background: #fffde7; font-weight: bold; }
+	/* CAMERA */
+	.camera-box { background: black; border-radius: 15px; position: relative; height: 300px; overflow: hidden; border: 5px solid #333; }
+	video { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+	.rec-indicator { position: absolute; top: 10px; left: 10px; color: red; font-weight: bold; background: rgba(0,0,0,0.5); padding: 4px 8px; border-radius: 4px; display: none; }
+	#timer-display { position: absolute; top: 10px; right: 10px; color: white; font-family: monospace; font-size: 24px; text-shadow: 2px 2px black; }
 
-        /* POPUP */
-        #success-popup {
-            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: white; border: 8px solid var(--nsw-blue); padding: 40px; border-radius: 25px;
-            text-align: center; z-index: 2000; box-shadow: 0 0 100px rgba(0,0,0,0.5);
-        }
+	/* SYLLABUS LIST */
+	.syllabus-scroll { max-height: 500px; overflow-y: auto; }
+	.syllabus-item { padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
+	.syllabus-item:hover { background: #f9f9f9; }
+	.child-btn { background: #e1f5fe; border: 1px solid #b3e5fc; margin: 5px 2px; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold; color: var(--nsw-blue); display: inline-block; }
+	.child-btn:hover { background: #b3e5fc; }
 
-        .blink { animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+	/* TIMETABLE */
+	.time-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; font-size: 12px; }
+	.time-label { font-weight: bold; color: var(--nsw-blue); min-width: 85px; }
+	.highlight { background: #fffde7; font-weight: bold; }
 
-        /*.sub-activity-box { background: #f9f9f9; border: 2px solid var(--nsw-blue); border-radius: 10px; padding: 15px; margin-top: 10px; position: relative;}
-        .sub-activity-box h4 { margin-top: 0; color: var(--nsw-blue); padding-right: 100px; }
-        .sub-activity-box ul { padding-left: 20px; }
-        .sub-activity-box li { margin-bottom: 5px; font-size: 14px; }*/
+	/* POPUP */
+	#success-popup {
+		display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+		background: white; border: 8px solid var(--nsw-blue); padding: 40px; border-radius: 25px;
+		text-align: center; z-index: 2000; box-shadow: 0 0 100px rgba(0,0,0,0.5);
+	}
 
-/* CLOSE ICON STYLE */
-.close-icon {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #999;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.2s;
-    user-select: none;
-}
+	.blink { animation: blinker 1s linear infinite; }
+	@keyframes blinker { 50% { opacity: 0; } }
 
-.close-icon:hover {
-    color: var(--nsw-red);
-}
+	/*.sub-activity-box { background: #f9f9f9; border: 2px solid var(--nsw-blue); border-radius: 10px; padding: 15px; margin-top: 10px; position: relative;}
+	.sub-activity-box h4 { margin-top: 0; color: var(--nsw-blue); padding-right: 100px; }
+	.sub-activity-box ul { padding-left: 20px; }
+	.sub-activity-box li { margin-bottom: 5px; font-size: 14px; }*/
 
-/* MISSION BOX */
-        .sub-activity-box { 
-            background: #f0f7ff; border-left: 10px solid var(--nsw-blue); 
-            border-radius: 10px; padding: 20px; margin-top: 10px; position: relative; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+	/* CLOSE ICON STYLE */
+	.close-icon {
+		position: absolute;
+		top: 10px;
+		right: 15px;
+		font-size: 22px;
+		font-weight: bold;
+		color: #999;
+		cursor: pointer;
+		line-height: 1;
+		transition: color 0.2s;
+		user-select: none;
+	}
 
-        
-        .progress-toggle {
-            position: absolute; top: 15px; right: 15px; 
-            padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;
-            cursor: pointer; font-size: 12px; font-weight: bold; background: white;
-        }
-        .progress-toggle.done { background: var(--success); color: white; border-color: var(--success); }
+	.close-icon:hover {
+		color: var(--nsw-red);
+	}
+
+	/* MISSION BOX */
+	.sub-activity-box { 
+		background: #f0f7ff; border-left: 10px solid var(--nsw-blue); 
+		border-radius: 10px; padding: 20px; margin-top: 10px; position: relative; 
+		box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+	}
+
+	
+	.progress-toggle {
+		position: absolute; top: 15px; right: 15px; 
+		padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;
+		cursor: pointer; font-size: 12px; font-weight: bold; background: white;
+	}
+	.progress-toggle.done { background: var(--success); color: white; border-color: var(--success); }
     </style>
 </head>
 <body>
+	<div id="login-overlay">
+		<div class="login-card">
+			<h2 style="color: var(--nsw-blue)">NSW Education Standards</h2>
+			<p>Homeschooling Portal</p>
+			<input type="text" id="username" placeholder="Krishav's ID">
+			<input type="password" id="password" placeholder="Password">
+			<button class="btn-login" onclick="login()">Enter Gurukulam 🏫</button>
+		</div>
+	</div>
 
-<div id="login-overlay">
-    <div class="login-card">
-        <h2 style="color: var(--nsw-blue)">NSW Education Standards</h2>
-        <p>Homeschooling Portal</p>
-        <input type="text" id="username" placeholder="User ID">
-        <input type="password" id="password" placeholder="Password">
-        <button class="btn-login" onclick="login()">Enter Gurukulam 🏫</button>
-    </div>
-</div>
+	<div id="party-popup">
+		<h1 style="font-size: 60px; margin: 0;">🎉 🥳 🎊</h1>
+		<h2 style="color: var(--nsw-blue); margin-top: 10px;">Happy New Year, Krishav!</h2>
+		<div class="party-msg">
+			<p>👋 <strong>Great News!</strong> We received your email about the buttons you requested.</p>
+			<p>👩‍🏫 Our teachers have reviewed your ideas and we have updated the website specifically as per your request!</p>
+			<p>📅 Get ready! Soon you will continue with the <strong>New Website for 2026</strong> designed for Stage 2 Homeschoolers.</p>
+		</div>
+		<button class="btn-login" style="background: var(--nsw-red); width: auto;" onclick="closeParty()">Let's Start Learning! ✨</button>
+	</div>
 
-<div id="party-popup">
-    <h1 style="font-size: 60px; margin: 0;">🎉 🥳 🎊</h1>
-    <h2 style="color: var(--nsw-blue); margin-top: 10px;">Happy New Year, Krishav!</h2>
-    <div class="party-msg">
-        <p>👋 <strong>Great News!</strong> We received your email about the buttons you requested.</p>
-        <p>👩‍🏫 Our teachers have reviewed your ideas and we have updated the website specifically as per your request!</p>
-        <p>📅 Get ready! Soon you will continue with the <strong>New Website for 2026</strong> designed for Stage 2 Homeschoolers.</p>
-    </div>
-    <button class="btn-login" style="background: var(--nsw-red); width: auto;" onclick="closeParty()">Let's Start Learning! ✨</button>
-</div>
-
-<div id="dashboard">
+	<div id="dashboard">
     <header>
         <div class="nsw-brand">NSW Government | <span style="font-weight: 300;">Education</span></div>
         <div id="greeting" style="font-weight: bold; display: flex; align-items: center; gap: 15px;">
@@ -213,6 +212,9 @@
     </header>
 
     <nav>
+	<div class="sub-btn" style="border-color: var(--nsw-red); background: #fff1f1;" onclick="showMissionChart()">
+		<span>🚀</span><br>Daily Mission Chart
+	</div>
     <div class="sub-btn" style="border-color: var(--gold); background: #fffdf0;" onclick="loadSyllabus('Discipline')"><span>✨</span><br>General Discipline</div>
         <div class="sub-btn" onclick="loadSyllabus('English')"><span>📖</span><br>English</div>
         <div class="sub-btn" onclick="loadSyllabus('Maths')"><span>🔢</span><br>Maths</div>
@@ -223,7 +225,6 @@
         <div class="sub-btn" onclick="loadSyllabus('History')"><span>📜</span><br>History</div>
         <div class="sub-btn" onclick="loadSyllabus('Geography')"><span>🌍</span><br>Geography</div>
         <div class="sub-btn" onclick="loadSyllabus('Heritage')"><span>🪔</span><br>Heritage</div>
-
     </nav>
 
     <div class="main-container">
@@ -256,13 +257,13 @@
                 <button id="btn-stop" class="btn-login" style="background:var(--nsw-red); width:auto;" onclick="stopRecording()" disabled>■ STOP SESSION</button>
             </div>
             <p id="nesa-msg" style="text-align:center; font-weight:bold; color:var(--success); display:none;"></p>
-        </div>	
+        </div>
+
 	<div class="panel guide-panel">
     <h3 style="color: var(--nsw-blue); margin-top: 0; display: flex; align-items: center; gap: 8px;">
         📝 Learning Guide
     </h3>
-    <div class="syllabus-scroll">
-        
+    <div class="syllabus-scroll">		
         <div class="guide-section">
             <h4 id="listen">🎧 Listening</h4>
             <ul class="guide-list">
@@ -272,7 +273,6 @@
                 <li>Don't play with audio/video; finish tasks within the subject time.</li>
             </ul>
         </div>
-
         <div class="guide-section">
             <h4 id="speak">🗣️ Speaking</h4>
             <ul class="guide-list">
@@ -280,7 +280,6 @@
                 <li>Give a clear explanation for every sentence you speak.</li>
             </ul>
         </div>
-
         <div class="guide-section">
             <h4 id="read">📖 Reading</h4>
             <ul class="guide-list">
@@ -290,7 +289,6 @@
                 <li>Explain each sentence as you read it.</li>
             </ul>
         </div>
-
         <div class="guide-section">
             <h4 id="write">✍️ Writing</h4>
             <ul class="guide-list">
@@ -300,7 +298,6 @@
                 <li>If you miss a meaning, search it later, recorrect the sentence, and tell us.</li>
             </ul>
         </div>
-
         <div class="guide-section">
             <h4>❓ Question Time</h4>
             <ul class="guide-list">
@@ -313,11 +310,9 @@
             <h3>🌟 Completed Today</h3>
             <div id="completed-list" style="font-size: 14px; color: #444;">No subjects finished yet. Keep going!</div>
         </div>
-
     </div>
 </div>
-
-    </div>
+</div>
 </div>
 
 <div id="success-popup">
@@ -342,101 +337,494 @@
     { start: "04:45", end: "05:00", act: "Devotional Songs & Family Prayer", dur: 15 },
     { start: "05:00", end: "05:15", act: "Mantra Meditation", dur: 15 },
     { start: "05:15", end: "05:30", act: "Meditation (Natural Breath)", dur: 15 },
-    { start: "05:30", end: "06:00", act: "Yoga Practice", dur: 30 },
-    { start: "06:00", end: "06:15", act: "Break 1 (Cucumber & Carrot)", dur: 15 },
-    { start: "06:15", end: "07:15", act: "Singing (Thirumurai/Carnatic)", dur: 60 },
-    { start: "07:15", end: "08:00", act: "Tamil Listening/Reading", dur: 45 },
-    { start: "08:00", end: "08:15", act: "Break 2 (Healthy Breakfast)", dur: 15 },
-    { start: "08:15", end: "09:00", act: "English Listening/Reading", dur: 45 },
-    { start: "09:00", end: "09:45", act: "Mathematics", dur: 45 },
-    { start: "09:45", end: "10:00", act: "Break 3 (Help Mom & Dad)", dur: 15 },
-    { start: "10:00", end: "11:30", act: "Culinary Arts (Cooking)", dur: 90 },
-    { start: "11:30", end: "12:00", act: "Break 4 (Lunch)", dur: 30 },
-    { start: "12:00", end: "12:45", act: "Tamil Speaking/Writing", dur: 45 },
-    { start: "12:45", end: "01:30", act: "Science", dur: 45 },
-    { start: "01:30", end: "01:45", act: "Break 5 (Play Time)", dur: 15 },
-    { start: "01:45", end: "02:30", act: "Art & Creativity", dur: 45 },
-    { start: "02:30", end: "03:15", act: "Geography", dur: 45 },
-    { start: "03:15", end: "03:30", act: "Break 6 (Relaxation)", dur: 15 },
-    { start: "03:30", end: "04:15", act: "English Speaking/Writing", dur: 45 },
-    { start: "04:15", end: "05:00", act: "History", dur: 45 },
-    { start: "05:00", end: "06:00", act: "Sports (Badminton/Cycling/Play)", dur: 60 },
+    { start: "05:30", end: "05:40", act: "Break 1 (Cucumber & Carrot)", dur: 10 },
+    { start: "05:45", end: "06:45", act: "Singing (Thirumurai/Carnatic)", dur: 60 },
+    { start: "06:45", end: "07:15", act: "Tamil Listening", dur: 30 },
+    { start: "07:15", end: "08:15", act: "Tamil Reading", dur: 30 },
+    { start: "08:15", end: "08:25", act: "Break 2 (Healthy Breakfast)", dur: 10 },
+    { start: "08:30", end: "09:00", act: "English Listening", dur: 30 },
+    { start: "09:00", end: "09:30", act: "English Reading", dur: 30 },
+	{ start: "09:30", end: "10:15", act: "Mathematics", dur: 45 },	
+    { start: "10:15", end: "10:25", act: "Break 3 (Help Mom & Dad)", dur: 10 },
+    { start: "10:30", end: "11:30", act: "Culinary Arts (Cooking)", dur: 30 },
+    { start: "11:30", end: "12:15", act: "Science", dur: 45 },
+	{ start: "12:15", end: "12:40", act: "Break 4 (Lunch)", dur: 25 },
+	{ start: "12:45", end: "1:15",  act: "Tamil Handwriting", dur: 30 },
+	{ start: "1:15",  end: "1:45",  act: "Tamil Writing", dur: 30 },
+    { start: "1:45",  end: "02:30", act:  "Science", dur: 45 },
+    { start: "02:30", end: "02:45", act: "Break 5 (Play Time)", dur: 15 },
+    { start: "02:50", end: "03:30", act: "Geography", dur: 40 },
+	{ start: "03:30", end: "04:15", act: "English Handwriting", dur: 45 },
+	{ start: "04:15", end: "04:45", act: "English Writing", dur: 30 },
+	{ start: "04:45", end: "04:55", act: "Break 6 (Relaxation)", dur: 10 },
+	{ start: "05:00", end: "06:00", act: "Sports (Badminton/Cycling/Play)", dur: 60 },
     { start: "06:00", end: "06:30", act: "Dinner", dur: 30 },
-    { start: "06:30", end: "06:45", act: "Family Connection Time", dur: 15 },
-    { start: "06:45", end: "07:00", act: "Set Table for Tomorrow", dur: 15 },
-    { start: "07:00", end: "07:10", act: "Brush & Hygiene Prep", dur: 10 },
+	{ start: "06:30", end: "06:55", act: "Read 1 Nayanmar story and retelling", dur: 25 },
+    { start: "06:55", end: "07:05", act: "Set Table for Tomorrow", dur: 10 },
+    { start: "07:05", end: "07:10", act: "Brush & Hygiene Prep", dur: 10 },
     { start: "07:10", end: "Bed", act: "🌙 Strictly Sleep Time", dur: 0 }
-];
-	
-		
-       /* { start: "04:00", end: "04:30", act: "Bath & freshen up", dur: 30 },
-        { start: "04:30", end: "05:00", act: "Devotion(Pooja/Mantra Meditation)", dur: 30 },
-        { start: "05:00", end: "05:30", act: "Meditation", dur: 30 },
-        { start: "05:30", end: "06:15", act: "Singing (Thirumurai/Carnatic/Voice)", dur: 45 },
-        { start: "06:15", end: "06:30", act: "Breakfast", dur: 15 },
-        { start: "06:30", end: "06:45", act: "Light free time / family talk", dur: 15 },
-        { start: "06:45", end: "07:15", act: "Tamil Writing", dur: 30 },
-        { start: "07:15", end: "07:45", act: "English Reading", dur: 30 },
-        { start: "07:45", end: "08:00", act: "Help mom/dad (break)", dur: 15 },
-        { start: "08:00", end: "09:30", act: "Cooking + food preparation", dur: 90 },
-        { start: "09:30", end: "10:15", act: "Maths", dur: 45 },
-        { start: "10:15", end: "10:30", act: "Break / snack", dur: 15 },
-        { start: "10:30", end: "11:00", act: "Reading Tamil", dur: 30 },
-        { start: "11:00", end: "11:30", act: "Lunch", dur: 30 },
-        { start: "11:30", end: "12:15", act: "Art", dur: 45 },
-        { start: "12:15", end: "01:00", act: "Science", dur: 45 },
-        { start: "01:00", end: "01:15", act: "Relax break", dur: 15 },
-        { start: "01:15", end: "01:45", act: "Saiva Scripture", dur: 30 },
-        { start: "01:45", end: "02:30", act: "History", dur: 45 },
-        { start: "02:30", end: "02:45", act: "Play break", dur: 15 },
-        { start: "02:45", end: "03:30", act: "Tamil", dur: 45 },
-        { start: "03:30", end: "04:15", act: "Geography", dur: 45 },
-        { start: "04:15", end: "05:15", act: "Sports (Badminton/Cycling/Play)", dur: 60 },
-        { start: "05:15", end: "05:45", act: "Saiva Siddhantam", dur: 30 },
-        { start: "05:45", end: "06:15", act: "History of Nayanmars (Stories)", dur: 30 },
-        { start: "06:15", end: "06:30", act: "Dinner", dur: 15 },
-        { start: "06:30", end: "07:00", act: "Free reading / Family time", dur: 30 },
-        { start: "07:00", end: "Bed", act: "Brush & Sleep", dur: 0 }*/
-    //];
-
-    const syllabusData = {
-    "Discipline": [
-        { 
-            title: "Morning Routine", 
-            items: ["Wake up 4:00 AM", "Bath & Cleanliness", "Tidy Room"],
-            class: "disc-1", icon: "🌅" 
-        },
-        { 
-            title: "Spiritual Practice", 
-            items: ["Pooja/Mantra Meditation", "Meditation Session", "Singing (Thirumurai)"],
-            class: "disc-2", icon: "🕉️" 
-        },
-        { 
-            title: "Learning Readiness", 
-            items: ["Organize books", "Clear workspace", "Focus mindset"],
-            class: "disc-3", icon: "📚" 
-        },
-        { 
-            title: "Life Skills", 
-            items: ["Help with Cooking", "Garden/Outdoor work", "Family Talk"],
-            class: "disc-4", icon: "🤝" 
-        }
-    ],
-    // Keep your other subjects (English, Maths, etc.) exactly as they are...
-};
-
+	];
 
     const speechData = {
+		
+		//----English - Oral Language & Communication Module---
+	
+        'speak1': { 
+            title: '💡 Sharing Ideas (Interacting)', 
+            instructions: 'Say your ideas clearly so others can understand you.Example: Telling the class about your favourite game.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Think about what you want to say.',
+                '2️⃣ Say your idea in a full sentence.',
+                '3️⃣ Look at the listener while speaking.',
+                '4️⃣ Speak clearly and calmly.',
+                '5️⃣ Check if your listener understood.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
+        },
+        'speak2': { 
+            title: '👂Listening & Understanding', 
+            instructions: 'Listen carefully to understand what someone else is saying.Listening to a story and remembering what happened.',
+			activities: [
+				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/english/year-3/spell-the-long-i-word-silent-e-ie-y-igh-ind-ild' },
+				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/english/year-3/spell-the-long-a-word-silent-e-ai-ay-ea-ey-eigh' },
+				//{ type: 'link', label: 'Activity Link', url: 'a' },
+				//{ type: 'file', label: 'Attachment', file:'a'}
+			],
+            steps: [
+                '1️⃣ Sit still and look at the speaker.',
+                '2️⃣ Listen without interrupting.',
+                '3️⃣ Think about the main idea.',
+                '4️⃣ Remember one important detail.',
+                '5️⃣ Be ready to respond.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Listening & Understanding)' 
+        },
+        'speak3': { 
+            title: '❓ Asking & Answering Questions', 
+            instructions: 'Ask and answer questions to learn more or explain ideas.Example: Asking “Why did the character do that?”',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Listen carefully.',
+                '2️⃣ Think of a question or answer.',
+                '3️⃣ Use clear words.',
+                '4️⃣ Speak in a full sentence.',
+                '5️⃣ Respond politely.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Listening & Understanding)' 
+        },
+        'speak4': { 
+            title: '🤝 Turn-Taking & Conversation (Interacting)', 
+            instructions: 'Take turns speaking and listening during a conversation. Example: Waiting for your turn in group discussion.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Listen while others speak.',
+                '2️⃣ Wait for your turn.',
+                '3️⃣ Share one idea.',
+                '4️⃣ Stay on topic.',
+                '5️⃣ Respect other opinions.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
+        },
+        'speak5': { 
+            title: '🎭 Using Voice & Expression', 
+            instructions: 'Use your voice, face and body to match what you are saying.Example: Speaking louder when presenting.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Decide how you should sound.',
+                '2️⃣ Use clear volume.',
+                '3️⃣ Change tone to show feeling.',
+                '4️⃣ Use facial expressions.',
+                '5️⃣ Use simple hand movements.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
+        },
+        'speak6': { 
+            title: '🎤 Presenting to an Audience', 
+            instructions: 'Speak confidently to share ideas with a group.Giving a short talk thinking you are in class.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Prepare what you will say.',
+                '2️⃣ Stand or sit up straight.',
+                '3️⃣ Speak clearly and slowly.',
+                '4️⃣ Look at your audience.',
+                '5️⃣ Finish with confidence.'
+            ], 
+            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
+        },
 
-// --- SPELLING MODULE ---
+		//Vocabulary Module
+		
+		'vocab1': { 
+            title: '🏠 Everyday Words (Tier 1)', 
+            instructions: 'Learn and use common words we use every day.Example: happy, run, big.',
+            activities: [
+				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/english/year-3/identify-base-words-prefixes-and-suffixes' },
+				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/english/year-3/determine-the-meaning-of-a-word-with-pre-re-or-mis' },
+				//{ type: 'link', label: 'Activity Link', url: 'a' },
+				//{ type: 'file', label: 'Attachment', file:'a'}
+			],
+			steps: [
+                '1️⃣ Read the word.',
+                '2️⃣ Say the word aloud.',
+                '3️⃣ Use it in a sentence.',
+                '4️⃣ Write the word.',
+                '5️⃣ Say the sentence again.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Learning and using words)' 
+        },
+        'vocab2': { 
+            title: '✨ Interesting Words (Tier 2)', 
+            instructions: 'Use stronger words to make your speaking and writing better.Example: excited instead of happy.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Read the new word.',
+                '2️⃣ Learn its meaning.',
+                '3️⃣ Say it aloud.',
+                '4️⃣ Use it in a sentence.',
+                '5️⃣ Replace a simple word with it.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01(Learning and Using Words)' 
+        },
+        'vocab3': { 
+            title: '🔬 Topic Words (Tier 3)', 
+            instructions: 'Learn words that are used in specific subjects.Example: habitat in Science.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Read the topic word.',
+                '2️⃣ Learn what it means.',
+                '3️⃣ Say it aloud.',
+                '4️⃣ Write one fact using it.',
+                '5️⃣ Share your sentence.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Learning and Using Words)' 
+        },
+        'vocab4': { 
+            title: '🔗 Word Meanings', 
+            instructions: 'Understand what new words mean. Example: Finding the meaning of “curious”.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Read the word.',
+                '2️⃣ Look it up or ask for help.',
+                '3️⃣ Say the meaning.',
+                '4️⃣ Write a sentence.',
+                '5️⃣ Check if it makes sense.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Defining and Analysing Words )' 
+        },
+        'vocab5': { 
+            title: '🔍 Word Features', 
+            instructions: 'Break words into parts to understand them better.Example: unhappy = un + happy',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Look at the word.',
+                '2️⃣ Find word parts.',
+                '3️⃣ Say each part.',
+                '4️⃣ Explain what it means.',
+                '5️⃣ Try another word.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Defining and Analysing Words)' 
+        },
+        'vocab6': { 
+            title: '✍️ Using New Words', 
+            instructions: 'Use new words in speaking and writing.Example: Writing a sentence using “discover”.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Choose a new word.',
+                '2️⃣ Say it aloud.',
+                '3️⃣ Write a sentence.',
+                '4️⃣ Read the sentence.',
+                '5️⃣ Improve one word.'
+            ], 
+            cover: '✔ Outcome: EN2-VOCAB-01 (Learning and Using Words)' 
+        },
+		
+		//Reading Fluency Module
+		
+		'fluency1': { 
+            title: '🎯 Reading Accurately', 
+            instructions: 'Read words correctly without mistakes.Example: Reading a sentence without skipping words.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Look at each word.',
+                '2️⃣ Read slowly.',
+                '3️⃣ Say the word clearly.',
+                '4️⃣ Fix mistakes.',
+                '5️⃣ Read again.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Reading Automaticity & Rate ⏱️)' 
+        },
+        'fluency2': { 
+            title: '📌 Reading Smoothly', 
+            instructions: 'Read without stopping too often.Example: Reading a paragraph smoothly.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Start reading.',
+                '2️⃣ Keep going smoothly.',
+                '3️⃣ Don’t stop at every word.',
+                '4️⃣ Follow punctuation.',
+                '5️⃣ Read again smoothly.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Reading Automaticity & Rate ⏱️)' 
+        },
+        'fluency3': { 
+            title: '⏱️ Reading at the Right Speed', 
+            instructions: 'Read at a speed that makes sense to the listener.Example: Not rushing or reading too slowly.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Start reading.',
+                '2️⃣ Keep steady speed.',
+                '3️⃣ Pause at commas.',
+                '4️⃣ Stop at full stops.',
+                '5️⃣ Adjust speed if needed.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Reading Automaticity & Rate ⏱️)' 
+        },
+        'fluency4': { 
+            title: '🎭 Prosody (Expression)', 
+            instructions: 'Use expression to make reading sound interesting. Example: Changing voice for characters.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Notice punctuation.',
+                '2️⃣ Change voice for feeling.',
+                '3️⃣ Raise or lower voice.',
+                '4️⃣ Read dialogue clearly.',
+                '5️⃣ Try again with expression.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Reading with expression)' 
+        },
+        'fluency5': { 
+            title: '📈 Reflect / Improve', 
+            instructions: 'Check your reading and fix mistakes.Example: Re-reading when something doesn’t make sense.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Stop if confused.',
+                '2️⃣ Go back and re-read.',
+                '3️⃣ Fix the mistake.',
+                '4️⃣ Read again clearly.',
+                '5️⃣ Continue reading.'
+            ], 
+            cover: '✔ Outcome: EN2-REFLU-01 (Self-Monitoring)' 
+        },
+       			
+		//Reading Comphrehension Module
+		'comp1': { 
+            title: '💡 Basic Comprehension', 
+            instructions: 'Understand what the text is about.Example: Retelling a story.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Read the word.',
+                '2️⃣ Think about the story.',
+                '3️⃣ Say what happened.',
+                '4️⃣ Tell it in order.',
+                '5️⃣ Check understanding.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Reading for Interest and Wide Purposes)' 
+        },
+        'comp2': { 
+            title: '📌 Finding Main Ideas', 
+            instructions: 'Find the most important idea in the text.Example: Saying what the text is mostly about.',
+            activities: [
+				{ type: 'audio', label: 'Activity Task 1', url:'https://au.ixl.com/english/year-3/use-key-details-to-determine-the-main-idea'},
+				{ type: 'audio', label: 'Activity Task 2', url:'https://au.ixl.com/english/year-3/determine-the-main-idea-of-a-passage'},
+			],
+			steps: [
+                '1️⃣ Read one section.',
+                '2️⃣ Think about the big idea.',
+                '3️⃣ Say it in one sentence.',
+                '4️⃣ Check the text.',
+                '5️⃣ Share your answer.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01(Comprehending Language)' 
+        },
+        'comp3': { 
+            title: '🔍 Finding Details', 
+            instructions: 'Find information that supports the main idea.Example: Listing two facts from the text.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Re-read the text.',
+                '2️⃣ Look for key details.',
+                '3️⃣ Highlight or note them.',
+                '4️⃣ Say them aloud.',
+                '5️⃣ Check relevance.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Comprehending Language)' 
+        },
+        'comp4': { 
+            title: '🧱 Text Structure & Organisation', 
+            instructions: 'Understand how a text is organised.Example: Using headings to find information.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Look at headings.',
+                '2️⃣ Notice paragraphs.',
+                '3️⃣ See how ideas are grouped.',
+                '4️⃣ Use structure to help reading.',
+                '5️⃣ Explain the layout.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Comprehending Text Structures & Features)' 
+        },
+        'comp5': { 
+            title: '🧠 Monitoring Comprehension', 
+            instructions: 'Check if what you read makes sense..Example:Asking yourself a question while reading.',
+            activities: [
+				
+			],
+			steps: [
+                '1️⃣ Pause while reading.',
+                '2️⃣ Ask “Do I understand?”.',
+                '3️⃣ Re-read if needed.',
+                '4️⃣ Ask for help if stuck.',
+                '5️⃣ Continue reading.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Checking & Understanding Comprehension)' 
+        },
+        'comp6': { 
+            title: '💬 Responding to Text', 
+            instructions: 'Share thoughts and opinions about the text. Example: Saying why you liked a character.',
+            activities: [
+			{ type: 'audio', label: 'Activity Task 1', url:'https://au.ixl.com/english/year-3/sort-sensory-details'},
+			{ type: 'audio', label: 'Activity Task 2', url:'https://au.ixl.com/english/year-3/determine-the-meanings-of-similes'},		
+			],
+			steps: [
+                '1️⃣ Think about the text.',
+                '2️⃣ Choose one idea.',
+                '3️⃣ Say what you think.',
+                '4️⃣ Give a reason.',
+                '5️⃣ Share with others.'
+            ], 
+            cover: '✔ Outcome: EN2-RECOM-01 (Thinking and Responding)' 
+        },		
+			
+        // Creating Written Texts Module
+        'write1': { 
+            title: 'Step 1: 💡Planning & Ideas - Planning and composing (Actually sitting down to write the draft.)', 
+            instructions: 'Before we write, we must dream! Let’s get your ideas ready.Think first – What am I going to write?. Example: Brainstorming ideas before writing a story.',
+            activities: [
+				
+			],
+			items: [					
+					'1️⃣ Pick a topic (e.g. A brave knight, a lost robot, or how to make a sandwich).', 
+					'2️⃣ Draw a Mind Map on your paper with your main idea in the middle.',
+					'3️⃣ Write down 5 "sparkly" words that come to your mind.',
+					'4️⃣ Click "Start Recording" and show your Mind Map to the camera while explaining your idea!',
+
+				], 
+				cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Planning and composing)' 
+        },
+        'write2': { 
+            title: 'Step 2: ⚖️ Purpose & Audience - Creating texts for specific purposes(Knowing who will read it (Mom, a friend, etc.))',
+			instructions:'Who am I writing for and why? (write differently depending on who will read it).Example: Writing a letter to a friend or an instruction list.',
+            activities: [
+				
+			],
+			items: [
+				'1️⃣ Decide: Is this for a Friend (Funny) or a Teacher (Serious)?',
+                '2️⃣ Decide: Why are you writing? (To tell a story, give facts, or change a mind?).',
+                '3️⃣ Click "Start Recording" and say: "I am writing for [Who] because I want to [Why]."',
+                '4️⃣ Make sure you look at the camera like you are talking to that person!'
+		], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Creating texts for specific purposes)' 
+        },
+        'write3': { 
+            title: 'Step 3: 🧱 Text Structure & Organisation - Text forms and features(Using headings, paragraphs, or story endings.)', 
+            instructions:'How will I organise my writing in a clear order?.Example: Writing a story with a beginning, middle, and end.',
+			activities: [
+				
+			],
+			items: [ 
+				'1️⃣ Draw 3 big boxes on your page: Beginning, Middle, and End.',
+                '2️⃣ Draw one quick picture in each box to show what happens.',
+                '3️⃣ Click "Start Recording" and point to your boxes.',
+                '4️⃣ Explain: "First this happens... then this... and finally this."'
+		], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Text forms and features)' 
+        },
+        'write4': { 
+            title: 'Step 4: 🔠 Sentence Construction - Grammar and sentence-level skills(Making sure sentences make sense.)', 
+            instructions: 'How do I write correct and meaningful sentences?.Example: Writing a complete sentence with a capital letter and full stop.',
+			activities: [
+				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/english/year-3/put-the-sentences-in-order' },
+				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/english/year-3/order-items-from-most-general-to-most-specific' },
+				
+			],
+			items: [  
+				'1️⃣ Write your first 3 sentences on your paper.',
+                '2️⃣ Check: Does every sentence start with a CAPITAL and end with a FULL STOP?',
+                '3️⃣ Click "Start Recording" and read your sentences aloud.',
+                '4️⃣ Listen: Did you have to stop for a breath? If yes, you might need a comma!'
+		], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Grammar and sentence-level skills)' 
+        },
+        'write5': { 
+            title: 'Step 5: ✨ Vocabulary Choice - Word-level Language choices(Using "sparkle words" instead of boring words.)', 
+            instructions: 'Which words make my writing better (choose interesting and suitable words)?.Example: Using "excited" instead of "happy".',
+			activities: [
+				
+			],
+			items: [
+				'1️⃣ Find 3 words in your writing like "good", "big", or "said".',
+                '2️⃣ Find "Powerful" versions (like "Magnificent" or "Giant").',
+                '3️⃣ Click "Start Recording" and show the changes.',
+                '4️⃣ Explain: "I changed the word [Old Word] to [New Word] because it sounds better!"'], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Language choices)' 
+        },
+        'write6': { 
+            title: 'Step 6: 🚀 Editing & Publishing - Revising and editing(Checking for mistakes and making it look good.)', 
+            instructions:'Can I fix and share my writing (improve writing before sharing it)?.Example: Checking spelling and rewriting neatly.',
+			activities: [
+				
+			],
+			items: [
+				'1️⃣ Check your spelling one last time.',
+                '2️⃣ Rewrite your text neatly or type it out.',
+                '3️⃣ Click "Start Recording" for your Final Performance.',
+                '4️⃣ Read your whole story with a loud, proud voice and expression!'
+		], 
+            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Revising and editing)' 
+        },
+		
+		// --- SPELLING MODULE ---
         'spell1': { 
             title: '🔍 Phonics & Sound Patterns', 
             instructions: 'Hear the sounds and use letter patterns to spell.',            
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 				steps: [
                 '1️⃣ Listen carefully as the word is spoken.',
@@ -451,10 +839,7 @@
             title: '🧱 High-Frequency Words', 
             instructions: 'Learn and practise common words used every day.',
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
             steps: [
                 '1️⃣ Read the word quickly.',
@@ -469,10 +854,7 @@
             title: '📏 Spelling Rules & Patterns', 
             instructions: 'Learn and apply spelling rules correctly (e.g., -ing).',
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
             steps: [
                 '1️⃣ Read the word carefully.',
@@ -487,10 +869,7 @@
             title: '👪 Word Families', 
             instructions: 'Group similar sounding words together.',
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
             steps: [
                 '1️⃣ Choose a word ending (e.g. –ight).',
@@ -505,10 +884,7 @@
             title: '🧠 Visual & Memory Strategies', 
             instructions: 'Use memory tricks to learn tricky words.',
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
             steps: [
                 '1️⃣ Look at the word carefully.',
@@ -523,10 +899,7 @@
             title: '📝 Spelling in Context', 
             instructions: 'Use correct spelling while writing paragraphs.',
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
             steps: [
                 '1️⃣ Write 3–4 sentences.',
@@ -543,10 +916,7 @@
             title: '🖐️ Fine Motor Control', 
             instructions: 'Strengthen hand and finger control for writing.',
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
             steps: [
                 '1️⃣ Stretch fingers and wrists.',
@@ -561,10 +931,7 @@
             title: '✍️ Letter Formation', 
             instructions: 'Form letters with correct shape and direction.',
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
             steps: [
                 '1️⃣ Choose 5 letters.',
@@ -578,18 +945,14 @@
         'hand3': { 
             title: '↔️ Spacing & Alignment', 
             instructions: 'Make writing easy to read with finger spaces.',
-			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+			activities: [				
 			],
             steps: [
-                '1️⃣ Write a sentence.',
+                '1️⃣ Write a 3 paragraghs from nayanmars book.',
                 '2️⃣ Check spacing between words.',
                 '3️⃣ Keep letters on the line.',
-                '4️⃣ Fix messy parts.',
-                '5️⃣ Compare before and after.'
+                '4️⃣ Write the words evenly.',
+                '5️⃣ Compare before and after and check whether you write the same way.'
             ], 
             cover: '✔ Outcome: EN2-HANDW-01 (Legibility)',
         },
@@ -597,10 +960,7 @@
             title: '🚀 Writing Speed & Fluency', 
             instructions: 'Write smoothly and confidently without stopping.',
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
             steps: [
                 '1️⃣ Set a short timer.',
@@ -615,10 +975,7 @@
             title: '⌨️ Keyboard Skills', 
             instructions: 'Learn how to find keys and type on a keyboard.',
             activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 			steps: [
                 '1️⃣ Find letters on the keyboard.',
@@ -633,10 +990,10 @@
             title: '🎯 Typing Accuracy', 
             instructions: 'Type carefully and fix mistakes.',
             activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				{ type: 'audio', label: 'Audio', url: 'a' },
+				{ type: 'video', label: 'Video', url: 'a' },
+				{ type: 'link', label: 'Activity Link', url: 'a' },
+				{ type: 'file', label: 'Attachment', file:'a'}
 			],
 			steps: [
                 '1️⃣ Type a sentence carefully.',
@@ -648,15 +1005,12 @@
             cover: '✔ Outcome: EN2-HANDW-02 (Transcription)' 
         },
 
-        // --- LITERATURE MODULE ---
+        // --- Understanding & Responding to Literature Module ---
         'lit1': { 
             title: '📖 Comprehension (Understand)', 
             instructions: 'Understand the story and retell what happened.',
             activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 			steps: [
                 '1️⃣ Read the text carefully.',
@@ -671,10 +1025,7 @@
             title: '📌 Main Ideas & Details', 
             instructions: 'Find the most important information.',
             activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url:''},
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 			steps: [
                 '1️⃣ Read one paragraph.',
@@ -689,10 +1040,7 @@
             title: '👥 Characters & Settings', 
             instructions: 'Identify who is in the story and where it happens.',
             activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 			steps: [
                 '1️⃣ Name the main character.',
@@ -707,10 +1055,7 @@
             title: '🔗 Making Connections', 
             instructions: 'Relate the text to your own life experiences.',
             activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 			steps: [
                 '1️⃣ Think about your own experience.',
@@ -725,10 +1070,7 @@
             title: '💬 Personal Responses', 
             instructions: 'Share your feelings and opinions about the text.',
             activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 			steps: [
                 '1️⃣ Choose your favourite part.',
@@ -743,10 +1085,7 @@
             title: '🗣️ Discussion & Reflection', 
             instructions: 'Talk deeper about what you read with others.',
             activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 			steps: [
                 '1️⃣ Listen to others respectfully.',
@@ -758,553 +1097,15 @@
             cover: '✔ Outcome: EN2-UARL-01 (Discussion)' 
         },
 
-		//----Oral Language & Communication MODULE---
-	
-        'speak1': { 
-            title: '💡 Sharing Ideas (Interacting)', 
-            instructions: 'Say your ideas clearly so others can understand you.Example: Telling the class about your favourite game.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			steps: [
-                '1️⃣ Think about what you want to say.',
-                '2️⃣ Say your idea in a full sentence.',
-                '3️⃣ Look at the listener while speaking.',
-                '4️⃣ Speak clearly and calmly.',
-                '5️⃣ Check if your listener understood.'
-            ], 
-            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
-        },
-        'speak2': { 
-            title: '👂Listening & Understanding', 
-            instructions: 'Listen carefully to understand what someone else is saying.Listening to a story and remembering what happened.',
-			activities: [
-				{ type: 'audio', label: 'Audio', url: 'https://www.esl-lounge.com/student/listening-pre-intermediate.php' },
-				{ type: 'video', label: 'Video', url: 'https://listeninenglish.com/aef-001.php' },
-				{ type: 'link', label: 'Activity Link', url: 'https://listeninenglish.com/ld-014.php' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-            steps: [
-                '1️⃣ Sit still and look at the speaker.',
-                '2️⃣ Listen without interrupting.',
-                '3️⃣ Think about the main idea.',
-                '4️⃣ Remember one important detail.',
-                '5️⃣ Be ready to respond.'
-            ], 
-            cover: '✔ Outcome: EN2-OLC-01 (Listening & Understanding)' 
-        },
-        'speak3': { 
-            title: '❓ Asking & Answering Questions', 
-            instructions: 'Ask and answer questions to learn more or explain ideas.Example: Asking “Why did the character do that?”',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Listen carefully.',
-                '2️⃣ Think of a question or answer.',
-                '3️⃣ Use clear words.',
-                '4️⃣ Speak in a full sentence.',
-                '5️⃣ Respond politely.'
-            ], 
-            cover: '✔ Outcome: EN2-OLC-01 (Listening & Understanding)' 
-        },
-        'speak4': { 
-            title: '🤝 Turn-Taking & Conversation (Interacting)', 
-            instructions: 'Take turns speaking and listening during a conversation. Example: Waiting for your turn in group discussion.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Listen while others speak.',
-                '2️⃣ Wait for your turn.',
-                '3️⃣ Share one idea.',
-                '4️⃣ Stay on topic.',
-                '5️⃣ Respect other opinions.'
-            ], 
-            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
-        },
-        'speak5': { 
-            title: '🎭 Using Voice & Expression', 
-            instructions: 'Use your voice, face and body to match what you are saying.Example: Speaking louder when presenting.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			steps: [
-                '1️⃣ Decide how you should sound.',
-                '2️⃣ Use clear volume.',
-                '3️⃣ Change tone to show feeling.',
-                '4️⃣ Use facial expressions.',
-                '5️⃣ Use simple hand movements.'
-            ], 
-            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
-        },
-        'speak6': { 
-            title: '🎤 Presenting to an Audience', 
-            instructions: 'Speak confidently to share ideas with a group.Giving a short talk thinking you are in class.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			steps: [
-                '1️⃣ Prepare what you will say.',
-                '2️⃣ Stand or sit up straight.',
-                '3️⃣ Speak clearly and slowly.',
-                '4️⃣ Look at your audience.',
-                '5️⃣ Finish with confidence.'
-            ], 
-            cover: '✔ Outcome: EN2-OLC-01 (Interacting)' 
-        },
-
-		
-		//Vocabulary MODULE
-		
-		'vocab1': { 
-            title: '🏠 Everyday Words (Tier 1)', 
-            instructions: 'Learn and use common words we use every day.Example: happy, run, big.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Read the word.',
-                '2️⃣ Say the word aloud.',
-                '3️⃣ Use it in a sentence.',
-                '4️⃣ Write the word.',
-                '5️⃣ Say the sentence again.'
-            ], 
-            cover: '✔ Outcome: EN2-VOCAB-01 (Learning and using words)' 
-        },
-        'vocab2': { 
-            title: '✨ Interesting Words (Tier 2)', 
-            instructions: 'Use stronger words to make your speaking and writing better.Example: excited instead of happy.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Read the new word.',
-                '2️⃣ Learn its meaning.',
-                '3️⃣ Say it aloud.',
-                '4️⃣ Use it in a sentence.',
-                '5️⃣ Replace a simple word with it.'
-            ], 
-            cover: '✔ Outcome: EN2-VOCAB-01(Learning and Using Words)' 
-        },
-        'vocab3': { 
-            title: '🔬 Topic Words (Tier 3)', 
-            instructions: 'Learn words that are used in specific subjects.Example: habitat in Science.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Read the topic word.',
-                '2️⃣ Learn what it means.',
-                '3️⃣ Say it aloud.',
-                '4️⃣ Write one fact using it.',
-                '5️⃣ Share your sentence.'
-            ], 
-            cover: '✔ Outcome: EN2-VOCAB-01 (Learning and Using Words)' 
-        },
-        'vocab4': { 
-            title: '🔗 Word Meanings', 
-            instructions: 'Understand what new words mean. Example: Finding the meaning of “curious”.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Read the word.',
-                '2️⃣ Look it up or ask for help.',
-                '3️⃣ Say the meaning.',
-                '4️⃣ Write a sentence.',
-                '5️⃣ Check if it makes sense.'
-            ], 
-            cover: '✔ Outcome: EN2-VOCAB-01 (Defining and Analysing Words )' 
-        },
-        'vocab5': { 
-            title: '🔍 Word Features', 
-            instructions: 'Break words into parts to understand them better.Example: unhappy = un + happy',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Look at the word.',
-                '2️⃣ Find word parts.',
-                '3️⃣ Say each part.',
-                '4️⃣ Explain what it means.',
-                '5️⃣ Try another word.'
-            ], 
-            cover: '✔ Outcome: EN2-VOCAB-01 (Defining and Analysing Words)' 
-        },
-        'vocab6': { 
-            title: '✍️ Using New Words', 
-            instructions: 'Use new words in speaking and writing.Example: Writing a sentence using “discover”.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Choose a new word.',
-                '2️⃣ Say it aloud.',
-                '3️⃣ Write a sentence.',
-                '4️⃣ Read the sentence.',
-                '5️⃣ Improve one word.'
-            ], 
-            cover: '✔ Outcome: EN2-VOCAB-01 (Learning and Using Words)' 
-        },
-		
-		//Reading Fluency
-		
-		'fluency1': { 
-            title: '🎯 Reading Accurately', 
-            instructions: 'Read words correctly without mistakes.Example: Reading a sentence without skipping words.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: 'https://learnenglish.britishcouncil.org/skills/speaking/a1-speaking/checking-understanding' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Look at each word.',
-                '2️⃣ Read slowly.',
-                '3️⃣ Say the word clearly.',
-                '4️⃣ Fix mistakes.',
-                '5️⃣ Read again.'
-            ], 
-            cover: '✔ Outcome: EN2-REFLU-01 (Reading Automaticity & Rate ⏱️)' 
-        },
-        'fluency2': { 
-            title: '📌 Reading Smoothly', 
-            instructions: 'Read without stopping too often.Example: Reading a paragraph smoothly.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Start reading.',
-                '2️⃣ Keep going smoothly.',
-                '3️⃣ Don’t stop at every word.',
-                '4️⃣ Follow punctuation.',
-                '5️⃣ Read again smoothly.'
-            ], 
-            cover: '✔ Outcome: EN2-REFLU-01 (Reading Automaticity & Rate ⏱️)' 
-        },
-        'fluency3': { 
-            title: '⏱️ Reading at the Right Speed', 
-            instructions: 'Read at a speed that makes sense to the listener.Example: Not rushing or reading too slowly.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Start reading.',
-                '2️⃣ Keep steady speed.',
-                '3️⃣ Pause at commas.',
-                '4️⃣ Stop at full stops.',
-                '5️⃣ Adjust speed if needed.'
-            ], 
-            cover: '✔ Outcome: EN2-REFLU-01 (Reading Automaticity & Rate ⏱️)' 
-        },
-        'fluency4': { 
-            title: '🎭 Prosody (Expression)', 
-            instructions: 'Use expression to make reading sound interesting. Example: Changing voice for characters.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Notice punctuation.',
-                '2️⃣ Change voice for feeling.',
-                '3️⃣ Raise or lower voice.',
-                '4️⃣ Read dialogue clearly.',
-                '5️⃣ Try again with expression.'
-            ], 
-            cover: '✔ Outcome: EN2-REFLU-01 (Reading with expression)' 
-        },
-        'fluency5': { 
-            title: '📈 Reflect / Improve', 
-            instructions: 'Check your reading and fix mistakes.Example: Re-reading when something doesn’t make sense.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Stop if confused.',
-                '2️⃣ Go back and re-read.',
-                '3️⃣ Fix the mistake.',
-                '4️⃣ Read again clearly.',
-                '5️⃣ Continue reading.'
-            ], 
-            cover: '✔ Outcome: EN2-REFLU-01 (Self-Monitoring)' 
-        },
-       	
-		
-		//Reading comphrehension
-		'comp1': { 
-            title: '💡 Basic Comprehension', 
-            instructions: 'Understand what the text is about.Example: Retelling a story.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: 'https://learnenglish.britishcouncil.org/skills/reading/a1-reading/poster-work' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			steps: [
-                '1️⃣ Read the word.',
-                '2️⃣ Think about the story.',
-                '3️⃣ Say what happened.',
-                '4️⃣ Tell it in order.',
-                '5️⃣ Check understanding.'
-            ], 
-            cover: '✔ Outcome: EN2-RECOM-01 (Reading for Interest and Wide Purposes)' 
-        },
-        'comp2': { 
-            title: '📌 Finding Main Ideas', 
-            instructions: 'Find the most important idea in the text.Example: Saying what the text is mostly about.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			steps: [
-                '1️⃣ Read one section.',
-                '2️⃣ Think about the big idea.',
-                '3️⃣ Say it in one sentence.',
-                '4️⃣ Check the text.',
-                '5️⃣ Share your answer.'
-            ], 
-            cover: '✔ Outcome: EN2-RECOM-01(Comprehending Language)' 
-        },
-        'comp3': { 
-            title: '🔍 Finding Details', 
-            instructions: 'Find information that supports the main idea.Example: Listing two facts from the text.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			steps: [
-                '1️⃣ Re-read the text.',
-                '2️⃣ Look for key details.',
-                '3️⃣ Highlight or note them.',
-                '4️⃣ Say them aloud.',
-                '5️⃣ Check relevance.'
-            ], 
-            cover: '✔ Outcome: EN2-RECOM-01 (Comprehending Language)' 
-        },
-        'comp4': { 
-            title: '🧱 Text Structure & Organisation', 
-            instructions: 'Understand how a text is organised.Example: Using headings to find information.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			steps: [
-                '1️⃣ Look at headings.',
-                '2️⃣ Notice paragraphs.',
-                '3️⃣ See how ideas are grouped.',
-                '4️⃣ Use structure to help reading.',
-                '5️⃣ Explain the layout.'
-            ], 
-            cover: '✔ Outcome: EN2-RECOM-01 (Comprehending Text Structures & Features)' 
-        },
-        'comp5': { 
-            title: '🧠 Monitoring Comprehension', 
-            instructions: 'Check if what you read makes sense..Example:Asking yourself a question while reading.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			steps: [
-                '1️⃣ Pause while reading.',
-                '2️⃣ Ask “Do I understand?”.',
-                '3️⃣ Re-read if needed.',
-                '4️⃣ Ask for help if stuck.',
-                '5️⃣ Continue reading.'
-            ], 
-            cover: '✔ Outcome: EN2-RECOM-01 (Checking & Understanding Comprehension)' 
-        },
-        'comp6': { 
-            title: '💬 Responding to Text', 
-            instructions: 'Share thoughts and opinions about the text. Example: Saying why you liked a character.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			steps: [
-                '1️⃣ Think about the text.',
-                '2️⃣ Choose one idea.',
-                '3️⃣ Say what you think.',
-                '4️⃣ Give a reason.',
-                '5️⃣ Share with others.'
-            ], 
-            cover: '✔ Outcome: EN2-RECOM-01 (Thinking and Responding)' 
-        },		
-			
-
-        // UPDATED WRITING PROCESS DATA
-        'write_step1': { 
-            title: 'Step 1: 💡Planning & Ideas - Planning and composing (Actually sitting down to write the draft.)', 
-            instructions: 'Before we write, we must dream! Let’s get your ideas ready.Think first – What am I going to write?. Example: Brainstorming ideas before writing a story.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: 'https://test-english.com/listening/a1/who-is-in-your-new-class-a1-english-listening-test/' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: 'https://test-english.com/writing/a1/my-hobby-a1-english-writing/' },
-				{ type: 'file', label: 'Attachment', url:'https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar/adjectives-prepositions'}
-			],
-			items: [					
-					'1️⃣ Pick a topic (e.g. A brave knight, a lost robot, or how to make a sandwich).', 
-					'2️⃣ Draw a Mind Map on your paper with your main idea in the middle.',
-					'3️⃣ Write down 5 "sparkly" words that come to your mind.',
-					'4️⃣ Click "Start Recording" and show your Mind Map to the camera while explaining your idea!',
-
-				], 
-				cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Planning and composing)' 
-        },
-        'write_step2': { 
-            title: 'Step 2: ⚖️ Purpose & Audience - Creating texts for specific purposes(Knowing who will read it (Mom, a friend, etc.))',
-			instructions:'Who am I writing for and why? (write differently depending on who will read it).Example: Writing a letter to a friend or an instruction list.',
-            activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', url:''}
-			],
-			items: [
-				'1️⃣ Decide: Is this for a Friend (Funny) or a Teacher (Serious)?',
-                '2️⃣ Decide: Why are you writing? (To tell a story, give facts, or change a mind?).',
-                '3️⃣ Click "Start Recording" and say: "I am writing for [Who] because I want to [Why]."',
-                '4️⃣ Make sure you look at the camera like you are talking to that person!'
-		], 
-            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Creating texts for specific purposes)' 
-        },
-        'write_step3': { 
-            title: 'Step 3: 🧱 Text Structure & Organisation - Text forms and features(Using headings, paragraphs, or story endings.)', 
-            instructions:'How will I organise my writing in a clear order?.Example: Writing a story with a beginning, middle, and end.',
-			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			items: [ 
-				'1️⃣ Draw 3 big boxes on your page: Beginning, Middle, and End.',
-                '2️⃣ Draw one quick picture in each box to show what happens.',
-                '3️⃣ Click "Start Recording" and point to your boxes.',
-                '4️⃣ Explain: "First this happens... then this... and finally this."'
-		], 
-            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Text forms and features)' 
-        },
-        'write_step4': { 
-            title: 'Step 4: 🔠 Sentence Construction - Grammar and sentence-level skills(Making sure sentences make sense.)', 
-            instructions: 'How do I write correct and meaningful sentences?.Example: Writing a complete sentence with a capital letter and full stop.',
-			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			items: [  
-				'1️⃣ Write your first 3 sentences on your paper.',
-                '2️⃣ Check: Does every sentence start with a CAPITAL and end with a FULL STOP?',
-                '3️⃣ Click "Start Recording" and read your sentences aloud.',
-                '4️⃣ Listen: Did you have to stop for a breath? If yes, you might need a comma!'
-		], 
-            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Grammar and sentence-level skills)' 
-        },
-        'write_step5': { 
-            title: 'Step 5: ✨ Vocabulary Choice - Word-level Language choices(Using "sparkle words" instead of boring words.)', 
-            instructions: 'Which words make my writing better (choose interesting and suitable words)?.Example: Using "excited" instead of "happy".',
-			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			items: [
-				'1️⃣ Find 3 words in your writing like "good", "big", or "said".',
-                '2️⃣ Find "Powerful" versions (like "Magnificent" or "Giant").',
-                '3️⃣ Click "Start Recording" and show the changes.',
-                '4️⃣ Explain: "I changed the word [Old Word] to [New Word] because it sounds better!"'], 
-            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Language choices)' 
-        },
-        'write_step6': { 
-            title: 'Step 6: 🚀 Editing & Publishing - Revising and editing(Checking for mistakes and making it look good.)', 
-            instructions:'Can I fix and share my writing (improve writing before sharing it)?.Example: Checking spelling and rewriting neatly.',
-			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
-			items: [
-				'1️⃣ Check your spelling one last time.',
-                '2️⃣ Rewrite your text neatly or type it out.',
-                '3️⃣ Click "Start Recording" for your Final Performance.',
-                '4️⃣ Read your whole story with a loud, proud voice and expression!'
-		], 
-            cover: '✔ NSW Outcome: EN2-CWT-01/02/03 (Revising and editing)' 
-        },
-
-		
-		// ===============================
-		// MATHS: REPRESENTING NUMBERS
-		// Stage 2 – Place Value A & B
-		// Outcomes: MA2-RN-01, MA2-RN-02
-		// ===============================
+		// Maths - Number & Algebra Module - Place Value A
 
 		'pvA1': {
 		  title: '🔢 Reading Numbers (to Thousands)',
 		  instructions: 'Learn to read big numbers using place value. Example: 3,482 → three thousand four hundred and eighty-two.',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				{type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/place-value-models-up-to-thousands'},
+				{type: 'audio', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/place-value-names-up-to-thousands'},
+				
 			],
 		  steps: [
 			'1️⃣ Look at the number (e.g. 3,482).',
@@ -1320,10 +1121,7 @@
 		  title: '🧱 Building Numbers with Place Value',
 		  instructions: 'Make numbers using thousands, hundreds, tens and ones. Example: 2,365 = 2,000 + 300 + 60 + 5',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 		  steps: [
 			'1️⃣ Choose a number (e.g. 2,365).',
@@ -1339,11 +1137,7 @@
 		  title: '🔁 Regrouping Numbers',
 		  instructions: 'Swap tens, hundreds or thousands to make the same number. Example: 1,450 = 1,300 + 150.',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
-			],
+				],
 		  steps: [
 			'1️⃣ Start with a number (e.g. 1,450).',
 			'2️⃣ Trade 1 hundred for 10 tens.',
@@ -1354,16 +1148,13 @@
 		  cover: '✔ MA2-RN-01 (Regrouping upto 4 digits)'
 		},
 
-		// -------- PLACE VALUE B --------
+		// Number & Algebra Module - Place Value B
 
 		'pvB1': {
 		  title: '📊 Ordering Numbers (Thousands)',
 		  instructions: 'Put numbers in the correct order.(Order numbers in the thousands). Example: 3,245 < 3,402 < 4,018.',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 		  steps: [
 			'1️⃣ Look at all the numbers.',
@@ -1379,10 +1170,7 @@
 		  title: '✖️ Numbers ×10, ×100, ×1000',
 		  instructions: 'Make numbers bigger using place value shifts.(Recognise and represent numbers that are 10, 100 or 1000 times as large). Example: 36 × 100 = 3,600.',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 		  steps: [
 			'1️⃣ Start with a number (e.g. 36).',
@@ -1398,10 +1186,7 @@
 		  title: '🔟 Tenths & Hundredths (Decimals)',
 		  instructions: 'Extend the application of the place value system from whole numbers to tenths and hundredths. Example: 3.45 = 3 + 4/10 + 5/100.',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 		  steps: [
 			'1️⃣ Look at the decimal point.',
@@ -1417,10 +1202,7 @@
 		  title: '🔗 Fractions & Decimals Connection',
 		  instructions: 'Make connections between fractions and decimal notation and Understand how show the same value. Example: 1/4 = 0.25.',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 		  steps: [
 			'1️⃣ Start with a fraction.',
@@ -1432,16 +1214,13 @@
 		  cover: '✔ MA2-RN-02 (Fractions ↔ Decimals)'
 		},
 		
-		//Addition Relations A - MA2-AR-01 – Selects and uses mental and written strategies for addition and subtraction involving 2- and 3-digit numbers
+		//Addition Relations Module - Section A - MA2-AR-01 – Selects and uses mental and written strategies for addition and subtraction involving 2- and 3-digit numbers
 		
 		'arA1': {
 		  title: "⚖️ Principle of Equality & Balancing Numbers",
 		  instructions: 'Both sides of an equation must have the same value.<br>Example: "8 + 4 = 6 + 6"</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 		  steps: [
 			"1️⃣ Look at both sides of the number sentence.",
@@ -1456,10 +1235,7 @@
 		  title: "➕Addition & Subtraction Connection",
 		  instructions:'Addition and subtraction are connected operations.<br>Example: "7 + 3 = 10 and 10 − 3 = 7"</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 		  steps: [
 			"1️⃣ Choose three numbers.",
@@ -1474,10 +1250,7 @@
 			  title: "🧠 Flexible Strategies (Up to 3 Digits)",
 			  instructions: 'Different strategies can be used to solve problems.<br>Example: "245 + 30 using partitioning"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			],
 			  steps: [
 				"1️⃣ Read the problem.",
@@ -1492,10 +1265,8 @@
 			  title: "💰 Representing Money",
 			  instructions:'Money amounts can be shown in different ways.<br>Example: "$1.50 = $1 + 50c"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/count-coins-and-notes-up-to-5-dollar-note' },
+				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/equivalent-amounts-of-money-up-to-5-dollars' },
 			  ],
 			  steps: [
 				"1️⃣ Read the money amount.",
@@ -1506,15 +1277,12 @@
 			  cover: '✔ MA2-AR-01 (Additive Relations A-Represent money values in multiple ways)'
 			},
 		
-		//Addition Relations B - MA2-AR-02 – Completes number sentences involving addition and subtraction by finding missing values
+		//Addition Relations Module - Section B - MA2-AR-02 – Completes number sentences involving addition and subtraction by finding missing values
 		'arB1': {
 			  title: "🧩 Partitioning & Regrouping",
 			  instructions: 'Numbers can be split and regrouped to make calculations easier.<br>Example: "356 = 300 + 50 + 6" using partitioning"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Break the number into parts.",
@@ -1529,10 +1297,7 @@
 			  title: "🏪 Real-Life Additive Problems",
 			  instructions:'Addition and subtraction help solve everyday problems.<br>Example: "Buying items with $20"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Read the problem.",
@@ -1546,10 +1311,7 @@
 			  title: "❓ Missing Numbers",
 			  instructions: 'Sometimes a number is missing and must be found.<br>Example: "45 + ⬜ = 72"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Read the number sentence.",
@@ -1560,16 +1322,13 @@
 			  cover: '✔ MA2-AR-02 (Additive Relations B - Complete number sentences involving additive relations to find unknown quantities(Number Sentences))'
 			},
 
-		//Multiplication Relations A - MA2-MR-01 – Represents and uses the structure of multiplicative relations to 10 × 10
+		//Multiplication Relations Module - Section A - MA2-MR-01 – Represents and uses the structure of multiplicative relations to 10 × 10
 		
 		'mrA1': {
 			  title: "🔢 Patterns & Groups",
 			  instructions:'Patterns help us understand multiplication.<br>Example: "2, 4, 6, 8"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Look at the pattern.",
@@ -1583,10 +1342,10 @@
 			  title: "🧱 Arrays for Multiplication",
 			  instructions:'Arrays show equal groups clearly.<br>Example: "3 × 4 as 3 rows of 4"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/count-equal-groups' },
+				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/identify-multiplication-expressions-for-equal-groups' },
+				{ type: 'link', label: 'Activity Task 3', url: 'https://au.ixl.com/maths/year-3/write-multiplication-sentences-for-equal-groups' },
+				//{ type: 'file', label: 'Attachment', file:'a'}
 			  ],
 			  steps: [
 				"1️⃣ Draw rows and columns.",
@@ -1601,10 +1360,7 @@
 			  title: "✖️ Multiplication Facts (2, 4, 5 & 10)",
 			  instructions: 'Multiplication facts help us solve problems quickly.<br>Example: "5 × 4 = 20 and 20 ÷ 5 = 4"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Say the multiplication fact.",
@@ -1619,10 +1375,7 @@
 			  title: "🔁 Fact Families",
 			  instructions:'Multiplication and division facts belong together. <br>Example: "5 × 4 = 20, 20 ÷ 5 = 4"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Choose three numbers.",
@@ -1639,10 +1392,7 @@
 			  title: "🔁 Number Sequences & Multiples",
 			  instructions: 'Multiples follow a pattern when we skip count.<br>Example: "5, 10, 15, 20"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Start with a number.",
@@ -1656,10 +1406,7 @@
 			  title: "🧠 Using Known Facts",
 			  instructions: 'Known facts help solve harder problems.<br>Example: "If 5 × 6 = 30, then 50 × 6 = 300"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Recall a fact you know.",
@@ -1674,10 +1421,7 @@
 			  title: "📐 Area Model",
 			  instructions:'Area models show how multiplication works.<br>Example: "4 × 6 shown as a rectangle"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Draw a rectangle.",
@@ -1692,10 +1436,7 @@
 			  title: "🔗 Number Properties",
 			  instructions: 'Number properties help find related facts.<br>Example: "4 × 6 = 6 × 4"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Write a multiplication fact.",
@@ -1710,10 +1451,7 @@
 			  title: "🔟 Multiples of 10",
 			  instructions:'Multiplying by 10 adds a zero.<br>Example: "6 × 10 = 60"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Say the base fact.",
@@ -1726,10 +1464,7 @@
 			  title: "📝 Word Problems",
 			  instructions:'Word problems help apply multiplication to real life.<br>Example: "4 bags with 6 apples each"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Read the problem.",
@@ -1740,15 +1475,12 @@
 			  cover: '✔ MA2-MR-02 (Multiplicative Relations B - Represent and solve word problems with number sentences involving multiplication or division)'
 			},
 
-		//Partitioned Fractions A - MA2-PF-01 – Represents and compares fractions on a number line
+		//Partitioned Fractions Module - Section A - MA2-PF-01 – Represents and compares fractions on a number line
 			'pfA1': {
 			  title: "🍕 Understanding Equal Parts",
 			  instructions:'Fractions show equal parts of a whole.<br>Example: "½ means one of two equal parts/One-quarter of a strip</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Look at the whole shape.",
@@ -1763,10 +1495,7 @@
 			  title: "📏 Fractions on a Number Line",
 			  instructions:'Fractions can be placed on a number line.<br>Example: "½ is halfway between 0 and 1</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Draw a number line from 0 to 1.",
@@ -1778,15 +1507,12 @@
 			},
 			
 			
-		//Partitioned Fractions B
+		//Partitioned Fractions Module - Section B
 		'pfB1': {
 		  title: "🔄 Equivalent Fractions",
 		  instructions: 'Different fractions can have the same value.<br>Example: "½ = 2/4"</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Model the fraction.",
@@ -1799,10 +1525,7 @@
 		  title: "➕ Fractions Greater Than One",
 		  instructions: 'Fractions can be more than one whole.<br>Example: "5/4"</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Count wholes.",
@@ -1812,17 +1535,14 @@
 		  cover: '✔ MA2-PF-01(Partitioned Fractions B - Represent fractional quantities equal to and greater than one(Fractions beyond one))'
 		},
 	
-	//Geometric Measure A - MA2-GM-01 – Uses grid maps and directional language to locate positions and follow routes
+	//Geometric Measure Module - Section A - MA2-GM-01 – Uses grid maps and directional language to locate positions and follow routes
 	//MA2-GM-02 – Measures and estimates lengths in metres, centimetres and millimetres
 	//MA2-GM-03 – Identifies angles and classifies them by comparing to a right angle
 		'gmA1': {
 		  title: "🗺️ Using Maps & Directions",
 		  instructions:'Maps show where things are and how to move.<br>Example: "Move 2 steps north and 1 step east.</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Look at the map.",
@@ -1838,10 +1558,7 @@
 		  title: "📍 Grid Maps",
 		  instructions:'Grid maps use rows and columns to find places.<br>Example: "The treasure is at B3.</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Find the letter row.",
@@ -1856,10 +1573,7 @@
 		  title: "📏 Measuring Length",
 		  instructions:'Length tells how long something is.<br>Example: "A pencil is 12 cm long.</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Choose the right unit (mm, cm, m).",
@@ -1874,10 +1588,7 @@
 		  title: "📐↩️ Angles as Turns",
 		  instructions:'Angles show how much something turns.<br>Example: "A quarter turn makes a right angle.</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Look at the turn.",
@@ -1888,15 +1599,12 @@
 		  cover: '✔ MA2-GM-03(Geometric Measure A - Angles: Identify angles as measures of turn)'
 		},
 		
-		//Geometric Measure B
+		//Geometric Measure Module - Section B
 			'gmB1': {
 			  title: "🧭 Creating Grid Maps",
 			  instructions:'Grid maps can be made to show places clearly.<br>Example: "Drawing a map of your classroom."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Draw a grid.",
@@ -1911,10 +1619,7 @@
 			  title: "➡️ Directions & Routes",
 			  instructions: 'Directions explain how to move from one place to another.<br>Example: "Turn left, then move forward."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Choose a starting point.",
@@ -1929,10 +1634,7 @@
 			  title: "📐 Accurate Measuring",
 			  instructions: 'Scaled tools help measure accurately.<br>Example: "Measuring a desk using a metre ruler."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Choose the correct tool.",
@@ -1947,10 +1649,7 @@
 			  title: "📐 Comparing Angles",
 			  instructions: 'Angles can be smaller or larger than a right angle.<br>Example: "An acute angle is smaller than a right angle."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Find a right angle.",
@@ -1961,7 +1660,7 @@
 			  cover: '✔ MA2-GM-03(Geometric Measure B - Angles: Compare angles to a right angle)'
 			},
 
-		//2D Spatial Structure A - MA2-2DS-01 compares two-dimensional shapes and describes their features
+		//2D Spatial Structure Module - Section A - MA2-2DS-01 compares two-dimensional shapes and describes their features
 
 		//MA2-2DS-02 performs transformations by combining and splitting two-dimensional shapes
 
@@ -1971,10 +1670,9 @@
 		  title: "🔺 Comparing 2D Shapes",
 		  instructions:'2D shapes are flat shapes with sides and corners.<br>Example: "A square has 4 equal sides and 4 corners."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/count-vertices-edges-and-faces' },
+				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/identify-three-dimensional-shapes' },
+				{ type: 'link', label: 'Activity Task 3', url: 'https://au.ixl.com/maths/year-3/count-and-compare-sides-and-vertices' },
 			  ],
 		  steps: [
 			"1️⃣ Look at the shape carefully.",
@@ -1989,10 +1687,7 @@
 		  title: "🔄 Transforming Shapes ",
 		  instructions:'Shapes can be flipped, slid or turned.<br>Example: "Sliding a square to the right."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Choose a shape.",
@@ -2007,10 +1702,7 @@
 		  title: "🟦 Measuring Area (cm²)",
 		  instructions:'Area shows how much space a shape covers.<br>Example: "A rectangle covers 12 cm²."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Cover the shape with squares.",
@@ -2024,10 +1716,7 @@
 		  title: "🏞️ Measuring Area (m²)",
 		  instructions:'Large areas are measured in square metres.<br>Example: "A classroom floor area."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Estimate the area.",
@@ -2038,15 +1727,12 @@
 		  cover: '✔ MA2-2DS-03(2D Spatial Structure A - Area: Use square metres to measure and estimate the areas of rectangles)'
 		},
 			
-		//2D Spatial Structure B
+		//2D Spatial Structure Module - Section B
 			'ds2B1': {
 			  title: "🧩 Splitting & Combining Shapes",
 			  instructions: 'New shapes can be made by joining or splitting shapes.<br>Example: "Two triangles can make a rectangle."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Look at the shape.",
@@ -2061,10 +1747,7 @@
 			  title: "🪞 Symmetry",
 			  instructions: 'A shape is symmetrical if both sides match.<br> Example: "A butterfly shape."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Fold the shape.",
@@ -2078,10 +1761,7 @@
 			  title: "📊 Area on Grids",
 			  instructions: 'Grids help measure irregular areas.<br> Example: "Counting squares inside a shape."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Place the shape on grid.",
@@ -2095,10 +1775,7 @@
 			  title: "📐 Comparing Surface Area",
 			  instructions: 'Area shows how much space a surface covers.<br>Example: "This rectangle covers more space than that one."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Look at both surfaces.",
@@ -2109,16 +1786,13 @@
 			  cover: '✔ MA2-2DS-03 (Two-dimensional spatial structure B – Area: Compare surfaces using familiar metric units of area)'
 			},
 
-		//3D Spatial Structure A - MA2-3DS-01 – Makes and sketches models and nets of 3D objects
+		//3D Spatial Structure Module - Section A - MA2-3DS-01 – Makes and sketches models and nets of 3D objects
 		//MA2-3DS-02 – Measures and compares capacities
 			'ds3A1': {
 			  title: "🧱 Exploring 3D Objects",
 			  instructions:'3D objects have faces, edges and corners.<br>Example: "A cube has 6 square faces."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Look at the object.",
@@ -2133,10 +1807,7 @@
 			  title: "🥤 Measuring Capacity",
 			  instructions: 'Capacity shows how much a container can hold.<br>Example: "A bottle holds 1 litre of water."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Choose a container.",
@@ -2150,10 +1821,7 @@
 			  title: "🥤 Comparing Volume",
 			  instructions: 'Volume shows how much space an object holds inside.<br>Example: "A bottle holds more water than a cup."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Look at the containers.",
@@ -2164,15 +1832,12 @@
 			  cover: '✔ MA2-3DS-02 (Three-dimensional spatial structure A – Volume: Compare objects using familiar metric units of volume)'
 			},
 
-		//3D Spatial Structure B
+		//3D Spatial Structure Module - Section B
 			'ds3B1': {
 			  title: "📦 Nets & Models",
 			  instructions: 'Nets fold to make 3D objects.<br>Example: "A cube net."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Look at the net.",
@@ -2187,10 +1852,7 @@
 			  title: "📐 Accurate Capacity",
 			  instructions: 'Scaled tools help measure capacity accurately.<br>Example: "Measuring 250 mL."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Choose the measuring tool.",
@@ -2200,15 +1862,12 @@
 			  cover: '✔ MA2-3DS-02 (Three-dimensional Spatial Structure B - Volume: Use scaled instruments to measure and compare capacities (internal volumes))'
 			},
 		
-		//Non-Spatial Measure A
+		//Non-Spatial Measure Module - Section A
 		'nsmA1': {
 			  title: "⚖️ Comparing Mass",
 			  instructions: 'Mass tells how heavy or light something is.<br>Example: "An apple weighs about 150 g."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Hold the object.",
@@ -2223,10 +1882,7 @@
 			  title: "🕰️ Reading Analog Time",
 			  instructions: 'Clocks show time using hands.<br>Example: "2:30 is half past two."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Read the hour hand.",
@@ -2237,15 +1893,12 @@
 			},
 
 		
-		//Non-Spatial Measure B
+		//Non-Spatial Measure Module - Section B
 		'nsmB1': {
 		  title: "⚖️ Measuring Mass",
 		  instructions: 'Scales measure mass accurately.<br>Example: "An apple weighs 150 g."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Place object on scale.",
@@ -2259,10 +1912,8 @@
 		  title: "⏰ Reading Time",
 		  instructions: 'Time can be shown on clocks and digital displays.<br>Example: "3:30 means half past three."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/match-clocks-and-times' },
+				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/match-analogue-and-digital-clocks' },
 			  ],
 		  steps: [
 			"1️⃣ Look at the clock.",
@@ -2276,10 +1927,7 @@
 		  title: "⏰ Digital Time & am/pm",
 		  instructions: 'Digital clocks show time using numbers.<br>Example: "7:45 am"</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Read the digits.",
@@ -2289,7 +1937,7 @@
 		  cover: '✔ MA2-NSM-02(Non-Spatial Measure B - Time: Use am and pm notation)'
 		},
 
-		//Data A MA2-DATA-01 collects discrete data and constructs graphs using a given scale
+		//Data Module - Section A - MA2-DATA-01 collects discrete data and constructs graphs using a given scale
 
 		//MA2-DATA-02 interprets data in tables, dot plots and column graphs
 		
@@ -2297,10 +1945,7 @@
 			  title: "📋 Collecting Data",
 			  instructions:'Data is information we collect and record.<br> Example: "Favourite fruit choices in the class."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Ask a question.",
@@ -2314,10 +1959,7 @@
 			  title: "📊 Displaying Data",
 			  instructions:'Graphs help us understand data.<br> Example: "A column graph shows the most popular fruit."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Look at the title.",
@@ -2329,7 +1971,7 @@
 			},
 		
 
-		//Data B MA2-DATA-01 collects discrete data and constructs graphs using a given scale
+		//Data Module - Section B - MA2-DATA-01 collects discrete data and constructs graphs using a given scale
 
 		//MA2-DATA-02 interprets data in tables, dot plots and column graphs
 
@@ -2337,10 +1979,7 @@
 			 title: "📋 Choosing Data Collection Methods",
 			  instructions: 'Different questions need different ways to collect data.<br>Example: "Survey or tally chart"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Read the question.",
@@ -2355,10 +1994,7 @@
 			  title: "📈 Scaled Graphs",
 			  instructions:'Scales help show large numbers clearly.<br>Example: "Each square equals 5 votes."</br>',
 			  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 			  steps: [
 				"1️⃣ Read the scale.",
@@ -2368,16 +2004,13 @@
 			  cover: '✔ MA2-DATA-02 (Data B - Construct and interpret data displays with many-to-one scales)'
 			},
 	
-		//Chance A & B - MA2-CHAN-01 
+		//Chance Module - Section A & B - MA2-CHAN-01 
 		//records and compares the results of chance experiments
 		'chan1': {
 		  title: "🎲 Chance Experiments",
 		  instructions:'Chance shows how likely something is to happen.<br> Example: "Rolling a dice gives numbers 1 to 6."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			  ],
 		  steps: [
 			"1️⃣ Choose an experiment.",
@@ -2392,10 +2025,7 @@
 		  title: "📈 Comparing Chance Results",
 		  instructions:'We compare results to see patterns.<br>Example: "6 appeared most often when rolling the dice."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+			
 			  ],
 		  steps: [
 			"1️⃣ Look at results.",
@@ -2406,184 +2036,15 @@
 		  cover: '✔ MA2-CHAN-01 (Chance A & B - Describe the likelihood of outcomes of chance events)' 
 		},
 		
-			//SCIENCE TAB
-			  'sciA1': {
-					title: "🌱 Living Things Need Energy",
-					instructions: 'Living things need air, water and food to survive.<br>Example: "Plants need sunlight and water to grow."</br>',
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-					  ],
-					steps: [
-					  "1️⃣ Look around and list living things.",
-					  "2️⃣ List what each one needs to survive.",
-					  "3️⃣ Draw a plant and label sun, water and air.",
-					  "4️⃣ Explain what will happen if one is missing."
-					],
-					cover: "✔ ST2-SCI-01 (Physical and living systems depend on energy – Living things depend on energy and materials)",
-					//appmessage: "Great work! You are learning so much about how life works and what living things need to stay healthy."
-				  },
-
-				  'sciA2': {
-					title: "🧊 Changing States of Matter",
-					instructions: 'Heat can change solids, liquids and gases.<br>Example: "Ice melts into water."</br>',
-					activities: [
-							{ type: 'audio', label: 'Audio', url: '' },
-							{ type: 'video', label: 'Video', url: '' },
-							{ type: 'link', label: 'Activity Link', url: '' },
-							{ type: 'file', label: 'Attachment', file:''}
-						  ],
-					steps: [
-					  "1️⃣ Look at ice, water and steam pictures.",
-					  "2️⃣ Match each to solid, liquid or gas.",
-					  "3️⃣ Draw arrows to show melting and freezing.",
-					  "4️⃣ Explain what heat does."
-					],
-					cover: "✔ ST2-SCI-01 (Energy is required to change the properties of matter)",
-					//appmessage:"Excellent scientific thinking! You are discovering how different materials and states of matter work in our world."
-				  },
-
-				  'sciA3': {
-					title: "🦴 How Our Body Moves",
-					instructions: 'Bones and muscles work together to help us move.<br>Example: "Your knee bends like a hinge."</br>',
-					activities: [
-							{ type: 'audio', label: 'Audio', url: '' },
-							{ type: 'video', label: 'Video', url: '' },
-							{ type: 'link', label: 'Activity Link', url: '' },
-							{ type: 'file', label: 'Attachment', file:''}
-						  ],
-					steps: [
-					  "1️⃣ Touch your knee and elbow.",
-					  "2️⃣ Bend and straighten your arm.",
-					  "3️⃣ Draw bones and muscles.",
-					  "4️⃣ Explain how they work together."
-					],
-					cover: "✔ ST2-SCI-01 (Body systems work together to enable movement)",
-					//appmessage:"Fantastic! You are gaining a wonderful understanding of how the human body works and stays in motion.",
-				  },
-
-				  'sciA4': {
-					title: "🔥 How Heat Moves",
-					instructions: 'Heat moves from hot things to cold things.<br>Example: "A spoon gets hot in soup."</br>',
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-					  ],
-					steps: [
-					  "1️⃣ Touch warm and cold objects (safely).",
-					  "2️⃣ Observe which gets warm faster.",
-					  "3️⃣ Draw arrows to show heat moving.",
-					  "4️⃣ Explain what happened."
-					],
-					cover: "✔ ST2-SCI-01 (Heat energy can be transferred)",
-					//appmessage:"Brilliant! You are learning the secrets of how energy and heat move through everything around us.",
-				  },
-
-				  'sciA5': {
-					title: "🌋 Forces Change the Earth",
-					instructions: 'Wind and water can change land shapes.<br>Example: "Rivers make valleys."</br>',
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-					  ],
-					steps: [
-					  "1️⃣ Look at mountain and river pictures.",
-					  "2️⃣ Identify what changed the land.",
-					  "3️⃣ Draw before and after pictures.",
-					  "4️⃣ Explain what force caused it."
-					],
-					cover: "✔ ST2-SCI-01 (Forces shape Earth’s surface)",
-					//appmessage: "Incredible work! You are discovering the powerful forces and systems that shape our planet and the solar system.",
-				  },
-
-				  'sciA6': {
-					title: "☀️ The Sun Gives Us Energy",
-					instructions: 'The Sun gives Earth light and heat.<br>Example: "The Sun helps dry clothes."</br>',
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-					  ],
-					steps: [
-					  "1️⃣ List things that use sunlight.",
-					  "2️⃣ Draw the Sun and Earth.",
-					  "3️⃣ Draw arrows showing sunlight.",
-					  "4️⃣ Explain why the Sun is important."
-					],
-					cover: "✔ ST2-SCI-01 (The Sun is the centre of our solar system and provides energy)",
-					//appmessage:"Incredible work! You are discovering the powerful forces and systems that shape our planet and the solar system."
-				  },
-				'sciA7': {
-					title: "✍️ Explaining Science in Writing",
-					instructions: 'Writing helps us explain how things work in science.<br>Example: "Plants need sunlight to make food."</br>',
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-					  ],
-					steps: [
-					  "1️⃣ Choose one science topic (e.g., plants or heat).",
-					  "2️⃣ Write one sentence about what it needs or does.",
-					  "3️⃣ Add a drawing with labels.",
-					  "4️⃣ Read your explanation and check if it makes sense."
-					],
-					cover: "✔ ST2-SCI-01 (Creating written explanations of physical and living systems supports understanding of Science and Technology)",
-					//appmessage:"Wonderful! You are doing a great job explaining science ideas and sharing what you have learned."
-				  },
-
-				  'techA1': {
-					title: "🛠️ What is Design?",
-					instructions: 'Design means planning and making something to solve a problem.<br>Example: "Designing a pencil holder."</br>',
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-					  ],
-					steps: [
-					  "1️⃣ Identify a problem.",
-					  "2️⃣ Draw a solution.",
-					  "3️⃣ Make the model.",
-					  "4️⃣ Check if it works."
-					],
-					cover: "✔ ST2-DDT-01 (Design is a process of creating and innovating)"
-				  },
-
-				  'techA2': {
-					title: "🤖 Using Digital Systems",
-					instructions: 'Digital systems follow steps to do a job.<br>Example: "A computer follows instructions."</br>',
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-					  ],
-					steps: [
-					  "1️⃣ Write simple steps to do a task.",
-					  "2️⃣ Follow the steps exactly.",
-					  "3️⃣ Check if the result is correct.",
-					  "4️⃣ Fix the steps if needed."
-					],
-					cover: "✔ ST2-DDT-02 (Digital systems can be created and controlled)"
-				  },
-
-         // TAMIL DATA
+		 // TAMIL DATA
         'tam_ls': { 
-		title: '👂 Listening & Speaking', 
-		items: ['💬 Oral Conversation', '📖 Story Telling', '🎶 Recitation (Poems & Songs)', '🧠 Vocabulary'],
+		title: '👂 Listening', 
+		items: ['💬 Oral Conversation', '📖 Story Telling'], //'🎶 Recitation (Poems & Songs)', '🧠 Vocabulary'],
 		activities: [
-					{ type: 'audio', label: 'Audio', url:'https://open.spotify.com/show/1o1cwFfyi7UKY9vjm2oq1k'},
-					{ type: 'video', label: 'Video',url:'https://www.youtube.com/watch?v=1IxAkhSm9pY&list=PL-A5Nigeqt-Urw0dGiFXZv12ghybekVa6'},
-					{ type: 'link', label: 'Activity Link', url: 'https://learn101.org/tamil_adjectives.php' },
-					{ type: 'file', label: 'Attachment', url:'https://learn101.org/tamil_vocabulary.php'}
+					{ type: 'audio', label: 'Audio', url:'https://open.spotify.com/episode/1ZY8GaD9QoCiRBfA7Ex5xa'},
+					{ type: 'video', label: 'Video',url:'https://playwithtamil.com/activity/rank-order/aangkil-maatngkllai-vricaippttuttuvoom/theme/rank-order-marutham'},
+					//{ type: 'link', label: 'Activity Link', url: 'https://learn101.org/tamil_adjectives.php' },
+					//{ type: 'file', label: 'Attachment', url:'https://learn101.org/tamil_vocabulary.php'}
 				  ],		
 		cover: 'Focus: Oral communication skills' 
 		},        
@@ -2591,56 +2052,48 @@
 		title: '📖 Reading', 
 		items: ['🔤 Letters & Syllables', '📄 Simple Words', '📘 Short Sentences', '📚 Story Reading'], 
 		activities: [
-					{ type: 'audio', label: 'Audio', url: 'https://open.spotify.com/episode/3HpzKy8iTePVBM1TfJ7oTt' },
-					{ type: 'video', label: 'Video', url: 'https://storyweaver.org.in/en/stories/14796-kokku-karpitha-paadam?mode=read' },
-					{ type: 'link', label: 'Activity Link', url: 'https://readingtamilschool.co.uk/pdf-viewer/?file=http%3A%2F%2Fold.readingtamilschool.co.uk%2Fwp-content%2Fuploads%2F2022%2F03%2FVT-3-01.pdf' },
-					{ type: 'file', label: 'Attachment', url:'https://readingtamilschool.co.uk/pdf-viewer/?file=http%3A%2F%2Fold.readingtamilschool.co.uk%2Fwp-content%2Fuploads%2F2022%2F03%2FVT-4-01.pdf'}
+					{ type: 'link', label: 'Activity Reading Task 1', url: 'https://storyweaver.org.in/en/stories/15082-akka-akka-idi-yengirunthu-varuthu?mode=read' },
+					{ type: 'file', label: 'Activity Reading Task 2', url:'https://www.imaginetamil.com/comics/thambi-yaaru'}
 				  ],
 		cover: 'Focus: Literacy development' 
 		},
         'tam_wr': { 
-		title: '✍️ Writing', 
+		title: '✍️ Writing',
+		instructions:'Make writing easy to read with finger spaces.',
 		items: ['✏️ Letter Formation', '📝 Word Writing', '📄 Sentence Writing','📄Paragraph Writing','🧙‍♂️📖Creative Writing','', '📖✍️Story Writing', '🎧✍️Audio Writing','🖼️ Picture Writing'], 
 		activities: [
-					{ type: 'audio', label: 'Audio', url: '' },
-					{ type: 'video', label: 'Video', url: '' },
-					{ type: 'link', label: 'Activity Link', url: '' },
-					{ type: 'file', label: 'Attachment', file:''}
-				  ],
+		
+		],		
+		steps: [
+                '1️⃣ Write thirumurai songs in tamil note book.',
+                '2️⃣ Write clearly each word.',
+                '3️⃣ Check every letter you write in actual form and confirm everything looks even.',
+                '4️⃣ Atlast show it to us.'
+            ],
 		cover: 'Focus: Writing proficiency' },
         'tam_gr': { 
 		title: '📘 Grammar', 
 		items: ['🔠 Uyir & Mei Ezhuthukal', '🧩 Nouns & Verbs', '🔁 Singular & Plural', '🔄 Opposite Words'], 
 		activities: [
-					{ type: 'audio', label: 'Audio', url: '' },
-					{ type: 'video', label: 'Video', url: '' },
-					{ type: 'link', label: 'Activity Link', url: '' },
-					{ type: 'file', label: 'Attachment', file:''}
+					
 				  ],
 		cover: 'Focus: Language rules' },
         'tam_cv': { 
 		title: '🌸 Culture & Values', 
 		items: ['🎉 Tamil Festivals', '📜 Moral Stories', '🗣️ Daily Use Tamil', '🤝 Respect & Manners'], 
 		activities: [
-					{ type: 'audio', label: 'Audio', url: '' },
-					{ type: 'video', label: 'Video', url: '' },
-					{ type: 'link', label: 'Activity Link', url: '' },
-					{ type: 'file', label: 'Attachment', file:''}
+					
 				  ],
 		cover: 'Focus: Heritage awareness' 
 		},
-			
-			
-			// Creative Arts Data
+		
+		// Creative Arts Data
 			// DANCE
 			'dan1': {
 				title: "💃 Making Dance Moves (Composing)",
 				instructions: "Use your body to create a dance that tells a story.<br>Example: 'Move like a growing seed turning into a flower.'</br>",
 				activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 				steps: [
 					"1️⃣ Choose a story or an idea (like a storm or a playful puppy).",
@@ -2654,10 +2107,7 @@
 				title: "🌟 Performing for an Audience",
 				instructions: "Show your dance to someone and use your face to show feelings.<br>Example: 'Smiling while doing a happy sun dance.'</br>",
 				activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 				steps: [
 					"1️⃣ Practice your dance until you remember all the moves.",
@@ -2671,10 +2121,7 @@
 				title: "👀 Dance Appreciation",
 				instructions: "Look closely at a dance and describe how the moves show an idea.<br>Example: 'The dancer moved slowly and sadly to show a rainy day.'</br>",
 				activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 				steps: [
 					"1️⃣ Watch a short dance performance (live or video).",
@@ -2690,10 +2137,7 @@
 				title: "🎭 Acting Out Characters (Making)",
 				instructions: "Use your voice and body to become a different person or animal.<br>Example: 'Walking and talking like a brave knight or a shy mouse.'</br>",
 				activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 				steps: [
 					"1️⃣ Pick a character from a book or your imagination.",
@@ -2707,10 +2151,7 @@
 				title: "🌟 Performing Drama",
 				instructions: "Use your acting skills to become a character and tell a story to an audience.<br>Example: 'Standing tall and speaking loudly to act like a brave explorer.'</br>",
 				activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 				steps: [
 					"1️⃣ Practice your character's special voice and walk.",
@@ -2724,10 +2165,7 @@
 				title: "🎬 Drama Appreciation",
 				instructions: "Watch a play or story and talk about how the actors showed meaning.<br>Example: 'The actor used a loud voice to show they were angry.'</br>",
 				activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 				steps: [
 					"1️⃣ Watch a short drama performance or a story video.",
@@ -2743,10 +2181,7 @@
 			title: "🌟 Performing Music",
 			instructions: "Play or sing music to share your feelings and musical ideas with others.<br>Example: 'Singing a lullaby softly to show a peaceful, sleepy feeling.'</br>",
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 			steps: [
 				"1️⃣ Pick a piece of music or a song you know well.",
@@ -2760,10 +2195,7 @@
 			title: "👂 Active Listening Skills",
 			instructions: "Listen to music and identify the different sounds and patterns.<br>Example: 'Hearing the high notes of a flute or the low beat of a drum.'</br>",
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 			steps: [
 				"1️⃣ Close your eyes and listen to a piece of music for 1 minute.",
@@ -2778,10 +2210,7 @@
 			title: "🎶 Composing Music",
 			instructions: "Create and organize your own sounds to share a musical idea.<br>Example: 'Tapping a rhythm that sounds like a fast-galloping horse.'</br>",
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 			steps: [
 				"1️⃣ Choose a mood for your music (like Happy, Busy, or Calm).",
@@ -2797,10 +2226,7 @@
 			title: "🎨 Making Artworks",
 			instructions: "Use colors, lines, and shapes to show what you see in the world.<br>Example: 'Painting a bright sunset using warm colors like red and yellow.'</br>",
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 			steps: [
 				"1️⃣ Choose a subject (like a pet, a tree, or your house).",
@@ -2815,10 +2241,7 @@
 			title: "🔎 Art Appreciation",
 			instructions: "Look at an artwork and talk about how the artist sees the world.<br>Example: 'The artist used bright red to show that the volcano is hot.'</br>",
 			activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 			steps: [
 				"1️⃣ Choose a painting or sculpture to look at carefully.",
@@ -2832,10 +2255,7 @@
 				title: "🖼️ The Mini-Gallery (Exhibiting)",
 				instructions: "Display your art so others can look at it and learn from it.<br>Example: 'Hanging your drawing on the wall with a title card.'</br>",
 				activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 				steps: [
 					"1️⃣ Select your best piece of art from this week.",
@@ -2845,183 +2265,299 @@
 				],
 				cover: '✔ CA2-VIS-01 (Exhibiting: Displays and exhibitions of artworks communicate ideas about artists’ practices to audiences)'
 			},
-			// PDHPE Activity Data
-					// Movement Skill and Physical Activity
-				'pdm1': {
-					title: "🤝 Teamwork & Movement",
-					instructions: "Work with others and use your body in active ways.",
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ Choose a team game like catch or a board game.",
-						"2️⃣ Talk clearly to your partner about the rules.",
-						"3️⃣ Help a teammate if they find something hard.",
-						"4️⃣ Explain how helping others made the game better."
-					],
-					cover: "✔ PH2-MSP-01 (Cooperate and communicate for teamwork in physical activities)"
-				},
-				'pdm2': {
-					title: "🧘 Balancing & Moving",
-					instructions: "Practice staying still and moving your body smoothly.",
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ Try a static balance like standing on one leg.",
-						"2️⃣ Move smoothly from sitting to standing without falling.",
-						"3️⃣ Try a dynamic balance like walking on a straight line.",
-						"4️⃣ Describe how your body feels when you are balanced."
-					],
-					cover: "✔ PH2-MSP-01 (Consolidating fundamental movement skills improves health and wellbeing)"
-				},
-				// Respectful Relationships and Safety
-				'pdr3': {
-					title: "❤️ Respectful Friends",
-					instructions: "Learn how to be kind and respect other people's space.",
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ Ask for permission before touching someone else's things.",
-						"2️⃣ Practice saying 'Please' and 'Thank You' clearly.",
-						"3️⃣ Explain what to do if a friend feels sad.",
-						"4️⃣ Role-play a way to solve a small argument kindly."
-					],
-					cover: "✔ PH2-RRS-01 (Respectful relationships influence health and wellbeing)"
-				},
-				
-				'pdr4': {
-					title: "✋ Personal Safety Strategies",
-					instructions: 'Learn how to keep your body safe and set boundaries.<br>Example: "Saying "No" if someone makes you feel uncomfortable."</br>',
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ Identify your 'Safety Circle' (5 people you trust to help you).",
-						"2️⃣ Practice the 'No-Go-Tell' rule for uncomfortable situations.",
-						"3️⃣ Explain what a 'Body Warning Sign' feels like (e.g., butterflies).",
-						"4️⃣ Describe how to tell a trusted adult if you feel unsafe."
-					],
-					cover: '✔ PH2-RRS-01 (Personal safety strategies strengthen respectful relationships)'
-				},
-				'pdr5': {
-					title: "🚦 Staying Safe Everywhere",
-					instructions: "Know the rules for staying safe on the road and at home.",
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ Explain the 'Stop, Look, Listen, Think' rule for crossing roads.",
-						"2️⃣ Show how to wear a seatbelt correctly (Click-Clack!).",
-						"3️⃣ Name two people you can ask for help if you feel unsafe.",
-						"4️⃣ Describe a safe place to play outside."
-					],
-					cover: "✔ PH2-RRS-02 (Actions and strategies promote safety)"
-				},
-				'pdr6': {
-					title: "💻 Being a Safe Tech-User",
-					instructions: "Keep yourself safe when using iPads or computers.",
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ Explain why we never share passwords with friends.",
-						"2️⃣ Ask a parent before clicking on a new link or video.",
-						"3️⃣ Practice telling a 'Trusted Adult' if you see something scary online.",
-						"4️⃣ Set a timer to show you know when to take a screen break."
-					],
-					cover: "✔ PH2-RRS-02 (Actions can enhance online safety)"
-				},
-				// Identity, Health and Wellbeing
-				'pdi7': {
-					title: "🌟 My Strengths & Identity",
-					instructions: "Discover what makes you special and unique.",
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ List three things you are really good at doing.",
-						"2️⃣ Talk about a time you tried something new even if it was hard.",
-						"3️⃣ Explain how your family and culture make you who you are.",
-						"4️⃣ Draw a picture of yourself doing your favorite hobby."
-					],
-					cover: "✔ PH2-IHW-01 (Factors can support and strengthen identity)"
-				},
-				'pdi8': {
-					title: "🍎 Healthy Choices & Hygiene",
-					instructions: "Take care of your body with good food and cleaning habits.",
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ Show how to wash your hands properly with soap.",
-						"2️⃣ Pick a healthy snack and explain why it is good for you.",
-						"3️⃣ Practice your morning tooth-brushing routine.",
-						"4️⃣ Explain why sleeping 9 hours makes your brain happy."
-					],
-					cover: "✔ PH2-IHW-01 (Decisions and actions promote health and wellbeing)"
-				},
-				// Self-management and Interpersonal Skills
-				'pds9': {
-					title: "🎯 Managing Myself",
-					instructions: "Set goals and stay focused on your learning.",
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ Set one small goal for today (like finishing a page).",
-						"2️⃣ Explain how you stay focused when it gets noisy.",
-						"3️⃣ Show how you organize your books before starting.",
-						"4️⃣ Check your work and fix one mistake by yourself."
-					],
-					cover: "✔ PH2-SMI-01 (Self-management skills are enhanced by choices and actions)"
-				},
-				'pds10': {
-					title: "🏆 Being a Good Sport",
-					instructions: "Learn how to win and lose with a smile.",
-					activities: [
-						{ type: 'audio', label: 'Audio', url: '' },
-						{ type: 'video', label: 'Video', url: '' },
-						{ type: 'link', label: 'Activity Link', url: '' },
-						{ type: 'file', label: 'Attachment', file:''}
-						],
-					steps: [
-						"1️⃣ Play a quick game where someone wins and someone loses.",
-						"2️⃣ Practice saying 'Good Game' to the other person.",
-						"3️⃣ Explain why it is important to follow the rules.",
-						"4️⃣ Describe how it feels to play fairly with others."
-					],
-					cover: "✔ PH2-SMI-01 (Interpersonal skills promote positive interactions and collaboration)"
-				},		
 		
+		// PDHPE Activity Data - Movement Skill and Physical Activity
+		'pdm1': {
+			title: "🤝 Teamwork & Movement",
+			instructions: "Work with others and use your body in active ways.",
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ Choose a team game like catch or a board game.",
+				"2️⃣ Talk clearly to your partner about the rules.",
+				"3️⃣ Help a teammate if they find something hard.",
+				"4️⃣ Explain how helping others made the game better."
+			],
+			cover: "✔ PH2-MSP-01 (Cooperate and communicate for teamwork in physical activities)"
+		},
+		'pdm2': {
+			title: "🧘 Balancing & Moving",
+			instructions: "Practice staying still and moving your body smoothly.",
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ Try a static balance like standing on one leg.",
+				"2️⃣ Move smoothly from sitting to standing without falling.",
+				"3️⃣ Try a dynamic balance like walking on a straight line.",
+				"4️⃣ Describe how your body feels when you are balanced."
+			],
+			cover: "✔ PH2-MSP-01 (Consolidating fundamental movement skills improves health and wellbeing)"
+		},
+		// Respectful Relationships and Safety
+		'pdr3': {
+			title: "❤️ Respectful Friends",
+			instructions: "Learn how to be kind and respect other people's space.",
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ Ask for permission before touching someone else's things.",
+				"2️⃣ Practice saying 'Please' and 'Thank You' clearly.",
+				"3️⃣ Explain what to do if a friend feels sad.",
+				"4️⃣ Role-play a way to solve a small argument kindly."
+			],
+			cover: "✔ PH2-RRS-01 (Respectful relationships influence health and wellbeing)"
+		},
+				
+		'pdr4': {
+			title: "✋ Personal Safety Strategies",
+			instructions: 'Learn how to keep your body safe and set boundaries.<br>Example: "Saying "No" if someone makes you feel uncomfortable."</br>',
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ Identify your 'Safety Circle' (5 people you trust to help you).",
+				"2️⃣ Practice the 'No-Go-Tell' rule for uncomfortable situations.",
+				"3️⃣ Explain what a 'Body Warning Sign' feels like (e.g., butterflies).",
+				"4️⃣ Describe how to tell a trusted adult if you feel unsafe."
+			],
+			cover: '✔ PH2-RRS-01 (Personal safety strategies strengthen respectful relationships)'
+		},
+		'pdr5': {
+			title: "🚦 Staying Safe Everywhere",
+			instructions: "Know the rules for staying safe on the road and at home.",
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ Explain the 'Stop, Look, Listen, Think' rule for crossing roads.",
+				"2️⃣ Show how to wear a seatbelt correctly (Click-Clack!).",
+				"3️⃣ Name two people you can ask for help if you feel unsafe.",
+				"4️⃣ Describe a safe place to play outside."
+			],
+			cover: "✔ PH2-RRS-02 (Actions and strategies promote safety)"
+		},
+		'pdr6': {
+			title: "💻 Being a Safe Tech-User",
+			instructions: "Keep yourself safe when using iPads or computers.",
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ Explain why we never share passwords with friends.",
+				"2️⃣ Ask a parent before clicking on a new link or video.",
+				"3️⃣ Practice telling a 'Trusted Adult' if you see something scary online.",
+				"4️⃣ Set a timer to show you know when to take a screen break."
+			],
+			cover: "✔ PH2-RRS-02 (Actions can enhance online safety)"
+		},
+		// Identity, Health and Wellbeing
+		'pdi7': {
+			title: "🌟 My Strengths & Identity",
+			instructions: "Discover what makes you special and unique.",
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ List three things you are really good at doing.",
+				"2️⃣ Talk about a time you tried something new even if it was hard.",
+				"3️⃣ Explain how your family and culture make you who you are.",
+				"4️⃣ Draw a picture of yourself doing your favorite hobby."
+			],
+			cover: "✔ PH2-IHW-01 (Factors can support and strengthen identity)"
+		},
+		'pdi8': {
+			title: "🍎 Healthy Choices & Hygiene",
+			instructions: "Take care of your body with good food and cleaning habits.",
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ Show how to wash your hands properly with soap.",
+				"2️⃣ Pick a healthy snack and explain why it is good for you.",
+				"3️⃣ Practice your morning tooth-brushing routine.",
+				"4️⃣ Explain why sleeping 9 hours makes your brain happy."
+			],
+			cover: "✔ PH2-IHW-01 (Decisions and actions promote health and wellbeing)"
+		},
+		// Self-management and Interpersonal Skills
+		'pds9': {
+			title: "🎯 Managing Myself",
+			instructions: "Set goals and stay focused on your learning.",
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ Set one small goal for today (like finishing a page).",
+				"2️⃣ Explain how you stay focused when it gets noisy.",
+				"3️⃣ Show how you organize your books before starting.",
+				"4️⃣ Check your work and fix one mistake by yourself."
+			],
+			cover: "✔ PH2-SMI-01 (Self-management skills are enhanced by choices and actions)"
+		},
+		'pds10': {
+			title: "🏆 Being a Good Sport",
+			instructions: "Learn how to win and lose with a smile.",
+			activities: [
+				
+				],
+			steps: [
+				"1️⃣ Play a quick game where someone wins and someone loses.",
+				"2️⃣ Practice saying 'Good Game' to the other person.",
+				"3️⃣ Explain why it is important to follow the rules.",
+				"4️⃣ Describe how it feels to play fairly with others."
+			],
+			cover: "✔ PH2-SMI-01 (Interpersonal skills promote positive interactions and collaboration)"
+		},
+		
+		//SCIENCE TAB
+		'sciA1': {
+			title: "🌱 Living Things Need Energy",
+			instructions: 'Living things need air, water and food to survive.<br>Example: "Plants need sunlight and water to grow."</br>',
+			activities: [
+				{ type: 'link', label: 'Activity Task 1', url: 'https://au.ixl.com/science/year-3/identify-living-and-non-living-things' },
+				{ type: 'link', label: 'Activity Task 2', url: 'https://au.ixl.com/science/year-3/identify-plants-and-animals' },
+				//{ type: 'link', label: 'Activity Link', url: 'a' },
+				//{ type: 'link', label: 'Attachment', file:'a'}
+			  ],
+			steps: [
+			  "1️⃣ Look around and list living things.",
+			  "2️⃣ List what each one needs to survive.",
+			  "3️⃣ Draw a plant and label sun, water and air.",
+			  "4️⃣ Explain what will happen if one is missing."
+			],
+			cover: "✔ ST2-SCI-01 (Physical and living systems depend on energy – Living things depend on energy and materials)",
+			//appmessage: "Great work! You are learning so much about how life works and what living things need to stay healthy."
+		  },
+
+		  'sciA2': {
+			title: "🧊 Changing States of Matter",
+			instructions: 'Heat can change solids, liquids and gases.<br>Example: "Ice melts into water."</br>',
+			activities: [
+					
+				  ],
+			steps: [
+			  "1️⃣ Look at ice, water and steam pictures.",
+			  "2️⃣ Match each to solid, liquid or gas.",
+			  "3️⃣ Draw arrows to show melting and freezing.",
+			  "4️⃣ Explain what heat does."
+			],
+			cover: "✔ ST2-SCI-01 (Energy is required to change the properties of matter)",
+			//appmessage:"Excellent scientific thinking! You are discovering how different materials and states of matter work in our world."
+		  },
+
+		  'sciA3': {
+			title: "🦴 How Our Body Moves",
+			instructions: 'Bones and muscles work together to help us move.<br>Example: "Your knee bends like a hinge."</br>',
+			activities: [
+					
+				  ],
+			steps: [
+			  "1️⃣ Touch your knee and elbow.",
+			  "2️⃣ Bend and straighten your arm.",
+			  "3️⃣ Draw bones and muscles.",
+			  "4️⃣ Explain how they work together."
+			],
+			cover: "✔ ST2-SCI-01 (Body systems work together to enable movement)",
+			//appmessage:"Fantastic! You are gaining a wonderful understanding of how the human body works and stays in motion.",
+		  },
+
+		  'sciA4': {
+			title: "🔥 How Heat Moves",
+			instructions: 'Heat moves from hot things to cold things.<br>Example: "A spoon gets hot in soup."</br>',
+			activities: [
+				
+			  ],
+			steps: [
+			  "1️⃣ Touch warm and cold objects (safely).",
+			  "2️⃣ Observe which gets warm faster.",
+			  "3️⃣ Draw arrows to show heat moving.",
+			  "4️⃣ Explain what happened."
+			],
+			cover: "✔ ST2-SCI-01 (Heat energy can be transferred)",
+			//appmessage:"Brilliant! You are learning the secrets of how energy and heat move through everything around us.",
+		  },
+
+		  'sciA5': {
+			title: "🌋 Forces Change the Earth",
+			instructions: 'Wind and water can change land shapes.<br>Example: "Rivers make valleys."</br>',
+			activities: [
+				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/science/year-3/identify-properties-of-an-object' },
+				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/science/year-3/compare-properties-of-objects' },
+			  ],
+			steps: [
+			  "1️⃣ Look at mountain and river pictures.",
+			  "2️⃣ Identify what changed the land.",
+			  "3️⃣ Draw before and after pictures.",
+			  "4️⃣ Explain what force caused it."
+			],
+			cover: "✔ ST2-SCI-01 (Forces shape Earth’s surface)",
+			//appmessage: "Incredible work! You are discovering the powerful forces and systems that shape our planet and the solar system.",
+		  },
+
+		  'sciA6': {
+			title: "☀️ The Sun Gives Us Energy",
+			instructions: 'The Sun gives Earth light and heat.<br>Example: "The Sun helps dry clothes."</br>',
+			activities: [
+				
+			  ],
+			steps: [
+			  "1️⃣ List things that use sunlight.",
+			  "2️⃣ Draw the Sun and Earth.",
+			  "3️⃣ Draw arrows showing sunlight.",
+			  "4️⃣ Explain why the Sun is important."
+			],
+			cover: "✔ ST2-SCI-01 (The Sun is the centre of our solar system and provides energy)",
+			//appmessage:"Incredible work! You are discovering the powerful forces and systems that shape our planet and the solar system."
+		  },
+		'sciA7': {
+			title: "✍️ Explaining Science in Writing",
+			instructions: 'Writing helps us explain how things work in science.<br>Example: "Plants need sunlight to make food."</br>',
+			activities: [
+				
+			  ],
+			steps: [
+			  "1️⃣ Choose one science topic (e.g., plants or heat).",
+			  "2️⃣ Write one sentence about what it needs or does.",
+			  "3️⃣ Add a drawing with labels.",
+			  "4️⃣ Read your explanation and check if it makes sense."
+			],
+			cover: "✔ ST2-SCI-01 (Creating written explanations of physical and living systems supports understanding of Science and Technology)",
+			//appmessage:"Wonderful! You are doing a great job explaining science ideas and sharing what you have learned."
+		  },
+
+		  'techA1': {
+			title: "🛠️ What is Design?",
+			instructions: 'Design means planning and making something to solve a problem.<br>Example: "Designing a pencil holder."</br>',
+			activities: [
+				
+			  ],
+			steps: [
+			  "1️⃣ Identify a problem.",
+			  "2️⃣ Draw a solution.",
+			  "3️⃣ Make the model.",
+			  "4️⃣ Check if it works."
+			],
+			cover: "✔ ST2-DDT-01 (Design is a process of creating and innovating)"
+		  },
+
+		  'techA2': {
+			title: "🤖 Using Digital Systems",
+			instructions: 'Digital systems follow steps to do a job.<br>Example: "A computer follows instructions."</br>',
+			activities: [
+				
+			  ],
+			steps: [
+			  "1️⃣ Write simple steps to do a task.",
+			  "2️⃣ Follow the steps exactly.",
+			  "3️⃣ Check if the result is correct.",
+			  "4️⃣ Fix the steps if needed."
+			],
+			cover: "✔ ST2-DDT-02 (Digital systems can be created and controlled)"
+		  },
+
 		// Add these inside your existing 'speechData' or 'subActivityData' object
 	'brush': { 
 		title: '🪥 Brushing & Personal Hygiene', 
@@ -3169,10 +2705,10 @@
         title: "🌿 Sustainable Caring",
         instructions: "Aboriginal Peoples use special ways to look after the land so it stays healthy.<br>Example: 'Using only what you need from a fruit tree so it grows back.'</br>",
         activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				{ type: 'audio', label: 'Activity Task 1', url: 'https://www.abc.net.au/education/phenomenom-ep-17-the-one-with-the-welcome/13916766' },
+				{ type: 'video', label: 'Activity Task 2', url: 'https://world-geography-games.com/en/world_water-cycle.html' },
+				{ type: 'link', label: 'Activity Task 3', 
+				url:'https://www.abc.net.au/education/phenomenom-ep-7-the-one-with-the-little-carrot-dude/13916606'},
 			    ],
 		steps: [
             "1️⃣ Research one way Aboriginal People care for the land.",
@@ -3186,10 +2722,7 @@
         title: "🌦️ Exploring and Understanding Climates",
         instructions: "Geographical information helps us see if a place is hot, cold, rainy, or dry.<br>Example: 'Using a rain gauge to see how much it rained today.'</br>",
         activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+			
 			    ],
 		steps: [
             "1️⃣ Look at a weather map of Australia.",
@@ -3204,10 +2737,7 @@
         title: "🌏 Caring for Our Environments",
         instructions: "We all have a special job to keep Australia's parks, beaches, and bushland clean and safe.<br>Example: 'Putting rubbish in the bin or planting a native tree.'</br>",
         activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 		steps: [
             "1️⃣ List 3 things that make an environment look healthy (like clear water).",
@@ -3222,10 +2752,7 @@
         title: "🙋 Being an Active Citizen",
         instructions: "Active citizens help their community and follow the rules to keep everyone safe.<br>Example: 'Picking up litter at the park to help the environment.'</br>",
         activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 		steps: [
             "1️⃣ Name one rule in your community that keeps people safe.",
@@ -3241,10 +2768,7 @@
         title: "🏺 Oldest Living Cultures",
         instructions: "Aboriginal Peoples have lived in Australia for over 60,000 years!<br>Example: 'Stories passed down from elders tell us about the past.'</br>",
         activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 		steps: [
             "1️⃣ Listen to a 'Dreaming' story from a trusted source.",
@@ -3258,10 +2782,7 @@
         title: "⛰️ Ancient Mesoamerica & The Andes",
         instructions: "Long ago, people lived in amazing cities in the mountains and jungles of the Americas.<br>Example: 'The Incas built stone roads and the Mayans studied the stars.'</br>",
         activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 		steps: [
             "1️⃣ Look at a picture of a Step Pyramid or Machu Picchu.",
@@ -3275,10 +2796,7 @@
         title: "🛶 World Navigators",
         instructions: "Navigators used the stars and maps to find new lands across the ocean.<br>Example: 'Using a compass to find which way is North.'</br>",
         activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 		steps: [
             "1️⃣ Look at a picture of an old sailing ship.",
@@ -3292,10 +2810,7 @@
         title: "⚓ Life at Sydney Cove",
         instructions: "The first penal settlement was a very different way of life for convicts and settlers.<br>Example: 'Convicts had to work hard to build the first stone houses.'</br>",
         activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 		steps: [
             "1️⃣ Imagine you are a child in the Sydney Cove settlement.",
@@ -3310,10 +2825,7 @@
 		title: "🔗 Connecting the Past",
 		instructions: "Use special linking words to tell a story about how things happened in history.<br>Example: 'First they sailed the ocean, then they saw the land.'</br>",
 		activities: [
-				{ type: 'audio', label: 'Audio', url: '' },
-				{ type: 'video', label: 'Video', url: '' },
-				{ type: 'link', label: 'Activity Link', url: '' },
-				{ type: 'file', label: 'Attachment', file:''}
+				
 			    ],
 		steps: [
 			"1️⃣ Pick two events from history (like arriving on a ship and building a house).",
@@ -3323,34 +2835,49 @@
 		],
 		cover: '✔ HS2-HIS-01 (Connecting ideas in written texts supports understanding of the past)'
 	},
-
-'pooja_ta': {
-    title: '🕉️ பூஜை வழிமுறை (Pooja Guide)',
+	
+	'nayanmar1': {
+    title: '📘தமிழ் வாசிப்புப் பயிற்சி',
     items: [
-        '🌼 <strong>1. ஆவாஹனம் & புனிதம்</strong>',
-        '🙏 கண்களை மூடி அமைதியாக பிரார்த்தனை செய்தல்',
-        '🪔 நெற்றியில் திருநீறு அணிதல்',
+        "1️⃣ எழுத்துக்களைக் கவனி: சொற்களில் உள்ள உயிர் மற்றும் மெய் எழுத்துக்களை முதலில் அடையாளம் காணவும்.",
 
-        '🧹 <strong>2. நிர்மால்யம் (பூஜை இடம் சுத்தம்)</strong>',
-        '🌸 நேற்றைய உலர்ந்த மலர்களை அகற்றுதல்',
-        '🧽 சுத்தமான துணியால் பூஜை இடத்தை துடைத்தல்',
+		"2️⃣ பிரித்துப் படி: நீண்ட சொற்களைச் சிறு சிறு அசைகளாகப் பிரித்துச் சரியாக உச்சரிக்கவும்.",
 
-        '✨ <strong>3. புனித இடத்தை தயார் செய்தல்</strong>',
-        '🪷 புதிய மலர்கள் மற்றும் பூஜை பொருட்களை ஒழுங்காக அமைத்தல்',
+		"3️⃣ சத்தமாக வாசி: தெளிவான உச்சரிப்புடன் நம்பிக்கையோடு சத்தமாக வாசிக்கவும்.",
 
-        '🚿 <strong>4. அபிஷேகம்</strong>',
-        '💧 மெதுவாகவும் கவனத்துடனும் அபிஷேகம் செய்தல்',
+		"4️⃣ பொருளைப் புரிந்துகொள்: வாசிக்கும் சொற்களின் பொருளை உணர்ந்து ஆழமாகப் படிக்கவும்.",
 
-        '🎀 <strong>5. அலங்காரம்</strong>',
-        '🌺 மலர், சந்தனம், குங்குமம் கொண்டு அலங்கரித்தல்',
-
-        '🔔 <strong>6. மந்திர ஜபம்</strong>',
-        '🕉️ "ஓம் நமசிவாய" ஒரு முறை தெளிவாக உச்சரித்தல்',
-        '📢 "ஓம் சக்தி… திருச்சிற்றம்பலம்!" என்று சத்தமாக சொல்லுதல்'
+		"5️⃣ கற்றதைச் சிந்தி: இன்று கற்ற புதிய சொற்களையும் கருத்துக்களையும் மீண்டும் ஒருமுறை நினைவு கூரவும்."
     ],
-    cover: '✔ பக்தி • ஒழுக்கம் • மன அமைதி'
-}
-,
+},
+
+	'pooja_ta': {
+		title: '🕉️ பூஜை வழிமுறை (Pooja Guide)',
+		items: [
+			'🌼 <strong>1. ஆவாஹனம் & புனிதம்</strong>',
+			'🙏 கண்களை மூடி அமைதியாக பிரார்த்தனை செய்தல்',
+			'🪔 நெற்றியில் திருநீறு அணிதல்',
+
+			'🧹 <strong>2. நிர்மால்யம் (பூஜை இடம் சுத்தம்)</strong>',
+			'🌸 நேற்றைய உலர்ந்த மலர்களை அகற்றுதல்',
+			'🧽 சுத்தமான துணியால் பூஜை இடத்தை துடைத்தல்',
+
+			'✨ <strong>3. புனித இடத்தை தயார் செய்தல்</strong>',
+			'🪷 புதிய மலர்கள் மற்றும் பூஜை பொருட்களை ஒழுங்காக அமைத்தல்',
+
+			'🚿 <strong>4. அபிஷேகம்</strong>',
+			'💧 மெதுவாகவும் கவனத்துடனும் அபிஷேகம் செய்தல்',
+
+			'🎀 <strong>5. அலங்காரம்</strong>',
+			'🌺 மலர், சந்தனம், குங்குமம் கொண்டு அலங்கரித்தல்',
+
+			'🔔 <strong>6. மந்திர ஜபம்</strong>',
+			'🕉️ "ஓம் நமசிவாய" ஒரு முறை தெளிவாக உச்சரித்தல்',
+			'📢 "ஓம் சக்தி… திருச்சிற்றம்பலம்!" என்று சத்தமாக சொல்லுதல்'
+		],
+		cover: '✔ பக்தி • ஒழுக்கம் • மன அமைதி'
+	},
+	
 	'pooja_en': {
     title: '🕉️ Step-by-Step Pooja Guide',
     items: [
@@ -3381,10 +2908,10 @@
     function login() {
         const u = document.getElementById('username').value;
         const p = document.getElementById('password').value;
-        if(u === 'krishav' && p === 'nswhomeschool') {
+        if(u === 'k' && p === 'n') {
             document.getElementById('login-overlay').style.display = 'none';
             document.getElementById('dashboard').style.display = 'block';
-           // playWelcome();
+            playWelcome();
             loadTimetable();
 
 		// Check credentials
@@ -3406,16 +2933,33 @@
             // ON TIME
 			//emojiEl.innerHTML = "👏 😊 👏"; // Show smiles and claps
             heading = "🌟 Outstanding Discipline, Krishav!";
-            message = "You logged in right on time for your 4:00 AM start. This focus and dedication will lead you to great success. Keep up this wonderful habit!. <br><strong>Important: Given activities for Tamil Listening/Reading. By afternoon, you will get activites for other subjects. From today, NSW Home Schooling officially welcomes you to your first day of purposeful learning—embrace the journey with discipline and pride! For your information attendance marked strict on time from today.</strong>";
+            message = "You logged in right on time for your 4:00 AM start. This focus and dedication will lead you to great success. Keep up this wonderful habit!. <br><strong>Important: Daily your login time and work recorded and it considered for awards</strong>";
             showPopup(heading, message);
         } else {
             // LATE
 			//emojiEl.innerHTML = "⚠️ ⏰ ⚠️"; // Remove smiles, show warning icons
             const minutesLate = currentTime - scheduledStartTime;
             heading = "⚠️ Discipline Notice: Time Management";
-            message = `You are ${minutesLate} minutes late today. 
-                       <br><br><strong>Guidance:</strong> To stay on track, ensure you are in bed by 7:10 PM as per your schedule. 
-                       <br><br><strong>Warning:</strong> Homeschooling requires strict self-discipline. A leader starts their day before the world wakes up. Please improve your punctuality tomorrow.<br><strong>Important: Given activities for Tamil Listening/Reading. By afternoon, you will get activites for other subjects. From today, NSW Home Schooling officially welcomes you to your first day of purposeful learning—embrace the journey with discipline and pride!For your information attendance marked strict on time from today.</strong>`;
+			message = `
+				<div class="discipline-card disc-1" style="margin-top:10px;">
+					<h4 style="margin:0; color:#e65100;">⏰ Punctuality Alert</h4>
+					You are <strong>${minutesLate} minutes late</strong> today. A leader starts their day before the world wakes up! 
+					To reclaim your edge, ensure you are in bed by <strong>7:10 PM</strong> tonight.
+				</div>
+
+				<div class="discipline-card disc-3">
+					<h4 style="margin:0; color:#0d47a1;">📅 Timetable & Yoga Update</h4>
+					Your timetable has been adjusted based on teacher availability. 
+					<strong>Yoga Update:</strong> Your teacher is currently overseas! 🧘‍♂️ Sessions will resume <strong>Feb 3rd </strong> upon her return.Enjoy the extra focus time until then!
+				</div>
+
+				<div class="discipline-card disc-2">
+					<h4 style="margin:0; color:#1b5e20;">🏆 Mission: Purposeful Learning</h4>
+					All activities are now live! Start strong to finish strong. 
+					Remember: <strong>Awards are waiting</strong> for those who show true self-discipline and punctuality. 
+					Let's see a 4:00 AM "On-Time" log-in tomorrow! Now 🚀 View Daily Mission Chart To Know Your Activities..
+				</div>
+			`;				   
             showPopup(heading, message);
         }        
         //renderTimetable();
@@ -3430,29 +2974,9 @@
 		const popup = document.getElementById('success-popup');
 		document.getElementById('success-heading').innerText = heading;
 		document.getElementById('success-msg').innerHTML = msg; // Use innerHTML for <br> tags
+		
 		popup.style.display = 'block';
-	}
-			
-	function checkActivityPunctuality(activityName) {
-    const now = new Date();
-    const currentMins = now.getHours() * 60 + now.getMinutes();
-    
-    // Links to your 'schedule' array 
-    const task = schedule.find(item => item.act === activityName);
-    
-    if (task && task.start !== "Bed") {
-        const [h, m] = task.start.split(':').map(Number);
-        const scheduledMins = h * 60 + m;
-
-        if (currentMins <= scheduledMins + 5) {
-            showPopup("🌟 On Track!", `Great job starting ${activityName} on time!`);
-        } else {
-            const late = currentMins - scheduledMins;
-            showPopup("⚠️ Improve Punctuality", 
-                      `You are ${late} minutes late for ${activityName}. Finish tasks within subject time. Homeschooling is a team sport—stay disciplined!`);
-        }
-     }
-   }		
+	}		
 			
            
 	
@@ -3468,10 +2992,16 @@
         window.location.reload();
     }
 
-    /*function playWelcome() {
-        const msg = new SpeechSynthesisUtterance("Welcome Krishav! Let's enjoy learning today!");
+    function playWelcome() {
+        const msg = new SpeechSynthesisUtterance("Welcome Krishav! Let's enjoy learning today! Punctuality Alert.You are late today. A leader starts their day before the world wakes up! To reclaim your edge, ensure you are in bed by 7:10 PM tonight.Timetable & Yoga Update.Your timetable has been adjusted based on teacher availability.Your teacher is currently overseas! Sessions will resume Feb 3rd week upon her return. Enjoy the extra focus time until then!Mission: Purposeful Learning.All activities are now live! Start strong to finish strong. Remember: Awards are waiting for those who show true self-discipline and punctuality.Let's see a 4:00 AM On-Time log-in tomorrow! Now View Daily Mission Chart To Know Your Activities..");
+		
+		// --- SETTING THE SPEED ---
+		msg.rate = 0.6;      // Very slow and deliberate speed
+		msg.pitch = 1.0;     // Normal pitch
+		msg.volume = 1.0;    // Full volume
+		msg.lang = 'en-AU';  // Australian English accent
         window.speechSynthesis.speak(msg);
-    }*/
+    }
 
     function loadTimetable() {
         const div = document.getElementById('timetable');
@@ -3489,7 +3019,7 @@
 
     function loadSyllabus(sub) {
 		// ADD THIS LINE AT THE TOP
-        checkActivityPunctuality(sub);
+        //checkActivityPunctuality(sub);
         const content = document.getElementById('syllabus-content');
         const display = document.getElementById('sub-activity-display');
         const title = document.getElementById('current-title');
@@ -3626,12 +3156,12 @@
                             <strong>NSW Outcomes:</strong> EN2-CWT-01 (Imaginative), EN2-CWT-02 (Informative), EN2-CWT-03 (Persuasive) - plans, creates and revises written texts for imaginative purposes, using text features, sentence-level grammar, punctuation and word-level language for a target audience.
 
                         </div>
-                       <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step1','Planning & Ideas(Planning and composing)')">1. 💡 Planning & Ideas(Planning and composing)</button>
-                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step2'),'Purpose & Audience(Creating texts for specific purposes-Imaginative, Informative, and Persuasive)'">2. ⚖️ Purpose & Audience(Creating texts for specific purposes-Imaginative, Informative, and Persuasive)</button>
-                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step3','Text Structure & Organisation(Text forms and features-headings, paragraphs)')">3. 🧱 Text Structure & Organisation(Text forms and features-headings, paragraphs)</button>
-                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step4','Sentence Construction(Grammar and sentence-level skills)')">4. 🔠 Sentence Construction(Grammar and sentence-level skills)</button>
-                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step5','Vocabulary Choice(Language choices)')">5. ✨ Vocabulary Choice(Language choices)</button>
-                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write_step6','Editing & Publishing(Revising and editing)')">6. 🚀 Editing & Publishing(Revising and editing)</button>
+						<button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write1','Planning & Ideas(Planning and composing)')">1. 💡 Planning & Ideas(Planning and composing)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write2'),'Purpose & Audience(Creating texts for specific purposes-Imaginative, Informative, and Persuasive)'">2. ⚖️ Purpose & Audience(Creating texts for specific purposes-Imaginative, Informative, and Persuasive)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write3','Text Structure & Organisation(Text forms and features-headings, paragraphs)')">3. 🧱 Text Structure & Organisation(Text forms and features-headings, paragraphs)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write4','Sentence Construction(Grammar and sentence-level skills)')">4. 🔠 Sentence Construction(Grammar and sentence-level skills)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write5','Vocabulary Choice(Language choices)')">5. ✨ Vocabulary Choice(Language choices)</button>
+                        <button class="child-btn" style="display:block; width:95%; text-align:left;" onclick="loadSubActivity('write6','Editing & Publishing(Revising and editing)')">6. 🚀 Editing & Publishing(Revising and editing)</button>
                     </div>
                 </div>
 				<div class="chevron-box">
@@ -3867,7 +3397,7 @@
 			`;
         } else if (sub === 'Tamil') {
             content.innerHTML = `
-                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>👂 Listening & Speaking</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_ls')">💬 Oral Conversation</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">📖 Story Telling</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">🎶 Recitation</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">🧠 Vocabulary</button></div></div>
+                <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>👂 Listening </strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_ls')">💬 Oral Conversation</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">📖 Story Telling</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">🎶 Recitation</button><button class="child-btn" onclick="loadSubActivity('tam_ls')">🧠 Vocabulary</button></div></div>
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📖 Reading</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_rd')">🔤 Letters & Syllables</button><button class="child-btn" onclick="loadSubActivity('tam_rd')">📄 Simple Words</button><button class="child-btn" onclick="loadSubActivity('tam_rd')">📘 Short Sentences</button><button class="child-btn" onclick="loadSubActivity('tam_rd')">📚 Story Reading</button></div></div>
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>✍️ Writing</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_wr')">✏️ Letter Formation</button><button class="child-btn" onclick="loadSubActivity('tam_wr')">📝 Word Writing</button><button class="child-btn" onclick="loadSubActivity('tam_wr')">📄 Sentence Writing</button><button class="child-btn" onclick="loadSubActivity('tam_wr')">🖼️ Picture Writing</button></div></div>
                 <div class="chevron-box"><div class="chevron-header" onclick="toggleAccordion(this)"><strong>📘 Grammar</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content"><button class="child-btn" onclick="loadSubActivity('tam_gr')">🔠 Ezhuthukal</button><button class="child-btn" onclick="loadSubActivity('tam_gr')">🧩 Nouns & Verbs</button><button class="child-btn" onclick="loadSubActivity('tam_gr')">🔁 Singular & Plural</button><button class="child-btn" onclick="loadSubActivity('tam_gr')">🔄 Opposites</button></div></div>
@@ -3995,7 +3525,7 @@
 					<button class="child-btn">36 Tattvas</button></div></div>
                 <div class="chevron-box">
 					<div class="chevron-header" onclick="toggleAccordion(this)"><strong>👣 63 Nayanmars</strong><span class="chevron-arrow">▶</span></div><div class="chevron-content">
-					<button class="child-btn">1. அதிபத்தர்</button>
+					<button class="child-btn" onclick="loadSubActivity('nayanmar1','அதிபத்தர்')">1. அதிபத்தர்</button>
 					<button class="child-btn">2. அப்பூதியடிகள்</button>
 					<button class="child-btn">3. அமர்நீதி நாயனார்</button>
 					<button class="child-btn">4. அரிவட்டாயர்</button>
@@ -4147,7 +3677,6 @@
 				<button class="child-btn" style="display:block; width:95%; text-align:left; background: #e8f5e9; color: #1b5e20;" onclick="loadSubActivity('vis3','The Mini-Gallery Exhibition')">3. 🖼️ The Mini-Gallery Exhibition</button>
 				</div>
 				</div>
-			</div>
 		</div>`;			
 			//<button class="child-btn">Carnatic Singing</button> <button class="child-btn">Odhuvar Singing</button>
         } else if (sub === 'PDHPE') {
@@ -4216,7 +3745,7 @@
 		console.log(key, id);
 		tabName = key
 		currentActivityId = id;
-		
+		console.log(tabName);
 		console.log(currentActivityId);
 		console.log(data.activities);
         const display = document.getElementById('sub-activity-display');
@@ -4270,43 +3799,6 @@
     	console.log(currentActivityId);
 		document.getElementById('btn-start').disabled = false;
 	}
-		
-		
-		
-       /* // Check if the content has the "steps" array (The 6-Step mission style)
-        if (data.steps) {
-        const stepsHtml = data.steps.map(s => `
-            <div style="background: white; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); font-size: 14px; color: #333; display: block; width: 100%; box-sizing: border-box;">
-                ${s}
-            </div>
-        `).join('');
-
-        display.innerHTML = `
-            <div class="sub-activity-box" style="background: #f0f7ff; border-left: 10px solid var(--nsw-blue); padding: 20px;">
-			<span class="close-icon" onclick="document.getElementById('sub-activity-display').innerHTML = ''" title="Close">
-                &times;
-            </span>
-                <h3 style="color: var(--nsw-blue); margin-top: 0;">${data.title}</h3>
-                <p style="color: #666; font-style: italic; margin-bottom: 15px;">${data.instructions}</p>
-                <div style="display: flex; flex-direction: column;">${stepsHtml}</div>
-                <div style="margin-top: 15px; font-size: 12px; color: var(--success); font-weight: bold; border-top: 1px solid #eee; padding-top: 10px;">${data.cover}</div>
-            </div>`;
-    } else {
-        // Standard layout for items without steps
-        const listItems = data.items.map(i => `<li>${i}</li>`).join('');
-        display.innerHTML = `
-            <div class="sub-activity-box">
-			<span class="close-icon" onclick="document.getElementById('sub-activity-display').innerHTML = ''" title="Close">
-                &times;
-            </span>
-                <h4>${data.title}</h4>
-                <ul>${listItems}</ul>
-                <p style="font-size:11px; color:var(--success);">${data.cover}</p>
-            </div>`;
-    }
-    display.scrollIntoView({ behavior: 'smooth' });
-}*/
-
     async function startRecording() {
         try {
             stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -4365,7 +3857,7 @@
 			subTabTitle = "📖 Reading Fluency";
 		} else if (tabName.startsWith("comp1")) {
 			subTabTitle = "📚 Reading Comprehension";
-		} else if (tabName.startsWith("write_step")) {
+		} else if (tabName.startsWith("write")) {
 			subTabTitle = "✍️ Creating Written Texts";
 		}else if (tabName.startsWith("spell")) {
 			subTabTitle = "🔤 Spelling";
@@ -4472,10 +3964,138 @@
         osc.start(); osc.stop(context.currentTime + 0.2);
     }
 
-    function closePopup() { document.getElementById('success-popup').style.display = 'none'; }
+    function closePopup() { 
+	document.getElementById('success-popup').style.display = 'none'; 
+	window.speechSynthesis.cancel();
+	}
+	
+	function showMissionChart() {
+    // Create the modal container
+    const modal = document.createElement('div');
+    modal.id = "mission-modal";
+    modal.style.cssText = "position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:4000; display:flex; justify-content:center; align-items:center; padding:20px;";
+
+    // The content box (Mission Chart)
+    modal.innerHTML = `
+        <div style="background:white; border-radius:15px; width:90%; max-width:800px; max-height:90vh; overflow-y:auto; padding:30px; position:relative; border-top: 10px solid var(--nsw-blue);">
+            <span onclick="document.getElementById('mission-modal').remove()" style="position:absolute; top:15px; right:20px; font-size:30px; cursor:pointer; color:#999;">&times;</span>
+            
+            <h2 style="color: var(--nsw-blue); margin-top:0;">🚀 Your Purposeful Learning Mission</h2>
+            <p style="color:#666; font-size:14px;">Complete these tasks today to earn your daily excellence awards.</p>
+            
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; margin-top:20px;">
+                <thead>
+                    <tr style="background: var(--nsw-blue); color: white;">
+                        <th style="padding: 12px; border: 1px solid #ddd;">Subject</th>
+                        <th style="padding: 12px; border: 1px solid #ddd;">Focus Area</th>
+						<th style="padding: 12px; border: 1px solid #ddd;">Learning Topic</th>
+                        <th style="padding: 12px; border: 1px solid #ddd; text-align: center;">Activities</th>
+                    </tr>
+                </thead>
+               <tbody>
+            <tr style="background: #f0f7ff;">
+                <td rowspan="4" style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--nsw-blue);">🕉️ Tamil</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Listening</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Listening Tab</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
+            </tr>
+            <tr style="background: #f0f7ff;">
+                <td style="padding: 12px; border: 1px solid #ddd;">Reading</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Reading Tab</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
+            </tr>
+            <tr style="background: #f0f7ff;">
+                <td style="padding: 12px; border: 1px solid #ddd;">Handwriting</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Writing->Letter Formation</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">Step-by-Step</td>
+            </tr>
+            <tr style="background: #f0f7ff;">
+                <td style="padding: 12px; border: 1px solid #ddd;">Writing</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Complete Previous Activity</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">1</td>
+            </tr>
+			
+			<tr style="background: #f0f7ff;">
+                <td rowspan="4" style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--nsw-blue);">📖 English</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Listening</td>
+                <td style="padding: 12px; border: 1px solid #ddd;"><br>Oral Language and Communication - Listening & Understanding</br><br>Vocubulary ->Everyday Words (Tier 1)</br></td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2+2=4</td>
+            </tr>
+            <tr style="background: #f0f7ff;">
+                <td style="padding: 12px; border: 1px solid #ddd;">Reading</td>
+                <td style="padding: 12px; border: 1px solid #ddd;"><br>Reading Comphrension - Finding Main ideas</br><br>Reading Comphrension - Responding to Text</br></td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2+2=4</td>
+            </tr>
+            <tr style="background: #f0f7ff;">
+                <td style="padding: 12px; border: 1px solid #ddd;">Handwriting</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Handwriting & Digital Transcription - Spacing & Alignment</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">Step-by-Step</td>
+            </tr>
+            <tr style="background: #f0f7ff;">
+                <td style="padding: 12px; border: 1px solid #ddd;">Writing</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Creating Writtern Texts - Sentence Construction</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
+            </tr>
+
+            <tr style="background: #fffdf0;">
+                <td rowspan="5" style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #856404;">🔢 Maths</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Number & Algebra</td>
+				<td style="padding: 12px; border: 1px solid #ddd;">Place Value</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
+            </tr>
+			<tr style="background: #fffdf0;">
+                <td style="padding: 12px; border: 1px solid #ddd;">Addition Relations</td>
+				<td style="padding: 12px; border: 1px solid #ddd;">Representation Money</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
+            </tr>
+            <tr style="background: #fffdf0;">
+                <td style="padding: 12px; border: 1px solid #ddd;">Multiplication Relations</td>
+				<td style="padding: 12px; border: 1px solid #ddd;">Arrays for Multiplication</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">3</td>
+            </tr>
+            <tr style="background: #fffdf0;">
+                <td style="padding: 12px; border: 1px solid #ddd;">2D Spatial Structure</td>
+				<td style="padding: 12px; border: 1px solid #ddd;">Comparing 2D Shapes</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">3</td>
+            </tr>
+            <tr style="background: #fffdf0;">
+                <td style="padding: 12px; border: 1px solid #ddd;">Non-Spatial Measure </td>
+				<td style="padding: 12px; border: 1px solid #ddd;">Reading Time</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
+            </tr>
+            <tr style="background: #fffdf0;">
+                <td colspan="2" style="padding: 12px; border: 1px solid #ddd; font-style: italic;">Total Maths Activities Today</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">12</td>
+            </tr>
+
+            <tr>
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #1b5e20;">🔬 Science</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Living Things Need Energy</td>
+				<td style="padding: 12px; border: 1px solid #ddd;">Forces Change the Earth</td>				
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">4</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #e65100;">🌍 Geography</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Caring for Land Sustainably</td>
+				<td style="padding: 12px; border: 1px solid #ddd;"></td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">3</td>
+            </tr>
+
+            <tr style="background: #fdf2f2;">
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--nsw-red);">🪔 Heritage</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">63 Nayanmars</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">Athibathar Story & Retelling</td>
+                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">Record!</td>
+            </tr>
+        </tbody>
+            </table>
+            
+            <button class="btn-login" style="margin-top:25px;" onclick="document.getElementById('mission-modal').remove()">Understood, Let's Start! ✨</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
 </script>
 
 </body>
 </html>
-
-

@@ -201,7 +201,24 @@
 		</div>
 		<button class="btn-login" style="background: var(--nsw-red); width: auto;" onclick="closeParty()">Let's Start Learning! ✨</button>
 	</div>
+	<div id="checklist-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center; font-family: sans-serif;">
+    <div style="background:white; padding:30px; border-radius:15px; max-width:500px; width:90%; text-align:center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <h2 style="color:#2c3e50; margin-top:0;">Ready to Learn?</h2>
+        <p style="color:#7f8c8d; margin-bottom:20px;">Please ensure your environment is ready:</p>
+        
+        <ul style="text-align:left; color:#34495e; line-height:1.8; margin-bottom:25px; list-style-type: none; padding-left: 10px;">
+            <li>🪑 <b>Sit Upright:</b> Use a chair and table. Do not lounge or lie down.</li>
+            <li>📝 <b>Be Prepared:</b> Have your notebooks and pens ready.</li>
+            <li>🙏 <b>Show Respect:</b> Honor your studies and the teachers supporting you.</li>
+            <li>📷 <b>Professionalism:</b> Ensure you are in a quiet, bright study space.</li>
+        </ul>
 
+        <button onclick="startRecording()" style="background:#27ae60; color:white; border:none; padding:15px 30px; font-size:18px; border-radius:8px; cursor:pointer; width:100%; font-weight:bold;">
+            I'm Ready, Start Recording
+        </button>
+    </div>
+	</div>
+	
 	<div id="dashboard">
     <header>
         <div class="nsw-brand">NSW Government | <span style="font-weight: 300;">Education</span></div>
@@ -253,7 +270,7 @@
                 <video id="webcam" autoplay playsinline></video>
             </div>
             <div style="text-align:center; margin-top:15px;">
-                <button id="btn-start" class="btn-login" style="background:var(--success); width:auto;" onclick="startRecording()" disabled>▶ START RECORDING</button>
+                <button id="btn-start" class="btn-login" style="background:var(--success); width:auto;" onclick="showChecklist()" disabled>▶ START RECORDING</button>
                 <button id="btn-stop" class="btn-login" style="background:var(--nsw-red); width:auto;" onclick="stopRecording()" disabled>■ STOP SESSION</button>
             </div>
             <p id="nesa-msg" style="text-align:center; font-weight:bold; color:var(--success); display:none;"></p>
@@ -339,27 +356,10 @@
     { start: "05:15", end: "05:30", act: "Meditation (Natural Breath)", dur: 15 },
     { start: "05:30", end: "05:40", act: "Break 1 (Cucumber & Carrot)", dur: 10 },
     { start: "05:45", end: "06:45", act: "Singing (Thirumurai/Carnatic)", dur: 60 },
-    { start: "06:45", end: "07:15", act: "Tamil Listening", dur: 30 },
-    { start: "07:15", end: "08:15", act: "Tamil Reading", dur: 30 },
-    { start: "08:15", end: "08:25", act: "Break 2 (Healthy Breakfast)", dur: 10 },
-    { start: "08:30", end: "09:00", act: "English Listening", dur: 30 },
-    { start: "09:00", end: "09:30", act: "English Reading", dur: 30 },
-	{ start: "09:30", end: "10:15", act: "Mathematics", dur: 45 },	
-    { start: "10:15", end: "10:25", act: "Break 3 (Help Mom & Dad)", dur: 10 },
-    { start: "10:30", end: "11:30", act: "Culinary Arts (Cooking)", dur: 30 },
-    { start: "11:30", end: "12:15", act: "Science", dur: 45 },
-	{ start: "12:15", end: "12:40", act: "Break 4 (Lunch)", dur: 25 },
-	{ start: "12:45", end: "1:15",  act: "Tamil Handwriting", dur: 30 },
-	{ start: "1:15",  end: "1:45",  act: "Tamil Writing", dur: 30 },
-    { start: "1:45",  end: "02:30", act:  "Science", dur: 45 },
-    { start: "02:30", end: "02:45", act: "Break 5 (Play Time)", dur: 15 },
-    { start: "02:50", end: "03:30", act: "Geography", dur: 40 },
-	{ start: "03:30", end: "04:15", act: "English Handwriting", dur: 45 },
-	{ start: "04:15", end: "04:45", act: "English Writing", dur: 30 },
-	{ start: "04:45", end: "04:55", act: "Break 6 (Relaxation)", dur: 10 },
-	{ start: "05:00", end: "06:00", act: "Sports (Badminton/Cycling/Play)", dur: 60 },
-    { start: "06:00", end: "06:30", act: "Dinner", dur: 30 },
-	{ start: "06:30", end: "06:55", act: "Read 1 Nayanmar story and retelling", dur: 25 },
+	{ start: "06:45", end: "07:00", act: "Break 2 (Healthy Breakfast)", dur: 15 },
+    { start: "07:00", end: "07:30", act: "Tamil Writing", dur: 30 },
+	{ start: "08:00", end: "8:30", act: "Mathematics", dur: 30 },    
+	{ start: "08:30", end: "9:00", act: "English Writing", dur: 30 },
     { start: "06:55", end: "07:05", act: "Set Table for Tomorrow", dur: 10 },
     { start: "07:05", end: "07:10", act: "Brush & Hygiene Prep", dur: 10 },
     { start: "07:10", end: "Bed", act: "🌙 Strictly Sleep Time", dur: 0 }
@@ -388,8 +388,8 @@
             title: '👂Listening & Understanding', 
             instructions: 'Listen carefully to understand what someone else is saying.Listening to a story and remembering what happened.',
 			activities: [
-				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/english/year-3/spell-the-long-i-word-silent-e-ie-y-igh-ind-ild' },
-				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/english/year-3/spell-the-long-a-word-silent-e-ai-ay-ea-ey-eigh' },
+				//{ type: 'audio', label: 'Activity Task 1', url: //'https://au.ixl.com/english/year-3/spell-the-long-i-word-silent-e-ie-y-igh-ind-ild' },
+				//{ type: 'video', label: 'Activity Task 2', url: //'https://au.ixl.com/english/year-3/spell-the-long-a-word-silent-e-ai-ay-ea-ey-eigh' },
 				//{ type: 'link', label: 'Activity Link', url: 'a' },
 				//{ type: 'file', label: 'Attachment', file:'a'}
 			],
@@ -469,8 +469,8 @@
             title: '🏠 Everyday Words (Tier 1)', 
             instructions: 'Learn and use common words we use every day.Example: happy, run, big.',
             activities: [
-				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/english/year-3/identify-base-words-prefixes-and-suffixes' },
-				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/english/year-3/determine-the-meaning-of-a-word-with-pre-re-or-mis' },
+				//{ type: 'audio', label: 'Activity Task 1', url: //'https://au.ixl.com/english/year-3/identify-base-words-prefixes-and-suffixes' },
+				//{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/english/year-3/determine-the-meaning-of-a-word-with-pre-re-or-mis' },
 				//{ type: 'link', label: 'Activity Link', url: 'a' },
 				//{ type: 'file', label: 'Attachment', file:'a'}
 			],
@@ -657,8 +657,8 @@
             title: '📌 Finding Main Ideas', 
             instructions: 'Find the most important idea in the text.Example: Saying what the text is mostly about.',
             activities: [
-				{ type: 'audio', label: 'Activity Task 1', url:'https://au.ixl.com/english/year-3/use-key-details-to-determine-the-main-idea'},
-				{ type: 'audio', label: 'Activity Task 2', url:'https://au.ixl.com/english/year-3/determine-the-main-idea-of-a-passage'},
+				//{ type: 'audio', label: 'Activity Task 1', url:'https://au.ixl.com/english/year-3/use-key-details-to-determine-the-main-idea'},
+				//{ type: 'audio', label: 'Activity Task 2', url:'https://au.ixl.com/english/year-3/determine-the-main-idea-of-a-passage'},
 			],
 			steps: [
                 '1️⃣ Read one section.',
@@ -718,8 +718,8 @@
             title: '💬 Responding to Text', 
             instructions: 'Share thoughts and opinions about the text. Example: Saying why you liked a character.',
             activities: [
-			{ type: 'audio', label: 'Activity Task 1', url:'https://au.ixl.com/english/year-3/sort-sensory-details'},
-			{ type: 'audio', label: 'Activity Task 2', url:'https://au.ixl.com/english/year-3/determine-the-meanings-of-similes'},		
+			//{ type: 'audio', label: 'Activity Task 1', url:'https://au.ixl.com/english/year-3/sort-sensory-details'},
+			//{ type: 'audio', label: 'Activity Task 2', url:'https://au.ixl.com/english/year-3/determine-the-meanings-of-similes'},		
 			],
 			steps: [
                 '1️⃣ Think about the text.',
@@ -779,8 +779,8 @@
             title: 'Step 4: 🔠 Sentence Construction - Grammar and sentence-level skills(Making sure sentences make sense.)', 
             instructions: 'How do I write correct and meaningful sentences?.Example: Writing a complete sentence with a capital letter and full stop.',
 			activities: [
-				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/english/year-3/put-the-sentences-in-order' },
-				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/english/year-3/order-items-from-most-general-to-most-specific' },
+			//	{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/english/year-3/put-the-sentences-in-order' },
+			//	{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/english/year-3/order-items-from-most-general-to-most-specific' },
 				
 			],
 			items: [  
@@ -1103,8 +1103,8 @@
 		  title: '🔢 Reading Numbers (to Thousands)',
 		  instructions: 'Learn to read big numbers using place value. Example: 3,482 → three thousand four hundred and eighty-two.',
 		  activities: [
-				{type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/place-value-models-up-to-thousands'},
-				{type: 'audio', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/place-value-names-up-to-thousands'},
+				//{type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/place-value-models-up-to-thousands'},
+			//	{type: 'audio', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/place-value-names-up-to-thousands'},
 				
 			],
 		  steps: [
@@ -1265,8 +1265,8 @@
 			  title: "💰 Representing Money",
 			  instructions:'Money amounts can be shown in different ways.<br>Example: "$1.50 = $1 + 50c"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/count-coins-and-notes-up-to-5-dollar-note' },
-				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/equivalent-amounts-of-money-up-to-5-dollars' },
+				//{ type: 'audio', label: 'Activity Task 1', url: //'https://au.ixl.com/maths/year-3/count-coins-and-notes-up-to-5-dollar-note' },
+				//{ type: 'video', label: 'Activity Task 2', url: //'https://au.ixl.com/maths/year-3/equivalent-amounts-of-money-up-to-5-dollars' },
 			  ],
 			  steps: [
 				"1️⃣ Read the money amount.",
@@ -1342,9 +1342,9 @@
 			  title: "🧱 Arrays for Multiplication",
 			  instructions:'Arrays show equal groups clearly.<br>Example: "3 × 4 as 3 rows of 4"</br>',
 			  activities: [
-				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/count-equal-groups' },
-				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/identify-multiplication-expressions-for-equal-groups' },
-				{ type: 'link', label: 'Activity Task 3', url: 'https://au.ixl.com/maths/year-3/write-multiplication-sentences-for-equal-groups' },
+				//{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/count-equal-groups' },
+				//{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/identify-multiplication-expressions-for-equal-groups' },
+				//{ type: 'link', label: 'Activity Task 3', url: 'https://au.ixl.com/maths/year-3/write-multiplication-sentences-for-equal-groups' },
 				//{ type: 'file', label: 'Attachment', file:'a'}
 			  ],
 			  steps: [
@@ -1670,9 +1670,9 @@
 		  title: "🔺 Comparing 2D Shapes",
 		  instructions:'2D shapes are flat shapes with sides and corners.<br>Example: "A square has 4 equal sides and 4 corners."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/count-vertices-edges-and-faces' },
-				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/identify-three-dimensional-shapes' },
-				{ type: 'link', label: 'Activity Task 3', url: 'https://au.ixl.com/maths/year-3/count-and-compare-sides-and-vertices' },
+				//{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/count-vertices-edges-and-faces' },
+				//{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/identify-three-dimensional-shapes' },
+				//{ type: 'link', label: 'Activity Task 3', url: 'https://au.ixl.com/maths/year-3/count-and-compare-sides-and-vertices' },
 			  ],
 		  steps: [
 			"1️⃣ Look at the shape carefully.",
@@ -1912,8 +1912,8 @@
 		  title: "⏰ Reading Time",
 		  instructions: 'Time can be shown on clocks and digital displays.<br>Example: "3:30 means half past three."</br>',
 		  activities: [
-				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/match-clocks-and-times' },
-				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/match-analogue-and-digital-clocks' },
+				//{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/maths/year-3/match-clocks-and-times' },
+				//{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/maths/year-3/match-analogue-and-digital-clocks' },
 			  ],
 		  steps: [
 			"1️⃣ Look at the clock.",
@@ -2041,8 +2041,8 @@
 		title: '👂 Listening', 
 		items: ['💬 Oral Conversation', '📖 Story Telling'], //'🎶 Recitation (Poems & Songs)', '🧠 Vocabulary'],
 		activities: [
-					{ type: 'audio', label: 'Audio', url:'https://open.spotify.com/episode/1ZY8GaD9QoCiRBfA7Ex5xa'},
-					{ type: 'video', label: 'Video',url:'https://playwithtamil.com/activity/rank-order/aangkil-maatngkllai-vricaippttuttuvoom/theme/rank-order-marutham'},
+					//{ type: 'audio', label: 'Audio', url:'https://open.spotify.com/episode/1ZY8GaD9QoCiRBfA7Ex5xa'},
+					//{ type: 'video', label: 'Video',url:'https://playwithtamil.com/activity/rank-order/aangkil-maatngkllai-vricaippttuttuvoom/theme/rank-order-marutham'},
 					//{ type: 'link', label: 'Activity Link', url: 'https://learn101.org/tamil_adjectives.php' },
 					//{ type: 'file', label: 'Attachment', url:'https://learn101.org/tamil_vocabulary.php'}
 				  ],		
@@ -2052,8 +2052,8 @@
 		title: '📖 Reading', 
 		items: ['🔤 Letters & Syllables', '📄 Simple Words', '📘 Short Sentences', '📚 Story Reading'], 
 		activities: [
-					{ type: 'link', label: 'Activity Reading Task 1', url: 'https://storyweaver.org.in/en/stories/15082-akka-akka-idi-yengirunthu-varuthu?mode=read' },
-					{ type: 'file', label: 'Activity Reading Task 2', url:'https://www.imaginetamil.com/comics/thambi-yaaru'}
+					//{ type: 'link', label: 'Activity Reading Task 1', url: 'https://storyweaver.org.in/en/stories/15082-akka-akka-idi-yengirunthu-varuthu?mode=read' },
+					//{ type: 'file', label: 'Activity Reading Task 2', url:'https://www.imaginetamil.com/comics/thambi-yaaru'}
 				  ],
 		cover: 'Focus: Literacy development' 
 		},
@@ -2062,14 +2062,10 @@
 		instructions:'Make writing easy to read with finger spaces.',
 		items: ['✏️ Letter Formation', '📝 Word Writing', '📄 Sentence Writing','📄Paragraph Writing','🧙‍♂️📖Creative Writing','', '📖✍️Story Writing', '🎧✍️Audio Writing','🖼️ Picture Writing'], 
 		activities: [
-		{ type: 'link', label: 'Activity Writing Task 1', 
-		 url:'https://readingtamilschool.co.uk/pdf-viewer/?file=http%3A%2F%2Fold.readingtamilschool.co.uk%2Fwp-content%2Fuploads%2F2022%2F03%2FVT-4-01.pdf'}
+		//{ type: 'link', label: 'Activity Writing Task 1', url:'https://old.readingtamilschool.co.uk/wp-content/uploads/2022/03/VT-3-03.pdf'}
 		],		
 		steps: [
-                '1️⃣ Write thirumurai songs in tamil note book.',
-                '2️⃣ Write clearly each word.',
-                '3️⃣ Check every letter you write in actual form and confirm everything looks even.',
-                '4️⃣ Atlast show it to us.'
+                
             ],
 		cover: 'Focus: Writing proficiency' },
         'tam_gr': { 
@@ -2418,8 +2414,8 @@
 			title: "🌱 Living Things Need Energy",
 			instructions: 'Living things need air, water and food to survive.<br>Example: "Plants need sunlight and water to grow."</br>',
 			activities: [
-				{ type: 'link', label: 'Activity Task 1', url: 'https://au.ixl.com/science/year-3/identify-living-and-non-living-things' },
-				{ type: 'link', label: 'Activity Task 2', url: 'https://au.ixl.com/science/year-3/identify-plants-and-animals' },
+				//{ type: 'link', label: 'Activity Task 1', url: 'https://au.ixl.com/science/year-3/identify-living-and-non-living-things' },
+				//{ type: 'link', label: 'Activity Task 2', url: 'https://au.ixl.com/science/year-3/identify-plants-and-animals' },
 				//{ type: 'link', label: 'Activity Link', url: 'a' },
 				//{ type: 'link', label: 'Attachment', file:'a'}
 			  ],
@@ -2485,8 +2481,8 @@
 			title: "🌋 Forces Change the Earth",
 			instructions: 'Wind and water can change land shapes.<br>Example: "Rivers make valleys."</br>',
 			activities: [
-				{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/science/year-3/identify-properties-of-an-object' },
-				{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/science/year-3/compare-properties-of-objects' },
+				//{ type: 'audio', label: 'Activity Task 1', url: 'https://au.ixl.com/science/year-3/identify-properties-of-an-object' },
+				//{ type: 'video', label: 'Activity Task 2', url: 'https://au.ixl.com/science/year-3/compare-properties-of-objects' },
 			  ],
 			steps: [
 			  "1️⃣ Look at mountain and river pictures.",
@@ -2706,10 +2702,10 @@
         title: "🌿 Sustainable Caring",
         instructions: "Aboriginal Peoples use special ways to look after the land so it stays healthy.<br>Example: 'Using only what you need from a fruit tree so it grows back.'</br>",
         activities: [
-				{ type: 'audio', label: 'Activity Task 1', url: 'https://www.abc.net.au/education/phenomenom-ep-17-the-one-with-the-welcome/13916766' },
-				{ type: 'video', label: 'Activity Task 2', url: 'https://world-geography-games.com/en/world_water-cycle.html' },
-				{ type: 'link', label: 'Activity Task 3', 
-				url:'https://www.abc.net.au/education/phenomenom-ep-7-the-one-with-the-little-carrot-dude/13916606'},
+				//{ type: 'audio', label: 'Activity Task 1', url: //'https://www.abc.net.au/education/phenomenom-ep-17-the-one-with-the-welcome/13916766' },
+				//{ type: 'video', label: 'Activity Task 2', url: 'https://world-geography-games.com/en/world_water-cycle.html' },
+				//{ type: 'link', label: 'Activity Task 3', 
+				//url:'https://www.abc.net.au/education/phenomenom-ep-7-the-one-with-the-little-carrot-dude/13916606'},
 			    ],
 		steps: [
             "1️⃣ Research one way Aboriginal People care for the land.",
@@ -2909,7 +2905,7 @@
     function login() {
         const u = document.getElementById('username').value;
         const p = document.getElementById('password').value;
-        if(u === 'krishav' && p === 'nswhomeschool') {
+        if(u === 'k' && p === 'n') {
             document.getElementById('login-overlay').style.display = 'none';
             document.getElementById('dashboard').style.display = 'block';
             playWelcome();
@@ -2945,21 +2941,47 @@
 				<div class="discipline-card disc-1" style="margin-top:10px;">
 					<h4 style="margin:0; color:#e65100;">⏰ Punctuality Alert</h4>
 					You are <strong>${minutesLate} minutes late</strong> today. A leader starts their day before the world wakes up! 
-					To reclaim your edge, ensure you are in bed by <strong>7:10 PM</strong> tonight.
+					Ensure you are in bed by <strong>7:10 PM</strong> tonight.
 				</div>
 
-				<div class="discipline-card disc-3">
-					<h4 style="margin:0; color:#0d47a1;">📅 Timetable & Yoga Update</h4>
-					Your timetable has been adjusted based on teacher availability. 
-					<strong>Yoga Update:</strong> Your teacher is currently overseas! 🧘‍♂️ Sessions will resume <strong>Feb 3rd </strong> upon her return.Enjoy the extra focus time until then!
-				</div>
-
-				<div class="discipline-card disc-2">
-					<h4 style="margin:0; color:#1b5e20;">🏆 Mission: Purposeful Learning</h4>
-					All activities are now live! Start strong to finish strong. 
-					Remember: <strong>Awards are waiting</strong> for those who show true self-discipline and punctuality. 
-					Let's see a 4:00 AM "On-Time" log-in tomorrow! Now 🚀 View Daily Mission Chart To Know Your Activities..
-				</div>
+				<div class="discipline-card disc-3"  style="max-height:350px; overflow-y:auto;">
+					<h4 style="margin:0; color:#0d47a1;">📅 A Note for You, Krishav</h4>
+					<p>
+					  As your parents asked, we can’t do half-day school every day. But we can give you half-day school two days a week until <strong>12 pm</strong> (for example, <strong>Saturday and Sunday</strong> or any two days your parents choose).
+					</p>
+					<p>
+					  We will <strong>start a trial timetable(4AM to 9 AM) from today</strong> so we can see how this works for you and learn to trust you.
+					</p>
+					<p>
+					  Here is a special option for you:
+					</p>
+					<p>
+					  If you <strong>complete 10 days of work</strong> (whatever work your parents give you), your parents should <strong>take photos of the completed work and send it to us</strong>. If you do this properly, we will trust you and you can get <strong>free time after 10 am every day</strong> for these 10 days, until your mom comes back and can manage your online tasks.
+					</p>
+					<p>
+					  For these 10 days, we will give you a <strong>timetable from 4 am to 9 am</strong>. You must:
+					</p>
+					<ul>
+					  <li><strong>Be punctual</strong></li>
+					  <li><strong>Record all the work you are doing in this homeschool site</strong></li>
+					  <li><strong>Complete your work properly and on time</strong></li>
+					</ul>
+					<p>
+					  If the work is <strong>not completed</strong>, then you will need to <strong>continue learning with us</strong>.
+					</p>
+					<p>
+					  This is <strong>your parents’ and your choice</strong>.
+					</p>
+					<p>
+					  We also want to tell you something important. You are a <strong>very smart boy</strong>, but sometimes you <strong>don’t finish your work on time</strong> and you are a bit <strong>relaxed with your timings and responsibilities</strong>. We have reminded you many times, and we can see some improvement, but there is still <strong>more work left to complete</strong>.
+					</p>
+					<p>
+					  Homeschooling is a big responsibility, and <strong>you are capable of doing really well</strong>. Try your best to be <strong>more responsible, finish your work on time, and become a good leader for yourself</strong>. We believe you can do it! 🌟 Remember: <strong>Awards are waiting</strong> for those who show true self-discipline and punctuality. 
+					  Let's see a 4:00 AM "On-Time" log-in tomorrow! Now 🚀 View Daily Mission Chart To Know Your Activities..
+					</p>
+					<p>
+					  Please ask your parents to <strong>confirm this by email to us soon</strong>.
+					</p>
 			`;				   
             showPopup(heading, message);
         }        
@@ -2994,7 +3016,7 @@
     }
 
     function playWelcome() {
-        const msg = new SpeechSynthesisUtterance("Welcome Krishav! Let's enjoy learning today! Punctuality Alert.You are late today. A leader starts their day before the world wakes up! To reclaim your edge, ensure you are in bed by 7:10 PM tonight.Timetable & Yoga Update.Your timetable has been adjusted based on teacher availability.Your teacher is currently overseas! Sessions will resume Feb 3rd week upon her return. Enjoy the extra focus time until then!Mission: Purposeful Learning.All activities are now live! Start strong to finish strong. Remember: Awards are waiting for those who show true self-discipline and punctuality.Let's see a 4:00 AM On-Time log-in tomorrow! Now View Daily Mission Chart To Know Your Activities..");
+        const msg = new SpeechSynthesisUtterance("Welcome Krishav! Let's enjoy learning today! As your parents asked, we can’t do half-day school every day. But we can give you half-day school two days a week until 12 pm (for example, Saturday and Sunday or any two days your parents choose). We will start a trial timetable(4AM to 9 AM) from today so we can see how this works for you and learn to trust you. Here is a special option for you: If you complete 10 days of work (whatever work your parents give you), your parents should take photos of the completed work and send it to us. If you do this properly, we will trust you and you can get free time after 10 am every day for these 10 days, until your mom comes back and can manage your online tasks. For these 10 days, we will give you a timetable from 4 am to 9 am. You must: - Be punctual - Record all the work you are doing in this homeschool site. - Complete your work properly on time If the work is not completed, then you will need to continue learning with us. This is your parents’ and your choice. We also want to tell you something important. You are a very smart boy, but sometimes you don’t finish your work on time and you are a bit relaxed with your timings and responsibilities. We have reminded you many times, and we can see some improvement, but there is still more work left to complete. Homeschooling is a big responsibility, and you are capable of doing really well. Try your best to be more responsible, finish your work on time, and become a good leader for yourself. We believe you can do it! Please ask your parents to confirm this by email to us soon. Remember: Awards are waiting for those who show true self-discipline and punctuality.Let's see a 4:00 AM On-Time log-in tomorrow! Now View Daily Mission Chart To Know Your Activities..");
 		
 		// --- SETTING THE SPEED ---
 		msg.rate = 0.6;      // Very slow and deliberate speed
@@ -3800,7 +3822,14 @@
     	console.log(currentActivityId);
 		document.getElementById('btn-start').disabled = false;
 	}
+    // 1. Function to show the checklist first
+	function showChecklist() {
+		document.getElementById('checklist-modal').style.display = 'flex';
+	}
+	
     async function startRecording() {
+		// Hide the checklist modal
+		document.getElementById('checklist-modal').style.display = 'none';
         try {
             stream = await navigator.mediaDevices.getUserMedia({ video: true });
             document.getElementById('webcam').srcObject = stream;
@@ -3994,100 +4023,9 @@
                     </tr>
                 </thead>
                <tbody>
-            <tr style="background: #f0f7ff;">
-                <td rowspan="4" style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--nsw-blue);">🕉️ Tamil</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Listening</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Listening Tab</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
-            </tr>
-            <tr style="background: #f0f7ff;">
-                <td style="padding: 12px; border: 1px solid #ddd;">Reading</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Reading Tab</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
-            </tr>
-            <tr style="background: #f0f7ff;">
-                <td style="padding: 12px; border: 1px solid #ddd;">Handwriting</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Writing->Letter Formation</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">Step-by-Step</td>
-            </tr>
-            <tr style="background: #f0f7ff;">
-                <td style="padding: 12px; border: 1px solid #ddd;">Writing</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Complete Previous Activity</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">1</td>
-            </tr>
-			
-			<tr style="background: #f0f7ff;">
-                <td rowspan="4" style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--nsw-blue);">📖 English</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Listening</td>
-                <td style="padding: 12px; border: 1px solid #ddd;"><br>Oral Language and Communication - Listening & Understanding</br><br>Vocubulary ->Everyday Words (Tier 1)</br></td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2+2=4</td>
-            </tr>
-            <tr style="background: #f0f7ff;">
-                <td style="padding: 12px; border: 1px solid #ddd;">Reading</td>
-                <td style="padding: 12px; border: 1px solid #ddd;"><br>Reading Comphrension - Finding Main ideas</br><br>Reading Comphrension - Responding to Text</br></td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2+2=4</td>
-            </tr>
-            <tr style="background: #f0f7ff;">
-                <td style="padding: 12px; border: 1px solid #ddd;">Handwriting</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Handwriting & Digital Transcription - Spacing & Alignment</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">Step-by-Step</td>
-            </tr>
-            <tr style="background: #f0f7ff;">
-                <td style="padding: 12px; border: 1px solid #ddd;">Writing</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Creating Writtern Texts - Sentence Construction</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
-            </tr>
-
-            <tr style="background: #fffdf0;">
-                <td rowspan="5" style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #856404;">🔢 Maths</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Number & Algebra</td>
-				<td style="padding: 12px; border: 1px solid #ddd;">Place Value</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
-            </tr>
-			<tr style="background: #fffdf0;">
-                <td style="padding: 12px; border: 1px solid #ddd;">Addition Relations</td>
-				<td style="padding: 12px; border: 1px solid #ddd;">Representation Money</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
-            </tr>
-            <tr style="background: #fffdf0;">
-                <td style="padding: 12px; border: 1px solid #ddd;">Multiplication Relations</td>
-				<td style="padding: 12px; border: 1px solid #ddd;">Arrays for Multiplication</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">3</td>
-            </tr>
-            <tr style="background: #fffdf0;">
-                <td style="padding: 12px; border: 1px solid #ddd;">2D Spatial Structure</td>
-				<td style="padding: 12px; border: 1px solid #ddd;">Comparing 2D Shapes</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">3</td>
-            </tr>
-            <tr style="background: #fffdf0;">
-                <td style="padding: 12px; border: 1px solid #ddd;">Non-Spatial Measure </td>
-				<td style="padding: 12px; border: 1px solid #ddd;">Reading Time</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">2</td>
-            </tr>
-            <tr style="background: #fffdf0;">
-                <td colspan="2" style="padding: 12px; border: 1px solid #ddd; font-style: italic;">Total Maths Activities Today</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">12</td>
-            </tr>
-
-            <tr>
-                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #1b5e20;">🔬 Science</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Living Things Need Energy</td>
-				<td style="padding: 12px; border: 1px solid #ddd;">Forces Change the Earth</td>				
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">4</td>
-            </tr>
-            <tr>
-                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #e65100;">🌍 Geography</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Caring for Land Sustainably</td>
-				<td style="padding: 12px; border: 1px solid #ddd;"></td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">3</td>
-            </tr>
-
-            <tr style="background: #fdf2f2;">
-                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--nsw-red);">🪔 Heritage</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">63 Nayanmars</td>
-                <td style="padding: 12px; border: 1px solid #ddd;">Athibathar Story & Retelling</td>
-                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-weight: bold;">Record!</td>
-            </tr>
+			   <tr> 
+			   <td><strong>Start task as your parents given you</strong></td></tr>
+            
         </tbody>
             </table>
             
@@ -4100,5 +4038,3 @@
 
 </body>
 </html>
-
-
